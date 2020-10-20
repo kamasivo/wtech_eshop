@@ -1,0 +1,40 @@
+section.jumbotron {
+  padding: 1%;
+}
+
+section.jumbotron .container{
+  padding: 1%s;
+  margin: 0;
+}
+
+section.jumbotron h1 {
+  font-size: 25px;
+  font-weight: bold;  
+}
+
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul ul {
+  font-size: 90%;
+}
+
+#navbarHeader {
+  padding-left: 4px;
+}
+
+footer {
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 40px 10px;
+  background-color: black;
+}
