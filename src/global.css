@@ -1,0 +1,18 @@
+ul {
+  list-style-type: none;
+}
+
+ul ul {
+  font-size: 90%;
+}
+
+#navbarHeader {
+  padding-left: 4px;
+}
+
+footer {
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 40px 10px;
+  background-color: black;
+}
