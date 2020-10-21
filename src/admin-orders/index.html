@@ -86,30 +86,57 @@
       </div>
     </header>
     <main>
-      <div class="container">
-        <div class="row">
-          <!-- todo rework after migration to php -->
-          <button class="btn btn-primary col-11 m-3 col-md-3">
-            <a href="../admin-products/index.html" class="text-light">
-              Prehľad produktov
+      <div class="card">
+        <div class="card-header d-flex">
+          <h4 class="mb-0">Zoznam objednávok</h4>
+          <button class="btn btn-primary ml-auto">
+            <a href="../admin-menu/index.html">
+              <div class="d-flex justify-content-center align-items-center">
+                <i class="fas fa-arrow-left text-light"></i>
+                <p class="text-light ml-2 mb-0">Späť</p>
+              </div>
             </a>
           </button>
-          <button class="btn btn-primary col-11 m-3 col-md-3" href="#">
-            <a href="../admin-add-products/index.html" class="text-light">
-              Pridať produkt
-            </a>
-          </button>
-          <button class="btn btn-primary col-11 m-3 col-md-3" href="#">
-            <a href="../admin-orders/index.html" class="text-light">
-              Zoznam objednávok
-            </a>
-          </button>
+        </div>
+        <div class="card-body p-0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Názov</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Stav</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Objednavka číslo 1234</th>
+                <td>650E</td>
+                <td>
+                  <span class="badge badge-success w-100 p-2">Odoslaná</span>
+                </td>
+              </tr>
+              <tr>
+                <th>Objednavka číslo 1235</th>
+                <td>650E</td>
+                <td>
+                  <span class="badge badge-warning w-100 p-2">Spracúva sa</span>
+                </td>
+              </tr>
+              <tr>
+                <th>Objednavka číslo 1236</th>
+                <td>650E</td>
+                <td>
+                  <span class="badge badge-danger w-100 p-2">Zrušená</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </main>
 
     <footer class="pt-3 pl-2 pr-2 pb-3">
-      <div>
+      <div class="container">
         <p class="font-size-sm">
           <i class="far fa-copyright"></i> 2020 - 2020 CykloShop
         </p>
