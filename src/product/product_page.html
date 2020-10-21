@@ -1,158 +1,368 @@
 <!DOCTYPE html>
 <html lang="sk">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="CykloShop">
-    <meta name="author" content="co-authored by Ivan Kamas, Miroslav Pavlak">
-    <title>CykloShop</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="CykloShop">
+  <meta name="author" content="co-authored by Ivan Kamas, Miroslav Pavlak">
+  <title>CykloShop</title>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+  <!--load all styles -->
+  <link href="../../fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="product_page.css" rel="stylesheet">
+  <!-- Global css styles -->
+  <link href="../global.css" rel="stylesheet">
+</head>
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-    <!-- Custom styles for this template -->
-    <!--<link href="../main_page.css" rel="stylesheet">-->
-    <link href="product_page.css" rel="stylesheet">
-
-  </head>
-  <body>
-    <header>
-      <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container d-flex justify-content-between py-1">
-          <div class="navbar navbar-dark bg-dark shadow-sm">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-          
-          <div class="p-1" >
-            <img width=45 height=45 src="../../images/logo.png" alt="Cykloshop logo">
-          </div>
-         
-          <div class="ml-auto p-1">
-            <form class="form-inline mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Hľadaj</button>
-            </form>
-          </div>
+<body>
+  <header>
+    <div class="navbar navbar-light shadow-sm" id="topHeader">
+      <div class="container-fluid d-flex justify-content-between py-1 px-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="mr-auto px-2">
+          <img width=40 height=40 src="../../images/logo_black.png" alt="Cykloshop logo">
+        </div>
+        <a class="nav-link px-2" data-toggle="collapse" data-target="#searchBar" aria-haspopup="true" aria-expanded="false">  
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="px-2">
+          <a href="#" ><i class="far fa-user""></i></a>
+        </div>
+        <div class="px-2">
+          <a href="#" ><i class="fas fa-shopping-cart" ></i></a>  
         </div>
       </div>
+    </div>
 
-      <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="col-sm-4 py-2">
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Domov</a></li>
-                <li><a href="#" class="text-white">Kategórie</a></li>
-                <ul>
-                  <li><a href="#" class="text-white">Bicykle</a></li>
-                  <li><a href="#" class="text-white">Elektrobicykle</a></li>  
-                  <li><a href="#" class="text-white">Oblečenie</a></li>
-                  <li><a href="#" class="text-white">Tretry</a></li>  
-                  <li><a href="#" class="text-white">Komponenty</a></li>
-                  <li><a href="#" class="text-white">Príslušenstvo</a></li>  
-                </ul>
-                <li><a href="#" class="text-white">Odhlásiť sa</a></li>
-              </ul>
+  <!-- menu -->
+    <div class="collapse pb-4" id="navbarHeader">
+      <div class="container-fluid py-2"></div>  
+          <ul>
+            <li><a href="#" ><i class="fa fa-home"></i> Domov</a></li>
+            <li><a href="#" ><i class="fas fa-th"></i></i> Kategórie</a></li>
+            <ul>
+              <li><a href="#" ><i class="fas fa-bicycle"></i> Bicykle</a></li>
+              <li><a href="#" ><i class="fas fa-motorcycle"></i> Elektrobicykle</a></li> 
+              <li><a href="#" ><i class="fas fa-tshirt"></i> Oblečenie</a></li>
+              <li><a href="#" ><i class="fas fa-shoe-prints"></i> Tretry</a></li> 
+              <li><a href="#" ><i class="fas fa-tools"></i> Komponenty</a></li>
+              <li><a href="#" ><i class="fas fa-cogs"></i> Príslušenstvo</a></li>
+            </ul>
+            <!--<li><a href="#" class="text-white"><i class="fas fa-sign-out-alt"></i> Odhlásiť sa</a></li></li>-->
+          </ul>
         </div>
       </div>
-    </header>
+    </div>
+    
+    <!-- search bar-->
+    <div class="collapse" id="searchBar">
+      <div class="container-fluid py-2">
+        <form class="form-inline mt-md-0">
+          <button class="btn btn-outline-success my-2 mx-2 my-sm-0" type="submit">Hľadaj</button>
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </header>
 
-    <main role="main">
-      <section class="jumbotron">
-        <div class="container">
-          <h1>Tretry</h1>
-            <div class="container d-flex justify-content-between">
-              <a href="#" class="btn btn-primary my-2">Zobraziť filter</a>
-              <a href="#" class="btn btn-secondary my-2">Zoradiť podľa ceny</a>
-            <div>
-          </p>
+  <main role="main">
+    <!-- konkretna kategoria -->
+    <section class="mt-2">
+      <h3 class="ml-3">Bicykle</h3>
+      <div class="container-fluid d-flex justify-content-between py-4 px-3">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#filter" aria-expanded="false" aria-controls="filter">
+          Zobraziť filter
+        </button>
+        <a href="#" class="btn btn-primary">Zoradiť podľa ceny</a>
+      </div>
+
+      <!--Filter-->
+      <section class="mb-4 ml-3 mr-3 px-2" style="background-color: #ffffb3;">
+        <div class="collapse py-4 px-4" id="filter">
+          <h5>Filter</h5>
+
+          <!--Cena-->
+          <section class="mb-4 ml-1">
+            <h6>Cena:</h6>
+
+          </section>
+
+          <!--Velkost-->
+          <section class="mb-4 ml-1">
+            <h6>Velkosť:</h6>
+
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="xSmall">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="new">XS</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="small">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="used">S</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="medium">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="collectible">M</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="large">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">L</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="xLarge">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">XL</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="xxlarge">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">XXL</label>
+            </div>
+
+          </section>
+
+          <!--Znacka-->
+          <section class="mb-4 ml-1">
+            <h6>Značka:</h6>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="Cannondale">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="used">Cannondale</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="Lapierre">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="collectible">Lapierre</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="Bianchi">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Bianchi</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="Pinarello">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Pinarello</label>
+            </div>
+            <div class="form-check pl-0 ml-4">
+              <input type="checkbox" class="form-check-input filled-in" id="Wilier">
+              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Wilier</label>
+            </div>
+          </section>
+
         </div>
       </section>
-    
-      <div class="album py-5 bg-light">
-        <div class="container">
-    
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-    </main>
+      
+  
 
-    <footer>
-      <div class="d-flex row justify-content-around" >
-        <div class="col-sm-4">
-          <p>Kontaktné údaje</p>
-          <p>Telefónne číslo: 0918 888 999</p>
-          <p>Email: cykloshop@mail.com</p>
-        </div>
-        <div class="col-sm-4">
-          <p>Ochrana súkromia</p>
-          <p>Facebook</p>
-          <p>Instagram</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike1.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Giant TCR Advanced Pro 1 Disc</p>
+                <p class="card-text">Cena 3799.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike2.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Bianchi Sprint 105 11sp Compact</p>
+                <p class="card-text">Cena 1999.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike3.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Fuji SL Disc 2.5 Satin Fog Grey</p>
+                <p class="card-text">Cena 2499.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike4.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Superior X-Road Team Issue</p>
+                <p class="card-text">Cena 2789.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike5.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Wilier GTR Team Disc 105 RS170</p>
+                <p class="card-text">Cena 1999.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike6.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Wilier Cento1AIR Ultegra Disc</p>
+                <p class="card-text">Cena 3299.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike7.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Cannondale SuperSix Evo Carbon</p>
+                <p class="card-text">Cena 2759.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike8.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Bianchi Sprint Disc 105 11sp Compact</p>
+                <p class="card-text">Cena 2599.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike9.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Lapierre Sensium AL 300 Disc</p>
+                <p class="card-text">Cena 1199.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike10.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Lapierre Sensium AL 200</p>
+                <p class="card-text">Cena 809.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike11.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Lapierre Sensium AL 100</p>
+                <p class="card-text">Cena 699.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike12.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Orbea Orca M25Team-D</p>
+                <p class="card-text">Cena 3899.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike13.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Cannondale SystemSix Ultegra</p>
+                <p class="card-text">Cena 5149.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike14.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">Pinarello PRINCE FX disk SRAM</p>
+                <p class="card-text">Cena 8199.00€</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-12">
+            <div class="card mb-4 shadow-sm">
+              <div>
+                <img src="../../images/bike/bike15.jpg" class="img">
+              </div>
+              <div class="card-body">
+                <p class="card-text">FELT FR 5 disc čierny, model</p>
+                <p class="card-text">Cena 1839.00€</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <footer>
+    <div class="d-flex row justify-content-around">
+      <div class="col-sm-4">
+        <p>Kontaktné údaje</p>
+        <p>Telefónne číslo: 0918 888 999</p>
+        <p>Email: cykloshop@mail.com</p>
+      </div>
+      <div class="col-sm-4">
+        <p>Ochrana súkromia</p>
+        <p>Facebook</p>
+        <p>Instagram</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </html>

@@ -1,13 +1,48 @@
 ul {
   list-style-type: none;
+  margin-bottom: 0;
 }
 
 ul ul {
   font-size: 90%;
 }
 
-#navbarHeader {
-  padding-left: 4px;
+header .navbar i{
+  font-size:27px;
+  color: black;
+}
+
+header i, header a{
+  color:black;
+}
+
+header a:hover, header i:hover, .navbar-toggler {
+  color:#00b300;
+}
+
+#navbarHeader, #searchBar{
+  padding-left: 0px;
+  background-color: #ffff99;
+}
+
+#navbarHeader + ul {
+  padding-left: 60px;
+}
+
+#navbarHeader ul ul{
+  padding-left: 20px;
+}
+
+#navbarHeader ul li {
+  padding-top: 10px;
+}
+
+#navbarHeader ul ul li {
+  padding-top: 5px;
+}
+
+#topHeader {
+  background-color:#ffff66;
 }
 
 footer {
