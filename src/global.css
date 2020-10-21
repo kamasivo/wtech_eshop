@@ -46,8 +46,29 @@ header a:hover, header i:hover, .navbar-toggler {
 }
 
 footer {
+  width: 100%;
   color: #fff;
   font-size: 14px;
   padding: 10px 40px 10px;
   background-color: black;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+.icons {
+  font-size: 25px;
+}
+.html {
+  height: 100%;
 }
