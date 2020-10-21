@@ -107,7 +107,29 @@
           <!--Cena-->
           <section class="mb-4 ml-1">
             <h6>Cena:</h6>
+               <!--<form>
+              <div class="d-flex align-items-center mt-4 pb-1">
+                <div class="md-form md-outline my-0">
+                  <label for="form">€ Min</label>
+                  <input id="from" type="text" class="form-control mb-0">
+                </div>
+                <div class="md-form md-outline">
+                  <i class="fas fa-minus"></i>
+                </div>
+                <div class="md-form md-outline my-0">
+                  <label for="to">€ Max</label>
+                  <input id="to" type="text" class="form-control mb-0">
+                </div>
+              </div>
+            </form>-->
 
+            <div class="slider-price d-flex align-items-center my-4">
+              <span class="font-weight-normal small text-muted mr-2">€0</span>
+              <form class="multi-range-field w-100 mb-1">
+                <input id="multi" class="multi-range" type="range" />
+              </form>
+              <span class="font-weight-normal small text-muted ml-2">€10000</span>
+            </div>
           </section>
 
           <!--Velkost-->
@@ -116,27 +138,27 @@
 
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="xSmall">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="new">XS</label>
+              <label class="form-check-label card-link-secondary" for="new">XS</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="small">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="used">S</label>
+              <label class="form-check-label card-link-secondary" for="used">S</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="medium">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="collectible">M</label>
+              <label class="form-check-label card-link-secondary" for="collectible">M</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="large">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">L</label>
+              <label class="form-check-label card-link-secondary" for="renewed">L</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="xLarge">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">XL</label>
+              <label class="form-check-label card-link-secondary" for="renewed">XL</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="xxlarge">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">XXL</label>
+              <label class="form-check-label card-link-secondary" for="renewed">XXL</label>
             </div>
 
           </section>
@@ -146,25 +168,31 @@
             <h6>Značka:</h6>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="Cannondale">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="used">Cannondale</label>
+              <label class="form-check-label card-link-secondary" for="used">Cannondale</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="Lapierre">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="collectible">Lapierre</label>
+              <label class="form-check-label card-link-secondary" for="collectible">Lapierre</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="Bianchi">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Bianchi</label>
+              <label class="form-check-label card-link-secondary" for="renewed">Bianchi</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="Pinarello">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Pinarello</label>
+              <label class="form-check-label card-link-secondary" for="renewed">Pinarello</label>
             </div>
             <div class="form-check pl-0 ml-4">
               <input type="checkbox" class="form-check-input filled-in" id="Wilier">
-              <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Wilier</label>
+              <label class="form-check-label card-link-secondary" for="renewed">Wilier</label>
             </div>
           </section>
+
+           <!--Potvrdzovaci button-->
+          <section class="mb-4 ml-1">
+            <button type="button" class="btn btn-secondary">Vyhľadať produkty</button>
+          </section>
+
 
         </div>
       </section>
