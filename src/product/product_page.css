@@ -15,3 +15,19 @@
 .card-body p.card-text:nth-child(2){
   font-weight: bold;
 }
+
+.pagination a {
+  color: #292b2c;
+  background-color: #ffff66;
+  border-color: #99ff99;    
+}
+
+.pagination a:hover {
+  color:#99ff99;
+  background-color: #00b300;
+}
+
+.pagination a:active {
+  color: #ffff66;
+  background-color: #292b2c;
+}

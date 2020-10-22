@@ -9,11 +9,11 @@ ul ul {
 
 header .navbar i{
   font-size:27px;
-  color: black;
+  color:#292b2c;
 }
 
 header i, header a{
-  color:black;
+  color:#292b2c;
 }
 
 header a:hover, header i:hover, .navbar-toggler {
@@ -47,10 +47,10 @@ header a:hover, header i:hover, .navbar-toggler {
 
 footer {
   width: 100%;
-  color: #fff;
+  color:#292b2c;
   font-size: 14px;
   padding: 10px 40px 10px;
-  background-color: black;
+  background-color:#ffff66;
 }
 .bd-placeholder-img {
   font-size: 1.125rem;
