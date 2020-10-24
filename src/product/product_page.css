@@ -16,6 +16,21 @@
   font-weight: bold;
 }
 
+.product_page a {
+  text-decoration: none;
+  color: #292b2c;
+}
+
+.product_page a:hover p {
+  font-weight: bold;
+  color: black;
+}
+
+.product_page a:hover .card {
+  border-width: 2px;
+  border-color: #00b300;
+}
+
 .pagination a {
   color: #292b2c;
   background-color: #ffff66;
