@@ -97,19 +97,26 @@
 
             <div class="container bg-light">
               <!--row1-->
-              <div class="py-2">
-                <div class="row">
+              <div class="py-2 pl-4">
+                <div class="row align-items-center">
                   <div class="col-lg-6 col-6 flex-column">
                     <span class="">Veľkosť</span>
                   </div>
                   <div class="col-lg-6 col-6 flex-column text-right">
-                    <span class="text-right">dropdown</span>
+                    <select class="form-control" data-ride="cart-variants">
+                      <option>XS</option>
+                      <option>S</option>
+                      <option>M</option>
+                      <option>L</option>
+                      <option>XL</option>
+                      <option>XXL</option>
+                    </select>
                   </div>
                 </div>
               </div>
 
               <!--row2-->
-              <div class="py-2">
+              <div class="py-2 pl-4">
                 <div class="row">
                   <div class="col-lg-6 col-6 d-flex flex-column ">
                     <span class="text-uppercase">Cena</span>
@@ -123,24 +130,24 @@
               
 
               <!--row3-->
-              <div class="py-2">
-                <div class="row">
-                  <div class="col-lg-6 col-6 flex-column">
+              <div class="py-2 pl-4">
+                <div class="row align-items-center">
+                  <div class="col-lg-6 col-6 flex-column text-a">
                     <span class="">Množstvo</span>
                   </div>
-                  <div class="col-lg-6 col-6 flex-column text-right">
-                    <span class="text-right">dropdown</span>
+                  <div class="col-lg-6 col-6">
+                      <input type="number" class="quantity" placeholder="0"></input>                 
                   </div>
                 </div>
               </div>
 
               <!--row4-->
-              <div class="pt-4 pb-2">
+              <div class="py-4 pb-4">
                 <div class="row">
-                  <div class="col-lg-6 col-6 flex-column">
+                  <div class="col-lg-6 col-12 py-1 flex-column">
                     <button type="button" class="buy btn btn-dark btn-block text-center">Kúpiť</button>
                   </div>
-                  <div class="col-lg-6 col-6 flex-column">
+                  <div class="col-lg-6 col-12 py-1 flex-column">
                     <button type="button" class="cart btn btn-dark btn-block text-center">Do košíka</button>
                   </div>
                 </div>

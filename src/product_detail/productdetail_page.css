@@ -19,6 +19,15 @@ h1.product_title {
   margin-top: 15px;
 }
 
+#productDetailPrice {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+input {
+  text-align: right;
+}
+
 @media (max-width: 992px) {
   .productdetail_page h1{
     font-size: 23px;
