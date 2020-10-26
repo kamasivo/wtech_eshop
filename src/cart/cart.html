@@ -133,10 +133,10 @@
     </header>
     <main>
       <section class="card">
-        <div class="card-header d-flex">
+        <div class="card-header d-flex align-items-center">
           <h4 class="mb-0">Košík</h4>
-          <button class="btn btn-warning ml-auto">
-            <a href="#"></a>
+          <button class="btn btn-primary ml-auto">
+            <a href="#">
               <div class="d-flex justify-content-center align-items-center">
                 <i class="fas fa-arrow-left text-light"></i>
                 <p class="text-light ml-2 mb-0">Späť</p>
@@ -151,7 +151,7 @@
                 <th scope="col">Názov produktu</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Počet</th>
-                <th>Akcia</th>
+                <th scope="col">Akcia</th>
               </tr>
             </thead>
             <tbody>
@@ -159,28 +159,39 @@
                 <th>Produkt 1</th>
                 <td>650E</td>
                 <td>
-                  <input type="number" />
+                  <input class="numberInput" type="number" />
                 </td>
-                <td>x</td>
+                <td><i class="fas fa-times icons text-danger"></i></td>
               </tr>
               <tr>
                 <th>Produkt 1235</th>
                 <td>650E</td>
                 <td>
-                  <input type="number" />
+                  <input class="numberInput" type="number" />
                 </td>
-                <td>x</td>
+                <td><i class="fas fa-times icons text-danger"></i></td>
               </tr>
               <tr>
                 <th>Produkt číslo 1236</th>
                 <td>650E</td>
                 <td>
-                  <input type="number" />
+                  <input class="numberInput" type="number" />
                 </td>
-                <td>x</td>
+                <td><i class="fas fa-times icons text-danger"></i></td>
               </tr>
             </tbody>
           </table>
+          <div class="d-flex">
+            <div></div>
+            <button class="btn btn-primary ml-auto mr-4">
+              <a href="#">
+                <div class="d-flex justify-content-center align-items-center">
+                  <p class="text-light mr-2 mb-0">Pokračovať v objednávke</p>
+                  <i class="fas fa-arrow-right text-light"></i>
+                </div>
+              </a>
+            </button>
+          </div>
         </div>
       </section>
     </main>
