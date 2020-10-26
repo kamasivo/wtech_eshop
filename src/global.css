@@ -60,3 +60,6 @@ footer {
 .icons {
   font-size: 25px;
 }
+main {
+  min-height: 74.5vh;
+}
