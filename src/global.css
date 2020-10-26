@@ -7,20 +7,24 @@ ul ul {
   font-size: 90%;
 }
 
-header .navbar i{
-  font-size:27px;
-  color:#292b2c;
+header .navbar i {
+  font-size: 27px;
+  color: #292b2c;
 }
 
-header i, header a{
-  color:#292b2c;
+header i,
+header a {
+  color: #292b2c;
 }
 
-header a:hover, header i:hover, .navbar-toggler {
-  color:#00b300;
+header a:hover,
+header i:hover,
+.navbar-toggler {
+  color: #00b300;
 }
 
-#navbarHeader, #searchBar{
+#navbarHeader,
+#searchBar {
   padding-left: 0px;
   background-color: #ffff99;
 }
@@ -29,7 +33,7 @@ header a:hover, header i:hover, .navbar-toggler {
   padding-left: 60px;
 }
 
-#navbarHeader ul ul{
+#navbarHeader ul ul {
   padding-left: 20px;
 }
 
@@ -42,33 +46,17 @@ header a:hover, header i:hover, .navbar-toggler {
 }
 
 #topHeader {
-  background-color:#ffff66;
+  background-color: #ffff66;
 }
 
 footer {
   width: 100%;
-  color:#292b2c;
+  color: #292b2c;
   font-size: 14px;
   padding: 10px 40px 10px;
-  background-color:#ffff66;
-}
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  background-color: #ffff66;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
 .icons {
   font-size: 25px;
-}
-.html {
-  height: 100%;
 }
