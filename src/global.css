@@ -54,12 +54,20 @@ footer {
   color: #292b2c;
   font-size: 14px;
   padding: 10px 40px 10px;
-  background-color: #ffff66;
+  background-color: #ffcf66;
+  /* tato farba je idea ci nedame trocha jemnejsiu ale ako chces  */
 }
 
 .icons {
   font-size: 25px;
 }
 main {
-  min-height: 74.5vh;
+  min-height: 75vh;
+}
+.card {
+  border: none;
+}
+.card-header {
+  background-color: white;
+  border: none;
 }
