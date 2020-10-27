@@ -69,5 +69,10 @@ main {
 }
 .card-header {
   background-color: white;
+  /* background-color: #c0f8fa; */
   border: none;
+}
+.card-body {
+  /* background-color: aliceblue; */
+  border-radius: 10px;
 }
