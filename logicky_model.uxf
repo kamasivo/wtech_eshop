@@ -1,0 +1,64 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>114</x><y>118</y><w>210</w><h>170</h></coordinates><panel_attributes>Customer
+--
+ID: Pk
+Name
+Surname
+Email
+Phone number
+Street
+Town
+House number
+Password</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>754</x><y>198</y><w>210</w><h>70</h></coordinates><panel_attributes>Category
+--
+Name: Pk</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>754</x><y>398</y><w>210</w><h>120</h></coordinates><panel_attributes>Product
+--
+ID:Pk
+Category_ID:Fk
+Name
+Size
+Price
+Brand</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1074</x><y>398</y><w>210</w><h>150</h></coordinates><panel_attributes>Specification
+--
+ID: Pk
+Product_ID: FK
+Frame
+Tires
+Brakes
+Stam
+Cassette
+Fork</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>418</y><w>210</w><h>80</h></coordinates><panel_attributes>Cart
+--
+Customer_ID: Fk
+Product_ID: Fk
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>118</y><w>210</w><h>150</h></coordinates><panel_attributes>Order
+--
+ID: Pk
+Customer_ID: Fk
+Cart: Fk
+Price
+Street
+Town
+House number
+Delivery
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>513</x><y>258</y><w>70</w><h>180</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+Belongs
+</panel_attributes><additional_attributes>10;10;10;160</additional_attributes></element><element><id>Relation</id><coordinates><x>623</x><y>438</y><w>150</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+Contains
+</panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>Relation</id><coordinates><x>853</x><y>258</y><w>70</w><h>160</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n
+Belongs
+</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>Relation</id><coordinates><x>313</x><y>178</y><w>130</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+Has
+</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>Relation</id><coordinates><x>953</x><y>448</y><w>140</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+Contains
+</panel_attributes><additional_attributes>10;20;120;20</additional_attributes></element></diagram>
