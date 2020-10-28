@@ -17,16 +17,21 @@ header a {
   color: #292b2c;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 header a:hover,
 header i:hover,
 .navbar-toggler {
-  color: #00b300;
+  color: white;
+  text-decoration: none;
 }
 
 #navbarHeader,
 #searchBar {
   padding-left: 0px;
-  background-color: #ffff99;
+  background-color: #fcaa83;
 }
 
 #navbarHeader + ul {
@@ -46,7 +51,7 @@ header i:hover,
 }
 
 #topHeader {
-  background-color: #ffff66;
+  background-color: #fa8650;
 }
 
 footer {
@@ -54,8 +59,7 @@ footer {
   color: #292b2c;
   font-size: 14px;
   padding: 10px 40px 10px;
-  background-color: #ffcf66;
-  /* tato farba je idea ci nedame trocha jemnejsiu ale ako chces  */
+  background-color: #fa8650;
 }
 
 .icons {
@@ -68,13 +72,7 @@ main {
   border: none;
 }
 .card-header {
-  background-color: white;
-  /* background-color: #c0f8fa; */
   border: none;
-}
-.card-body {
-  /* background-color: aliceblue; */
-  border-radius: 10px;
 }
 
 .button-primary {
