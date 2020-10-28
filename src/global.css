@@ -78,20 +78,16 @@ main {
 }
 
 .button-primary {
-  background-color: #faf75c;
-  border-color: black;
+  background-color: #fffd90;
+  border-color: #292b2c;
   color: #292b2c;
+  font-weight: bold;
 }
 
 .button-primary:hover {
-  background-color: #fcf822;
-  font-weight: bolder;
+  background-color: #f0ec26;
 }
 
 .modal-header {
-  background-color: #ffff66;
-}
-
-.modal-footer a:hover {
-  font-weight: bolder;
+  background-color: #fcfc82;
 }
