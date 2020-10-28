@@ -3,6 +3,10 @@
   width: 99%;
 }
 
+span.bedge {
+  align-items: flex-end;
+}
+
 .productdetail_page {
   color: #292b2c;
 }
@@ -24,7 +28,7 @@ h1.product_title {
   font-size: 30px;
 }
 
-input {
+input.quantity {
   text-align: right;
 }
 

@@ -261,19 +261,62 @@
               <div class="container bg-light">
                 <!--row1-->
                 <div class="py-2 pl-4">
-                  <div class="row align-items-center">
-                    <div class="col-6 flex-column">
+                  <div class="row">
+                    <div class="col-6 d-flex flex-start">
                       <span class="">Veľkosť</span>
                     </div>
-                    <div class="col-6 flex-column text-right">
-                      <select class="form-control" data-ride="cart-variants">
-                        <option>XS</option>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                        <option>XXL</option>
-                      </select>
+
+                    <div class="col-6 d-flex justify-content-between">
+                      <form>
+                        <div class="radio" checked>
+                          <label
+                            ><input type="radio" name="optradio" /> XS
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 10ks</span
+                          >
+                        </div>
+                        <div class="radio">
+                          <label
+                            ><input type="radio" name="optradio" /> X
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 5ks</span
+                          >
+                        </div>
+                        <div class="radio">
+                          <label
+                            ><input type="radio" name="optradio" /> M
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 8ks</span
+                          >
+                        </div>
+                        <div class="radio">
+                          <label
+                            ><input type="radio" name="optradio" /> L
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 17ks</span
+                          >
+                        </div>
+                        <div class="radio">
+                          <label
+                            ><input type="radio" name="optradio" /> XL
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 4ks</span
+                          >
+                        </div>
+                        <div class="radio">
+                          <label
+                            ><input type="radio" name="optradio" /> XXL
+                            &nbsp;</label
+                          ><span class="badge badge-success"
+                            >Dostupných 10ks</span
+                          >
+                        </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -306,7 +349,8 @@
                         <input
                           type="number"
                           class="quantity w-100"
-                          placeholder="0"
+                          placeholder="1"
+                          min="1"
                         />
                       </div>
                     </div>
