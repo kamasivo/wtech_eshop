@@ -47,7 +47,7 @@
             data-toggle="collapse"
             data-target="#navbarHeader"
             aria-controls="navbarHeader"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
@@ -70,10 +70,10 @@
             <i class="fas fa-search"></i>
           </a>
           <div class="px-2">
-            <a href="#"><i class="far fa-user"></i></a>
+            <a href="../account/index.html"><i class="far fa-user"></i></a>
           </div>
           <div class="px-2">
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+            <a href="../cart/cart.html"><i class="fas fa-shopping-cart"></i></a>
           </div>
         </div>
       </div>
@@ -83,14 +83,16 @@
         <div class="container-fluid py-2"></div>
         <ul>
           <li>
-            <a href="#"><i class="fa fa-home"></i> Domov</a>
+            <a href="../main/main.html"><i class="fa fa-home"></i> Domov</a>
           </li>
           <li>
-            <a href="#"><i class="fas fa-th"></i> Kategórie</a>
+            <p class="mb-0"><i class="fas fa-th"></i> Kategórie</p>
           </li>
           <ul>
             <li>
-              <a href="#"><i class="fas fa-bicycle"></i> Bicykle</a>
+              <a href="../product/product_page.html"
+                ><i class="fas fa-bicycle"></i> Bicykle</a
+              >
             </li>
             <li>
               <a href="#"><i class="fas fa-motorcycle"></i> Elektrobicykle</a>
@@ -109,7 +111,9 @@
             </li>
           </ul>
           <li>
-            <a href="#"><i class="fas fa-sign-out-alt"></i> Odhlásiť sa</a>
+            <a href="../main/main.html"
+              ><i class="fas fa-sign-out-alt"></i> Odhlásiť sa</a
+            >
           </li>
         </ul>
       </nav>
@@ -134,402 +138,444 @@
 
     <main role="main">
       <!-- konkretna kategoria -->
-      <section class="my-3">
-        <h3 class="ml-3">Bicykle</h3>
-        <div class="container-fluid d-flex justify-content-between py-4 px-3">
-          <button
-            class="btn btn-dark"
-            type="button"
-            data-toggle="collapse"
-            data-target="#filter"
-            aria-expanded="false"
-            aria-controls="filter"
-          >
-            Zobraziť filter
-          </button>
-          <a href="#" class="btn btn-dark">Zoradiť podľa ceny</a>
-        </div>
 
-        <!--Filter-->
-        <section class="mb-4 ml-3 mr-3 px-2" style="background-color: #ffffb3">
-          <div class="collapse py-4 px-4" id="filter">
-            <h5>Filter</h5>
-
-            <!--Cena-->
-            <section class="mb-4 ml-1">
-              <h6>Cena:</h6>
-              <div class="slider-price d-flex align-items-center my-4">
-                <span class="font-weight-normal small text-muted mr-2">€0</span>
-                <form class="multi-range-field w-100 mb-1">
-                  <input id="multi" class="multi-range" type="range" />
-                </form>
-                <span class="font-weight-normal small text-muted ml-2"
-                  >€10000</span
-                >
+      <section class="container-fluid my-4">
+        <div class="row my-4">
+          <div class="col-lg-3 col-md-12">
+            <p>
+              <a
+                class="btn button-primary"
+                data-toggle="collapse"
+                href="#filter"
+                role="button"
+                aria-expanded="true"
+                aria-controls="filter"
+                >Skryť/Zobraziť filter</a
+              >
+            </p>
+            <section class="mb-4 ml-2 px-2 bg-light">
+              <div class="collapse p-4" id="filter">
+                <div class="col-12 ml-3 pl-0">
+                  <div class="row">
+                    <div class="col-12 pl-0">
+                      <h5>Cena:</h5>
+                    </div>
+                    <div class="col-12 pl-0"></div>
+                  </div>
+                </div>
+                <div class="col-12 my-4 ml-3 pl-0">
+                  <div class="row">
+                    <div class="col-12 pl-0">
+                      <h5>Velkosť:</h5>
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="xSmall"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="new"
+                        >XS</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="small"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="used"
+                        >S</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="medium"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="collectible"
+                        >M</label
+                      >
+                    </div>
+                    <div class="form-check pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="large"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >L</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="xLarge"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >XL</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="xxlarge"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >XXL</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 my-4 ml-3 pl-0">
+                  <div class="row">
+                    <div class="col-12 pl-0">
+                      <h6>Značka:</h6>
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="Cannondale"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="used"
+                        >Cannondale</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="Lapierre"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="collectible"
+                        >Lapierre</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="Bianchi"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >Bianchi</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="Pinarello"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >Pinarello</label
+                      >
+                    </div>
+                    <div class="form-check col-12 pl-0 ml-4">
+                      <input
+                        type="checkbox"
+                        class="form-check-input filled-in"
+                        id="Wilier"
+                      />
+                      <label
+                        class="form-check-label card-link-secondary"
+                        for="renewed"
+                        >Wilier</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4 d-flex justify-content-center">
+                  <button type="button" class="btn btn-dark">
+                    Vyhľadať produkty
+                  </button>
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                  <button type="button" class="btn btn-outline-secondary">
+                    Reset
+                  </button>
+                </div>
               </div>
-            </section>
-
-            <!--Velkost-->
-            <section class="mb-4 ml-1">
-              <h6>Velkosť:</h6>
-
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="xSmall"
-                />
-                <label class="form-check-label card-link-secondary" for="new"
-                  >XS</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="small"
-                />
-                <label class="form-check-label card-link-secondary" for="used"
-                  >S</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="medium"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="collectible"
-                  >M</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="large"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >L</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="xLarge"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >XL</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="xxlarge"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >XXL</label
-                >
-              </div>
-            </section>
-
-            <!--Znacka-->
-            <section class="mb-4 ml-1">
-              <h6>Značka:</h6>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="Cannondale"
-                />
-                <label class="form-check-label card-link-secondary" for="used"
-                  >Cannondale</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="Lapierre"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="collectible"
-                  >Lapierre</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="Bianchi"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >Bianchi</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="Pinarello"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >Pinarello</label
-                >
-              </div>
-              <div class="form-check pl-0 ml-4">
-                <input
-                  type="checkbox"
-                  class="form-check-input filled-in"
-                  id="Wilier"
-                />
-                <label
-                  class="form-check-label card-link-secondary"
-                  for="renewed"
-                  >Wilier</label
-                >
-              </div>
-            </section>
-
-            <!--Potvrdzovaci button-->
-            <section class="mb-4 ml-1">
-              <button type="button" class="btn btn-dark">
-                Vyhľadať produkty
-              </button>
-            </section>
-
-            <!--Reset button-->
-            <section class="mb-4 ml-1">
-              <button type="button" class="btn btn-outline-secondary">
-                Reset
-              </button>
             </section>
           </div>
-        </section>
-
-        <!--produkty-->
-        <section class="product_page">
-          <div class="container">
+          <div class="col-lg-8 col-md-12">
             <div class="row">
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike1.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Giant TCR Advanced Pro 1 Disc</p>
-                      <p class="card-text">Cena 3799.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike2.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Bianchi Sprint 105 11sp Compact</p>
-                      <p class="card-text">Cena 1999.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike3.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Fuji SL Disc 2.5 Satin Fog Grey</p>
-                      <p class="card-text">Cena 2499.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike4.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Superior X-Road Team Issue</p>
-                      <p class="card-text">Cena 2789.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike5.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Wilier GTR Team Disc 105 RS170</p>
-                      <p class="card-text">Cena 1999.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike6.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Wilier Cento1AIR Ultegra Disc</p>
-                      <p class="card-text">Cena 3299.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike7.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Cannondale SuperSix Evo Carbon</p>
-                      <p class="card-text">Cena 2759.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <a href="../product_detail/productdetail_page.html">
-                  <div class="card mb-4 shadow-sm">
-                    <div>
-                      <img src="../../images/bike/bike8.jpg" class="img" />
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">
-                        Bianchi Sprint Disc 105 11sp Compact
-                      </p>
-                      <p class="card-text">Cena 2599.00€</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike9.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Lapierre Sensium AL 300 Disc</p>
-                    <p class="card-text">Cena 1199.00€</p>
-                  </div>
+              <div class="col-sm-12 d-flex justify-content-between my-4">
+                <div class="col-6 category-name">
+                  <h4>Bicykle</h4>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike10.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Lapierre Sensium AL 200</p>
-                    <p class="card-text">Cena 809.00€</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike11.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Lapierre Sensium AL 100</p>
-                    <p class="card-text">Cena 699.00€</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike12.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Orbea Orca M25Team-D</p>
-                    <p class="card-text">Cena 3899.00€</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike13.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Cannondale SystemSix Ultegra</p>
-                    <p class="card-text">Cena 5149.00€</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike14.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">Pinarello PRINCE FX disk SRAM</p>
-                    <p class="card-text">Cena 8199.00€</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-12">
-                <div class="card mb-4 shadow-sm">
-                  <div>
-                    <img src="../../images/bike/bike15.jpg" class="img" />
-                  </div>
-                  <div class="card-body">
-                    <p class="card-text">FELT FR 5 disc čierny, model</p>
-                    <p class="card-text">Cena 1839.00€</p>
-                  </div>
+                <div class="col-6">
+                  <h5>Zoradiť podľa:</h5>
+                  <select id="sorting" class="custom-select">
+                    <option value="priceasc">Ceny (od najnižšej)</option>
+                    <option value="pricedesc">Ceny (od najvyššej)</option>
+                  </select>
                 </div>
               </div>
             </div>
+            <div>
+              <section class="product_page">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4 col-12 card">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike1.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Giant TCR Advanced Pro 1 Disc
+                            </p>
+                            <p class="card-text mb-0">Cena 3799.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike2.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Bianchi Sprint 105 11sp Compact
+                            </p>
+                            <p class="card-text mb-0">Cena 1999.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike3.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Fuji SL Disc 2.5 Satin Fog Grey
+                            </p>
+                            <p class="card-text mb-0">Cena 2499.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike4.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Superior X-Road Team Issue
+                            </p>
+                            <p class="card-text mb-0">Cena 2789.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike5.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Wilier GTR Team Disc 105 RS170
+                            </p>
+                            <p class="card-text mb-0">Cena 1999.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike6.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Wilier Cento1AIR Ultegra Disc
+                            </p>
+                            <p class="card-text mb-0">Cena 3299.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike7.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Cannondale SuperSix Evo Carbon
+                            </p>
+                            <p class="card-text mb-0">Cena 2759.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <a href="../product_detail/productdetail_page.html">
+                        <div class="card mb-4 shadow-sm">
+                          <div>
+                            <img
+                              src="../../images/bike/bike8.jpg"
+                              class="img"
+                            />
+                          </div>
+                          <div class="card-body">
+                            <p class="card-text mb-0">
+                              Bianchi Sprint Disc 105 11sp Compact
+                            </p>
+                            <p class="card-text mb-0">Cena 2599.00€</p>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike9.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            Lapierre Sensium AL 300 Disc
+                          </p>
+                          <p class="card-text mb-0">Cena 1199.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike10.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">Lapierre Sensium AL 200</p>
+                          <p class="card-text mb-0">Cena 809.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike11.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">Lapierre Sensium AL 100</p>
+                          <p class="card-text mb-0">Cena 699.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike12.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">Orbea Orca M25Team-D</p>
+                          <p class="card-text mb-0">Cena 3899.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike13.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            Cannondale SystemSix Ultegra
+                          </p>
+                          <p class="card-text mb-0">Cena 5149.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike14.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            Pinarello PRINCE FX disk SRAM
+                          </p>
+                          <p class="card-text mb-0">Cena 8199.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-12">
+                      <div class="card mb-4 shadow-sm">
+                        <div>
+                          <img src="../../images/bike/bike15.jpg" class="img" />
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            FELT FR 5 disc čierny, model
+                          </p>
+                          <p class="card-text mb-0">Cena 1839.00€</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
-        </section>
-
-        <nav aria-label="page navigation">
-          <ul class="pagination justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        </div>
       </section>
     </main>
 
