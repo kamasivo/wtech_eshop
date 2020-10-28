@@ -76,3 +76,22 @@ main {
   /* background-color: aliceblue; */
   border-radius: 10px;
 }
+
+.button-primary {
+  background-color: #faf75c;
+  border-color: black;
+  color: #292b2c;
+}
+
+.button-primary:hover {
+  background-color: #fcf822;
+  font-weight: bolder;
+}
+
+.modal-header {
+  background-color: #ffff66;
+}
+
+.modal-footer a:hover {
+  font-weight: bolder;
+}
