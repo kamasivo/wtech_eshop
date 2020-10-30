@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="CykloShop" />
+    <meta name="author" content="co-authored by Ivan Kamas, Miroslav Pavlak" />
+    <title>CykloShop</title>
+
+    <!--load all styles -->
+    <link
+      href="../../fontawesome-free-5.15.1-web/css/all.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Global css styles -->
+    <link href="../global.css" rel="stylesheet" />
+
+    <!-- load scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar navbar-light" id="topHeader">
+        <div class="container-fluid d-flex justify-content-between py-1 px-0">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="mr-auto px-2">
+            <img
+              width="40"
+              height="40"
+              src="../../images/logo_black.png"
+              alt="Cykloshop logo"
+            />
+          </div>
+          <a
+            href="#"
+            class="px-2"
+            data-toggle="collapse"
+            data-target="#searchBar"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="fas fa-search"></i>
+          </a>
+          <div class="px-2">
+            <a href="#" data-toggle="modal" data-target="#logIn"
+              ><i class="far fa-user"></i
+            ></a>
+          </div>
+          <div class="px-2">
+            <a href="../cart/cart.html"><i class="fas fa-shopping-cart"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- menu -->
+      <nav class="collapse pb-4" id="navbarHeader">
+        <div class="container-fluid py-2"></div>
+        <ul>
+          <li>
+            <a href="../main/main.html"><i class="fa fa-home"></i> Domov</a>
+          </li>
+          <li>
+            <p class="mb-0"><i class="fas fa-th"></i> Kategórie</p>
+          </li>
+          <ul>
+            <li>
+              <a href="../product/product_page.html"
+                ><i class="fas fa-bicycle"></i> Bicykle</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-motorcycle"></i> Elektrobicykle</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-tshirt"></i> Oblečenie</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-shoe-prints"></i> Tretry</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-tachometer-alt"></i> Komponenty</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cogs"></i> Príslušenstvo</a>
+            </li>
+          </ul>
+          <li>
+            <a href="../main/main.html"
+              ><i class="fas fa-sign-out-alt"></i> Odhlásiť sa</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- search bar-->
+      <div class="collapse" id="searchBar">
+        <div class="container-fluid py-2">
+          <form class="form-inline mt-md-0">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-dark my-2 my-sm-0 font-weight-bold"
+              type="submit"
+            >
+              <i class="fas fa-search"></i>
+              Hľadaj
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!--log in-->
+      <div class="fade modal" id="logIn" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header justify-content-between">
+              <h4 class="modal-title">Log in</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="example@mail.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Heslo</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Heslo"
+                  />
+                </div>
+                <div class="d-flex justify-content-center mb-0">
+                  <button type="submit" class="btn button-primary">
+                    Prihlásiť sa
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center">
+              <a
+                href="#"
+                data-toggle="modal"
+                data-target="#signIn"
+                data-dismiss="modal"
+                >Registrovať sa</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Sign in-->
+      <div class="fade modal" id="signIn" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header justify-content-between">
+              <h4 class="modal-title">Sign in</h4>
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label>Prihlasovací e-mail</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="example@mail.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Heslo</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Heslo"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Potvrdte heslo</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Potvrdte heslo"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Tel. číslo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+421 900 123 456"
+                  />
+                </div>
+                <div class="d-flex justify-content-center mb-0">
+                  <button type="submit" class="btn button-primary">
+                    Sign in
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- content -->
+    <main class="d-flex flex-column align-items-center">
+      <section
+        class="p-3 lightContainer d-flex flex-column bg-light col-12 col-sm-8 col-md-6"
+      >
+        <h4 class="mb-0">Kontaktné údaje</h4>
+        <table class="mt-2">
+          <tr>
+            <th>E-mail</th>
+            <td>cyklo@shop.sk</td>
+          </tr>
+          <tr>
+            <th>Účet</th>
+            <td>SK91 0000 0000 0000 0000</td>
+          </tr>
+          <tr>
+            <th>Adresa</th>
+            <td>01 012 Trenčín SNP 95</td>
+          </tr>
+          <tr>
+            <th>IČO</th>
+            <td>093294834</td>
+          </tr>
+          <tr>
+            <th>DIČ</th>
+            <td>0987665432</td>
+          </tr>
+          <tr>
+            <th>Zákaznícka linka</th>
+            <td>0911 678 655</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+    <footer class="pt-3 px-4 pb-3">
+      <div>
+        <p class="font-size-sm">
+          <i class="far fa-copyright"></i> 2020 - 2020 CykloShop
+        </p>
+        <div class="d-flex justify-content-between">
+          <a
+            href="../footer/contact-info.html"
+            class="font-size-sm text-dark mb-2"
+            >Kontaktné údaje</a
+          >
+          <a href="../footer/privacy.html" class="font-size-sm text-dark mb-2">
+            Ochrana súkromia
+          </a>
+          <a
+            href="../footer/objection.html"
+            class="font-size-sm text-dark mb-2"
+          >
+            Reklamačný poriadok
+          </a>
+        </div>
+        <div class="d-flex justify-content-center">
+          <i class="ml-3 icons fab fa-facebook-square"></i>
+          <i class="ml-3 icons fab fa-youtube-square"></i>
+          <i class="ml-3 icons fab fa-twitter-square"></i>
+          <i class="ml-3 icons fab fa-instagram-square"></i>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
