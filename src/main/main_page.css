@@ -5,3 +5,6 @@
 #carouselExampleIndicators {
   max-width: 700px;
 }
+.card-text {
+  color: black;
+}
