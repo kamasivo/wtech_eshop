@@ -137,8 +137,7 @@
     </header>
 
     <main role="main">
-      <!-- konkretna kategoria -->
-
+      <!-- category main page -->
       <section class="container-fluid my-4">
         <div class="row my-4">
           <div class="col-lg-3 col-md-12">
@@ -158,7 +157,6 @@
                     <div class="col-12 pl-0">
                       <h5>Cena:</h5>
                     </div>
-                    <div class="col-12 pl-0"></div>
                   </div>
                 </div>
                 <div class="col-12 my-4 ml-3 pl-0">
@@ -311,171 +309,287 @@
                 </div>
               </div>
             </div>
-            <div>
-              <section class="product-page">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_Foil.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">SCOTT FOIL 30</p>
-                            <p class="card-text mb-0">Cena 3999.00€</p>
-                          </div>
+            <!--List of products-->
+            <section class="product-page">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_Foil.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_Foil-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_Foil-576px.jpg"
+                            alt="Cestný tmavozelený bicykel
+                            Scott Foil 30"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">SCOTT FOIL 30</p>
+                          <p class="card-text mb-0">Cena 3999.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12 card">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/BMC_Roadmachine.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              BMC ROADMACHINE 01 ULTEGRA DI2 2017
-                            </p>
-                            <p class="card-text mb-0">Cena 3699.67€</p>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
+                      </div>
+                    </a>
+                  </div>
 
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_Addict10.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              SCOTT ADDICT 10 DISC MARINE BLUE
-                            </p>
-                            <p class="card-text mb-0">Cena 2799.00€</p>
-                          </div>
+                  <div class="col-md-4 col-12 card">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/BMC_Roadmachine.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/BMC_Roadmachine-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/BMC_Roadmachine-576px.jpg"
+                            alt="Cestný oranžovo-šedý bicykel
+                              BMC Roadmachine"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            BMC ROADMACHINE ULTEGRA DI2
+                          </p>
+                          <p class="card-text mb-0">Cena 3699.67€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_Addict10_Carb.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              SCOTT ADDICT 10 CARBON ONYX BLACK
-                            </p>
-                            <p class="card-text mb-0">Cena 2799.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_Addict10.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_Addict10-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_Addict10-576px.jpg"
+                            alt="Cestný modrý bicykel
+                              Scott Addict 10"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            SCOTT ADDICT 10 DISC MARINE BLUE
+                          </p>
+                          <p class="card-text mb-0">Cena 2799.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_Addict20.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              SCOTT ADDICT 20 DISC PEARL WHITE
-                            </p>
-                            <p class="card-text mb-0">Cena 2299.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_Addict10_Carb.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="
+                              ../../images/bike/Scott_Addict10_Carb-768px.jpg
+                            "
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_Addict10_Carb-576px.jpg"
+                            alt="Cestný čierny bicykel
+                              Scott Addict 10 Carbon"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            SCOTT ADDICT 10 CARBON ONYX BLACK
+                          </p>
+                          <p class="card-text mb-0">Cena 2799.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_Addict30.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">SCOTT ADDICT 30</p>
-                            <p class="card-text mb-0">Cena 1499.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_Addict20.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_Addict20-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_Addict20-576px.jpg"
+                            alt="Cestný biely bicykel
+                              Scott Addict 20"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            SCOTT ADDICT 20 DISC PEARL WHITE
+                          </p>
+                          <p class="card-text mb-0">Cena 2299.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_AddictRC.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              SCOTT ADDICT RC 15 CARBON ONYX BLACK
-                            </p>
-                            <p class="card-text mb-0">Cena 5599.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_Addict30.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_Addict30-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_Addict30-576px.jpg"
+                            alt="Cestný červený bicykel
+                              Scott Addict 30"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">SCOTT ADDICT 30</p>
+                          <p class="card-text mb-0">Cena 1499.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_AddictSE.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">SCOTT ADDICT SE DISC</p>
-                            <p class="card-text mb-0">Cena 3999.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_AddictRC.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_AddictRC-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_AddictRC-576px.jpg"
+                            alt="Cestný čierny bicykel
+                              Scott Addict RC"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            SCOTT ADDICT RC 15 CARBON ONYX BLACK
+                          </p>
+                          <p class="card-text mb-0">Cena 5599.00€</p>
                         </div>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-12">
-                      <a href="../product_detail/productdetail_page.html">
-                        <div class="card mb-4 shadow-sm">
-                          <div>
-                            <img
-                              src="../../images/bike/Scott_ContessaSpeedster15.jpg"
-                              class="img"
-                            />
-                          </div>
-                          <div class="card-body">
-                            <p class="card-text mb-0">
-                              SCOTT CONTESSA SPEEDSTER 15
-                            </p>
-                            <p class="card-text mb-0">Cena 1199.00€</p>
-                          </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="../../images/bike/Scott_AddictSE.jpg"
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="../../images/bike/Scott_AddictSE-768px.jpg"
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_AddictSE-576px.jpg"
+                            alt="Cestný šedý bicykel
+                              Scott Addict SE"
+                          />
+                        </picture>
+                        <div class="card-body">
+                          <p class="card-text mb-0">SCOTT ADDICT SE DISC</p>
+                          <p class="card-text mb-0">Cena 3999.00€</p>
                         </div>
-                      </a>
-                    </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4 col-12">
+                    <a href="../product_detail/productdetail_page.html">
+                      <div class="card mb-4 shadow-sm">
+                        <picture>
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:768px)"
+                            srcset="
+                              ../../images/bike/Scott_ContessaSpeedster15.jpg
+                            "
+                          />
+                          <source
+                            class="d-block w-100"
+                            media="(min-width:576px)"
+                            srcset="
+                              ../../images/bike/Scott_ContessaSpeedster15-768px.jpg
+                            "
+                          />
+                          <img
+                            class="d-block w-100"
+                            src="../../images/bike/Scott_ContessaSpeedster15-576px.jpg"
+                            alt="Cestný modrý bicykel
+                              Scott Contessa Speedster 15"
+                          />
+                        </picture>
+
+                        <div class="card-body">
+                          <p class="card-text mb-0">
+                            SCOTT CONTESSA SPEEDSTER 15
+                          </p>
+                          <p class="card-text mb-0">Cena 1199.00€</p>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
-              </section>
-            </div>
+              </div>
+            </section>
+
             <nav aria-label="page navigation">
               <ul class="pagination justify-content-center">
                 <li class="page-item">
