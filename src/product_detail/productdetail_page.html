@@ -252,11 +252,11 @@
         <div class="container-fluid my-4">
           <div class="row">
             <div class="col-lg-6 col-12">
-              <img src="../../images/bike/bike1_big.jpg" class="img" />
+              <img src="../../images/bike/Scott_Foil.jpg" class="img" />
             </div>
 
             <div class="col-lg-4 col-12">
-              <h1 class="product_title">Giant TCR Advanced Pro 1 Disc</h1>
+              <h1 class="product_title">SCOTT FOIL 30</h1>
 
               <div class="container bg-light">
                 <!--row1-->
@@ -360,21 +360,53 @@
                 <!--row4-->
                 <div class="py-4 pb-4">
                   <div class="row">
-                    <div class="col-lg-6 col-12 py-1 flex-column">
-                      <button
-                        type="button"
-                        class="buy btn btn-dark btn-block text-center"
+                    <div
+                      class="col-lg-6 col-12 py-1 d-flex justify-content-center"
+                    >
+                      <a
+                        class="cart btn btn-success btn-block text-center"
+                        data-toggle="modal"
+                        href="#cartModal"
+                        role="button"
+                        aria-expanded="false"
+                        aria-controls="cartModal"
+                        >Kúpiť</a
                       >
-                        Kúpiť
-                      </button>
-                    </div>
-                    <div class="col-lg-6 col-12 py-1 flex-column">
-                      <button
-                        type="button"
-                        class="cart btn btn-dark btn-block text-center"
-                      >
-                        Do košíka
-                      </button>
+
+                      <div class="fade modal" role="dialog" id="cartModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header justify-content-between">
+                              <h4 class="modal-title">
+                                Produkt bol uspešne pridaný do košíka
+                              </h4>
+                            </div>
+                            <div class="modal-body">
+                              <div
+                                class="col-12 d-flex justify-content-center my-4"
+                              >
+                                <button
+                                  type="button"
+                                  class="buy btn btn-success btn-block text-center"
+                                  data-dismiss="modal"
+                                >
+                                  Pokračovať v nákupe
+                                </button>
+                              </div>
+                              <div
+                                class="col-12 d-flex justify-content-center my-4"
+                              >
+                                <a
+                                  href="../cart/cart.html"
+                                  class="buy btn btn-secondary btn-block text-center"
+                                  role="button"
+                                  >Prejsť do košíka</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

@@ -75,17 +75,6 @@ main {
   border: none;
 }
 
-.button-primary {
-  background-color: #fffd90;
-  border-color: #292b2c;
-  color: #292b2c;
-  font-weight: bold;
-}
-
-.button-primary:hover {
-  background-color: #f0ec26;
-}
-
 .modal-header {
-  background-color: #fcfc82;
+  background-color: #fcaa83;
 }

@@ -3,45 +3,43 @@
   width: 99%;
 }
 
-.product_page .card-body {
+.product-page .card-body {
   padding-top: 4px;
   padding-bottom: 4px;
   height: 85px;
+  background-color: #fafafa;
 }
 
-.product_page .card-body p.card-text:nth-child(2) {
+.product-page .card-body p.card-text:nth-child(2) {
   font-weight: bold;
 }
 
-.product_page a {
+.product-page a {
   text-decoration: none;
   color: #292b2c;
 }
 
-.product_page a:hover p {
+.product-page a:hover p {
   font-weight: bold;
   color: black;
 }
 
-.product_page :hover .card {
+.product-page a:hover {
   border-width: 2px;
   border-color: #00b300;
 }
 
 .pagination a {
-  color: #292b2c;
-  background-color: #ffff66;
-  border-color: #99ff99;
+  color: black;
+  background-color: #fadacb;
 }
 
 .pagination a:hover {
-  color: #99ff99;
-  background-color: #00b300;
+  background-color: #ffa57c;
 }
 
 .pagination a:active {
-  color: #ffff66;
-  background-color: #292b2c;
+  background-color: #fc8852;
 }
 
 .pagination li {
