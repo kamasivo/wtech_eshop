@@ -3,8 +3,8 @@
   width: 99%;
 }
 
-span.bedge {
-  align-items: flex-end;
+.radio-button {
+  width: 50px;
 }
 
 .productdetail-page img {
@@ -39,6 +39,16 @@ h1.product-title {
 
 input.quantity {
   text-align: right;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.modal-body button,
+.modal-body a {
+  width: 50%;
 }
 
 @media (max-width: 992px) {

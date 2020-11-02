@@ -176,159 +176,148 @@
 
               <div class="container-fluid description bg-light">
                 <!--row1-->
-                <div class="py-2 pl-4">
-                  <div class="row">
-                    <div class="col-6 d-flex flex-start">
-                      <span class="detail-name">Veľkosť</span>
-                    </div>
+                <div class="row py-2 pl-4">
+                  <div class="col-6 d-flex flex-start">
+                    <span class="detail-name">Veľkosť</span>
+                  </div>
 
-                    <div class="col-6 d-flex justify-content-between">
-                      <form>
-                        <div class="radio" checked>
-                          <label
-                            ><input type="radio" name="optradio" /> XS
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 10ks</span
-                          >
-                        </div>
-                        <div class="radio">
-                          <label
-                            ><input type="radio" name="optradio" /> X
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 5ks</span
-                          >
-                        </div>
-                        <div class="radio">
-                          <label
-                            ><input type="radio" name="optradio" /> M
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 8ks</span
-                          >
-                        </div>
-                        <div class="radio">
-                          <label
-                            ><input type="radio" name="optradio" /> L
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 17ks</span
-                          >
-                        </div>
-                        <div class="radio">
-                          <label
-                            ><input type="radio" name="optradio" /> XL
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 4ks</span
-                          >
-                        </div>
-                        <div class="radio">
-                          <label
-                            ><input type="radio" name="optradio" /> XXL
-                            &nbsp;</label
-                          ><span class="badge badge-success"
-                            >Dostupných 10ks</span
-                          >
-                        </div>
-                      </form>
-                    </div>
+                  <div class="col-6 d-flex justify-content-between">
+                    <form>
+                      <div class="radio" checked>
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> XS </label
+                        ><span class="font-weight-bold text-center"
+                          >Dostupných 10ks</span
+                        >
+                      </div>
+                      <div class="radio">
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> X </label
+                        ><span class="font-weight-bold">Dostupných 5ks</span>
+                      </div>
+                      <div class="radio">
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> M </label
+                        ><span class="font-weight-bold">Dostupných 8ks</span>
+                      </div>
+                      <div class="radio">
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> L </label
+                        ><span class="font-weight-bold">Dostupných 17ks</span>
+                      </div>
+                      <div class="radio">
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> XL </label
+                        ><span class="font-weight-bold">Dostupných 4ks</span>
+                      </div>
+                      <div class="radio">
+                        <label class="radio-button"
+                          ><input type="radio" name="optradio" /> XXL </label
+                        ><span class="font-weight-bold">Dostupných 10ks</span>
+                      </div>
+                    </form>
                   </div>
                 </div>
 
                 <!--row2-->
-                <div class="py-2 pl-4">
-                  <div class="row">
-                    <div class="col-6 d-flex flex-column">
-                      <span class="detail-name text-uppercase">Cena</span>
-                      <span class="detail-name">s 20% DPH</span>
-                    </div>
-                    <div class="col-6 flex-column text-right">
-                      <span
-                        id="productDetailPrice"
-                        class="text-danger price w-100"
-                        >3999.00€&nbsp;</span
-                      >
-                    </div>
+                <div class="row py-2 pl-4">
+                  <div class="col-6 d-flex flex-column">
+                    <span class="detail-name text-uppercase">Cena</span>
+                    <span class="detail-name">s 20% DPH</span>
+                  </div>
+                  <div class="col-6 flex-column text-right">
+                    <span
+                      id="productDetailPrice"
+                      class="text-danger price w-100"
+                      >3999.00€&nbsp;</span
+                    >
                   </div>
                 </div>
 
                 <!--row3-->
-                <div class="py-2 pl-4">
-                  <div class="row align-items-center">
-                    <div class="col-6 flex-column text-a">
-                      <span class="detail-name">Množstvo</span>
+                <div class="row py-2 pl-4 align-items-center">
+                  <div class="col-6 flex-column text-a">
+                    <span class="detail-name">Množstvo</span>
+                  </div>
+                  <div class="col-6">
+                    <div class="row mx-0 justify-content-center">
+                      <div class="col-1 px-0"><i class="fas fa-minus"></i></div>
+                    <div class="col-4 px-2"><input
+                        type="number"
+                        class="quantity w-100"
+                        placeholder="1"
+                        min="1"
+                      /></div>
+                    <div class="col-1 px-0"><i class="fas fa-plus"></i></div>
                     </div>
-                    <div class="col-6">
-                      <div>
-                        <input
-                          type="number"
-                          class="quantity w-100"
-                          placeholder="1"
-                          min="1"
-                        />
-                      </div>
-                    </div>
+                    
                   </div>
                 </div>
 
                 <!--row4-->
-                <div class="py-4 px-4">
-                  <div class="row">
-                    <div
-                      class="col-lg-6 col-12 py-1 d-flex justify-content-center"
-                    >
-                      <a
-                        class="cart btn btn-success btn-block text-center"
-                        data-toggle="modal"
-                        href="#cartModal"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="cartModal"
-                        >Kúpiť</a
-                      >
-
-                      <div class="fade modal" role="dialog" id="cartModal">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header justify-content-between">
-                              <h4 class="modal-title">
-                                Produkt bol uspešne pridaný do košíka
-                              </h4>
-                            </div>
-                            <div class="modal-body">
-                              <div
-                                class="col-12 d-flex justify-content-center my-4"
-                              >
-                                <button
-                                  type="button"
-                                  class="buy btn btn-success btn-block text-center"
-                                  data-dismiss="modal"
-                                >
-                                  Pokračovať v nákupe
-                                </button>
-                              </div>
-                              <div
-                                class="col-12 d-flex justify-content-center my-4"
-                              >
-                                <a
-                                  href="../cart/cart.html"
-                                  class="buy btn btn-secondary btn-block text-center"
-                                  role="button"
-                                  >Prejsť do košíka</a
-                                >
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  <div class="row py-4 px-4 justify-content-between">
+                      <div class="col-sm-6 col-12 py-1 mx-0">
+                        <a
+                          class="cart btn btn-success btn-block text-center"
+                          href="../cart/cart.html"
+                          role="button"
+                          >Kúpiť</a
+                        >
                       </div>
-                    </div>
+                      <div class="col-sm-6 col-12 py-1 mx-0">
+                        <a
+                          class="cart btn btn-secondary btn-block text-center"
+                          data-toggle="modal"
+                          href="#cartModal"
+                          role="button"
+                          aria-expanded="false"
+                          aria-controls="cartModal"
+                          >Pridať do košíka</a
+                        >            
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <!--Cart modal window-->
+          <section>
+            <div class="fade modal" role="dialog" id="cartModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header justify-content-between">
+                    <h4 class="modal-title">
+                      Produkt bol uspešne pridaný do košíka
+                    </h4>
+                  </div>
+                  <div class="modal-body">
+                    <div
+                      class="col-12 d-flex justify-content-center my-4"
+                    >
+                      <button
+                        type="button"
+                        class="buy btn btn-success btn-block text-center"
+                        data-dismiss="modal"
+                      >
+                        Pokračovať v nákupe
+                      </button>
+                    </div>
+                    <div
+                      class="col-12 d-flex justify-content-center my-4"
+                    >
+                      <a
+                        href="../cart/cart.html"
+                        class="buy btn btn-secondary btn-block text-center"
+                        role="button"
+                        >Prejsť do košíka</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <div class="row m-4 px-2 pt-2 pb-4 description bg-light">
             <div class="col-12 py-4 flex-column">
