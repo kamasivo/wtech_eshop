@@ -38,7 +38,7 @@ h1.product-title {
 }
 
 input.quantity {
-  text-align: right;
+  text-align: center;
 }
 
 input::-webkit-outer-spin-button,
