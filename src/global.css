@@ -7,47 +7,34 @@ ul ul {
   font-size: 90%;
 }
 
-header .navbar i {
-  font-size: 27px;
-  color: #292b2c;
-}
-
-header i,
-header a {
-  color: #292b2c;
+a.navbar-brand img:hover {
+  content: url("../images/logo_black.png");
 }
 
 a:hover {
   text-decoration: none;
 }
 
-header a:hover,
-header i:hover,
-.navbar-toggler {
-  color: white;
-  text-decoration: none;
+a.dropdown-item:hover {
+  background-color: #f8ccb8 !important;
+}
+
+a.dropdown-item:active {
+  color: #292b2c;
+}
+
+a.nav-link {
+  color: white !important;
+}
+
+a.nav-link:hover {
+  color: #292b2c !important;
 }
 
 #navbarHeader,
 #searchBar {
   padding-left: 0px;
   background-color: #fcaa83;
-}
-
-#navbarHeader + ul {
-  padding-left: 60px;
-}
-
-#navbarHeader ul ul {
-  padding-left: 20px;
-}
-
-#navbarHeader ul li {
-  padding-top: 10px;
-}
-
-#navbarHeader ul ul li {
-  padding-top: 5px;
 }
 
 #topHeader {
