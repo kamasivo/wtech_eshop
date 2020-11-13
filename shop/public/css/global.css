@@ -1,0 +1,70 @@
+main {
+    padding-top: 65px;
+    margin-bottom: 10px;
+    min-height: 80vh;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+ul ul {
+    font-size: 90%;
+}
+
+a.navbar-brand img:hover {
+    content: url("../images/logo_black.png");
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.dropdown-item:hover {
+    background-color: #f8ccb8 !important;
+}
+
+a.dropdown-item:active {
+    color: #292b2c;
+}
+
+a.nav-link {
+    color: white !important;
+}
+
+a.nav-link:hover {
+    color: #292b2c !important;
+}
+
+#navbarHeader,
+#searchBar {
+    padding-left: 0px;
+    background-color: #fcaa83;
+}
+
+#topHeader {
+    background-color: #fa8650;
+}
+
+footer {
+    width: 100%;
+    color: #292b2c;
+    font-size: 14px;
+    padding: 10px 40px 10px;
+    background-color: #fa8650;
+}
+
+.icons {
+    font-size: 25px;
+}
+.card {
+    border: none;
+}
+.card-header {
+    border: none;
+}
+
+.modal-header {
+    background-color: #fcaa83;
+}
