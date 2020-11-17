@@ -7,8 +7,10 @@
 
 <body>
     @include('layout.partials.nav')>
+    
+    <main role="main">
     @yield('content')
-
+    </main>
 
     @include('layout.partials.footer')
 </body>

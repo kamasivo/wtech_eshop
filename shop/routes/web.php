@@ -19,3 +19,5 @@ use App\Http\Controllers\HomeController;
 
 
 Route::resource('/', HomeController::class);
+
+Auth::routes();
