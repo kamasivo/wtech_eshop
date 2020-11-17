@@ -13,12 +13,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategórie</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-bicycle"></i> Bicykle</a>
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-motorcycle"></i> Elektrobicykle</a>
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-tshirt"></i> Oblečenie</a>
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-shoe-prints"></i> Tretry</a>
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-tachometer-alt"></i> Komponenty</a>
-                        <a class="dropdown-item" href="../product/product_page.html"><i class="icons fa fa-cogs"></i> Príslušenstvo</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Bicykle</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Elektrobicykle</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Oblečenie</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Tretry</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Komponenty</a>
+                        <a class="dropdown-item" href="../product/product_page.html"> Príslušenstvo</a>
                     </div>
                 </li>
                 
