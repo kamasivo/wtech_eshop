@@ -7,9 +7,9 @@
 
 <body>
     @include('layout.partials.nav')>
-    
-    <main role="main">
-    @yield('content')
+
+    <main role="main" class='d-flex flex-column align-items-center'>
+        @yield('content')
     </main>
 
     @include('layout.partials.footer')

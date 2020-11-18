@@ -1,0 +1,11 @@
+/* todo img sposobuje ze v hlavnej stranke sa nezobrazia obrazky */
+.img {
+    height: 99%;
+    width: 99%;
+}
+#carouselExampleIndicators {
+    max-width: 700px;
+}
+.card-text {
+    color: black;
+}

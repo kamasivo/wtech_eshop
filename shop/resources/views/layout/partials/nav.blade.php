@@ -1,63 +1,61 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="topHeader">
-        <a class="navbar-brand" href="../main/main.html"><img width="40" height="40" src="../../images/logo_white.png" alt="Cykloshop logo" /></a>
-
+        <a class="navbar-brand" href="/"><img width="40" height="40" src="{{ asset('storage/images/logo_white.png') }}" alt="Cykloshop logo" /></a>
         <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../main/main.html">Domov </a>
+                    <a class="nav-link" href="/">Domov </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategórie</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownCategory">
-                        <a class="dropdown-item" href="../product/product_page.html"> Bicykle</a>
-                        <a class="dropdown-item" href="../product/product_page.html"> Elektrobicykle</a>
-                        <a class="dropdown-item" href="../product/product_page.html"> Oblečenie</a>
-                        <a class="dropdown-item" href="../product/product_page.html"> Tretry</a>
-                        <a class="dropdown-item" href="../product/product_page.html"> Komponenty</a>
-                        <a class="dropdown-item" href="../product/product_page.html"> Príslušenstvo</a>
+                        <a class="dropdown-item" href="products"> Bicykle</a>
+                        <a class="dropdown-item" href="products"> Elektrobicykle</a>
+                        <a class="dropdown-item" href="products"> Oblečenie</a>
+                        <a class="dropdown-item" href="products"> Tretry</a>
+                        <a class="dropdown-item" href="products"> Komponenty</a>
+                        <a class="dropdown-item" href="products"> Príslušenstvo</a>
                     </div>
                 </li>
-                
+
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#logIn">Prihlásiť sa </a>
-                        </li>
-                    @endif
-                    
-                    @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#signIn">Registrovať sa </a>
-                        </li>
-                    @endif
+                @if (Route::has('login'))
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#logIn">Prihlásiť sa </a>
+                </li>
+                @endif
+
+                @if (Route::has('register'))
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#signIn">Registrovať sa </a>
+                </li>
+                @endif
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/users">Účet</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                            {{ __('Odhlásiť sa') }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/users">Účet</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"   
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                {{ __('Odhlásiť sa') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
                 @endguest
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../cart/cart.html">Košík </a>
+                    <a class="nav-link" href="cart">Košík </a>
                 </li>
             </ul>
 
@@ -87,9 +85,9 @@
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                         @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -101,9 +99,9 @@
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                         @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -127,9 +125,9 @@
                                         </button>
 
                                         @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                {{ __('Zabudli ste Heslo?') }}
-                                            </a>
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Zabudli ste Heslo?') }}
+                                        </a>
                                         @endif
                                     </div>
                                 </div>
@@ -160,9 +158,9 @@
                                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                         @error('name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -174,9 +172,9 @@
                                         <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
                                         @error('surname')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -188,9 +186,9 @@
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -202,9 +200,9 @@
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                         @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
@@ -229,7 +227,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
 
 </header>

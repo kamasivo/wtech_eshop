@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductPageController;
+use App\Http\Controllers\ProductDetailController;
+use App\Http\Controllers\AccountController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +25,16 @@ use App\Http\Controllers\HomeController;
 
 Route::resource('/', HomeController::class);
 
-Auth::routes();
+Route::resource('home', HomeController::class);
+
+Route::resource('cart', CartController::class);
+
+Route::resource('product-detail', ProductPageController::class);
+
+Route::resource('products', ProductDetailController::class);
+
+Route::resource('account', AccountController::class);
+
+
+
+Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D

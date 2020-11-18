@@ -1,5 +1,7 @@
 @extends('layout.app')
 
+<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
 @section('content')
 
 <!-- caorusel -->
@@ -14,28 +16,28 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/promo1.jpg" />
+                    <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo1.jpg') }}" />
                     <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo1-768px.jpg" />
                     <img class="d-block w-100" src="../../images/promo1-576px.jpg" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/promo2.jpg" />
+                    <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo2.jpg') }}" />
                     <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo2-768px.jpg" />
                     <img class="d-block w-100" src="../../images/promo2-576px.jpg" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/promo3.jpg" />
+                    <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo3.jpg') }}" />
                     <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo3-768px.jpg" />
                     <img class="d-block w-100" src="../../images/promo3-576px.jpg" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/promo4.jpg" />
+                    <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo4.jpg') }}" />
                     <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo4-768px.jpg" />
                     <img class="d-block w-100" src="../../images/promo4-576px.jpg" alt="carousel" style="width: auto" />
                 </picture>
@@ -61,8 +63,8 @@
                 <a href="../product/product_page.html">
                     <div class="card mb-4 shadow-sm">
                         <picture>
-                            <source class="img" media="(min-width:400px)" srcset="../../images/kat1.jpg" />
-                            <img class="img" src="../../images/kat1-240px.jpg" alt="kategoria" />
+                            <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat1.jpg') }}" />
+                            <img class="img" src="{{ asset('storage/images/kat1-240px.jpg') }}" alt="kategoria" />
                         </picture>
                         <div class="card-body">
                             <p class="card-text">Bicykle</p>
@@ -75,7 +77,7 @@
                     <div class="card mb-4 shadow-sm">
                         <div>
                             <picture>
-                                <source class="img" media="(min-width:400px)" srcset="../../images/kat2.jpg" />
+                                <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat2.jpg') }}" />
                                 <img class="img" src="../../images/kat2-240px.jpg" alt="kategoria" />
                             </picture>
                         </div>
@@ -90,7 +92,7 @@
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
-                    <source class="img" media="(min-width:400px)" srcset="../../images/kat4.jpg" />
+                    <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat4.jpg') }}" />
                     <img class="img" src="../../images/kat4-240px.jpg" alt="kategoria" />
                 </picture>
             </div>
@@ -105,7 +107,7 @@
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
-                    <source class="img" media="(min-width:400px)" srcset="../../images/kat6.jpg" />
+                    <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat6.jpg') }}" />
                     <img class="img" src="../../images/kat6-240px.jpg" alt="kategoria" />
                 </picture>
             </div>
@@ -120,7 +122,7 @@
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
-                    <source class="img" media="(min-width:400px)" srcset="../../images/kat5.png" />
+                    <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat5.png') }}" />
                     <img class="img" src="../../images/kat5-240px.png" alt="kategoria" />
                 </picture>
             </div>
@@ -135,7 +137,7 @@
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
-                    <source class="img" media="(min-width:576px)" srcset="../../images/kat3.jpg" />
+                    <source class="img" media="(min-width:576px)" srcset="{{ asset('storage/images/kat3.jpg') }}" />
                     <img class="img" src="../../images/kat3-240px.jpg" alt="kategoria" />
                 </picture>
             </div>

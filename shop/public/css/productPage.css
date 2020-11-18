@@ -1,0 +1,47 @@
+.img {
+    height: 99%;
+    width: 99%;
+}
+
+.product-page .card-body {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    height: 85px;
+    background-color: #fafafa;
+}
+
+.product-page .card-body p.card-text:nth-child(2) {
+    font-weight: bold;
+}
+
+.product-page a {
+    text-decoration: none;
+    color: #292b2c;
+}
+
+.product-page a:hover p {
+    font-weight: bold;
+    color: black;
+}
+
+.product-page a:hover {
+    border-width: 2px;
+    border-color: #00b300;
+}
+
+.pagination a {
+    color: black;
+    background-color: #fadacb;
+}
+
+.pagination a:hover {
+    background-color: #ffa57c;
+}
+
+.pagination a:active {
+    background-color: #fc8852;
+}
+
+.pagination li {
+    padding: 1px;
+}
