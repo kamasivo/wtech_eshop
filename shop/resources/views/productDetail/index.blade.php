@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- category main page -->
-<section class="container-fluid my-5">
+<section class="container-fluid">
     <div class="row my-5">
         <div class="col-lg-3 col-md-12">
             <a class="btn btn-dark mb-3" data-toggle="collapse" href="#filter" role="button" aria-expanded="true" aria-controls="filter">Skryť/Zobraziť filter</a>
@@ -114,9 +114,9 @@
                             <a href="../product_detail/productdetail_page.html">
                                 <div class="card mb-4 shadow-sm">
                                     <picture>
-                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Foil.jpg" />
-                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Foil-768px.jpg" />
-                                        <img class="d-block w-100" src="../../images/bike/Scott_Foil-576px.jpg" alt="Cestný tmavozelený bicykel
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/bike/Scott_Foil.jpg') }}" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="{{ asset('storage/images/bike/Scott_Foil-768px.jpg') }}" />
+                                        <img class="d-block w-100" src="{{ asset('storage/images/bike/Scott_Foil-576px.jpg') }}" alt="Cestný tmavozelený bicykel
                             Scott Foil 30" />
                                     </picture>
                                     <div class="card-body">
