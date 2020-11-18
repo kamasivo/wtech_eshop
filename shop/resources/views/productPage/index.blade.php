@@ -1,5 +1,6 @@
 @extends('layout.app')
 
+<link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
 @section('content')
 <!--produkty-->
 <section class="productdetail-page">
@@ -66,9 +67,9 @@
                         </div>
                         <div class="col-6">
                             <div class="row mx-0 justify-content-center">
-                                <div class="col-1 px-0"><i class="fas fa-minus"></i></div>
+                                <div class="col-1 px-0"><i class="fa fa-minus"></i></div>
                                 <div class="col-4 px-2"><input type="number" class="quantity w-100" placeholder="1" min="1" /></div>
-                                <div class="col-1 px-0"><i class="fas fa-plus"></i></div>
+                                <div class="col-1 px-0"><i class="fa fa-plus"></i></div>
                             </div>
 
                         </div>

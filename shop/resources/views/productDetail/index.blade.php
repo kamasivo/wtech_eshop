@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-<!-- <link rel="stylesheet" href="{{ asset('css/productDetail.css') }}"> -->
+<link rel="stylesheet" href="{{ asset('css/productDetail.css') }}">
 
 @section('content')
 

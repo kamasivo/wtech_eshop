@@ -1,6 +1,7 @@
-/* todo img sposobuje ze v hlavnej stranke sa nezobrazia obrazky */
 .img {
     height: 99%;
+}
+.img2 {
     width: 99%;
 }
 #carouselExampleIndicators {

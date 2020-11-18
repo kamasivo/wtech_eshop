@@ -7,6 +7,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductPageController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\DeliveryDataController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -34,6 +36,10 @@ Route::resource('product-detail', ProductPageController::class);
 Route::resource('products', ProductDetailController::class);
 
 Route::resource('account', AccountController::class);
+
+Route::resource('payment', PaymentController::class);
+
+Route::resource('delivery-data', DeliveryDataController::class);
 
 
 

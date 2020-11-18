@@ -13,7 +13,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownCategory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kategórie</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownCategory">
                         <a class="dropdown-item" href="products"> Bicykle</a>
-                        <a class="dropdown-item" href="products"> Elektrobicykle</a>
+                        <a class="dropdown-item" href="products">Elektrobicykle</a>
                         <a class="dropdown-item" href="products"> Oblečenie</a>
                         <a class="dropdown-item" href="products"> Tretry</a>
                         <a class="dropdown-item" href="products"> Komponenty</a>
@@ -54,7 +54,8 @@
                 </li>
                 @endguest
 
-                <li class="nav-item">
+                <li class=" nav-item d-flex align-items-center">
+                    <i class="fa text-light fa-shopping-cart"></i>
                     <a class="nav-link" href="cart">Košík </a>
                 </li>
             </ul>

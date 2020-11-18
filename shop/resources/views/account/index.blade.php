@@ -1,8 +1,8 @@
 @extends('layout.app')
 
+
 @section('content')
 
-<!-- <main class="d-flex flex-column align-items-center"> -->
 <section class="p-3 lightContainer d-flex flex-column bg-light col-12 col-sm-8 col-md-6">
     <div class="d-flex align-items-center mb-3">
         <h3>Môj účet</h3>

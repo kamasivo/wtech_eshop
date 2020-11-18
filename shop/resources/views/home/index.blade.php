@@ -17,29 +17,29 @@
             <div class="carousel-item active">
                 <picture>
                     <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo1.jpg') }}" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo1-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/promo1-576px.jpg" alt="carousel" style="width: auto" />
+                    <source class="d-block w-100" media="(min-width:576px)" srcset="{{ asset('storage/images/promo1-768px.jpg') }}" />
+                    <img class="d-block w-100" src="{{ asset('storage/images/promo1-576px.jpg') }}" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
                     <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo2.jpg') }}" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo2-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/promo2-576px.jpg" alt="carousel" style="width: auto" />
+                    <source class="d-block w-100" media="(min-width:576px)" srcset="{{ asset('storage/images/promo2-768px.jpg') }}" />
+                    <img class="d-block w-100" src="{{ asset('storage/images/promo2-576px.jpg') }}" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
                     <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo3.jpg') }}" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo3-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/promo3-576px.jpg" alt="carousel" style="width: auto" />
+                    <source class="d-block w-100" media="(min-width:576px)" srcset="{{ asset('storage/images/promo3-768px.jpg') }}" />
+                    <img class="d-block w-100" src="{{ asset('storage/images/promo3-576px.jpg') }}" alt="carousel" style="width: auto" />
                 </picture>
             </div>
             <div class="carousel-item">
                 <picture>
                     <source class="d-block w-100" media="(min-width:768px)" srcset="{{ asset('storage/images/promo4.jpg') }}" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/promo4-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/promo4-576px.jpg" alt="carousel" style="width: auto" />
+                    <source class="d-block w-100" media="(min-width:576px)" srcset="{{ asset('storage/images/promo4-768px.jpg') }}" />
+                    <img class="d-block w-100" src="{{ asset('storage/images/promo4-576px.jpg') }}" alt="carousel" style="width: auto" />
                 </picture>
             </div>
         </div>
@@ -60,11 +60,11 @@
     <div class="container">
         <div class="row">
             <section class="col-12 col-sm-6 col-md-4">
-                <a href="../product/product_page.html">
+                <a href="products">
                     <div class="card mb-4 shadow-sm">
-                        <picture>
+                        <picture class="img">
                             <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat1.jpg') }}" />
-                            <img class="img" src="{{ asset('storage/images/kat1-240px.jpg') }}" alt="kategoria" />
+                            <img class="img2" src="{{ asset('storage/images/kat1-240px.jpg') }}" alt="kategoria" />
                         </picture>
                         <div class="card-body">
                             <p class="card-text">Bicykle</p>
@@ -73,12 +73,12 @@
                 </a>
             </section>
             <section class="col-12 col-sm-6 col-md-4">
-                <a href="../product/product_page.html">
+                <a href="products">
                     <div class="card mb-4 shadow-sm">
                         <div>
-                            <picture>
+                            <picture class="img">
                                 <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat2.jpg') }}" />
-                                <img class="img" src="../../images/kat2-240px.jpg" alt="kategoria" />
+                                <img class="img2" src="{{ asset('storage/images/kat1-240px.jpg') }}" alt="kategoria" />
                             </picture>
                         </div>
                         <div class="card-body">
@@ -88,12 +88,12 @@
         </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="../product/product_page.html">
+    <a href="products">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
                     <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat4.jpg') }}" />
-                    <img class="img" src="../../images/kat4-240px.jpg" alt="kategoria" />
+                    <img class="img2" src="{{ asset('storage/images/kat4-240px.jpg') }}" alt="kategoria" />
                 </picture>
             </div>
             <div class="card-body">
@@ -103,12 +103,12 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="../product/product_page.html">
+    <a href="products">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
                     <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat6.jpg') }}" />
-                    <img class="img" src="../../images/kat6-240px.jpg" alt="kategoria" />
+                    <img class="img2" src="{{ asset('storage/images/kat6-240px.jpg') }}" alt="kategoria" />
                 </picture>
             </div>
             <div class="card-body">
@@ -118,12 +118,12 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="../product/product_page.html">
+    <a href="products">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
                     <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat5.png') }}" />
-                    <img class="img" src="../../images/kat5-240px.png" alt="kategoria" />
+                    <img class="img2" src="{{ asset('storage/images/kat5-240px.png') }}" alt="kategoria" />
                 </picture>
             </div>
             <div class="card-body">
@@ -133,12 +133,12 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="../product/product_page.html">
+    <a href="products">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
                     <source class="img" media="(min-width:576px)" srcset="{{ asset('storage/images/kat3.jpg') }}" />
-                    <img class="img" src="../../images/kat3-240px.jpg" alt="kategoria" />
+                    <img class="img2" src="{{ asset('storage/images/kat3-240px.jpg') }}" alt="kategoria" />
                 </picture>
             </div>
             <div class="card-body">
