@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductPageController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\DeliveryDataController;
@@ -31,9 +31,9 @@ Route::resource('home', HomeController::class);
 
 Route::resource('cart', CartController::class);
 
-Route::resource('product-detail', ProductPageController::class);
+// Route::resource('product-detail', ProductController::class);
 
-Route::resource('products', ProductDetailController::class);
+Route::resource('products', ProductController::class);
 
 Route::resource('account', AccountController::class);
 

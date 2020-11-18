@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
-class ProductDetailController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ProductDetailController extends Controller
      */
     public function index()
     {
-        return view('productDetail.index');
+        $products = Product::all();
+        return view('productPage.index', compact('products', $products));
     }
 
     /**
@@ -45,16 +48,18 @@ class ProductDetailController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        // $images = Product::find($id)->images;
+        return view('productDetail.index', compact('product', $product));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
         //
     }
@@ -63,10 +68,10 @@ class ProductDetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -74,10 +79,10 @@ class ProductDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
         //
     }

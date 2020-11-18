@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    @include('layout.partials.nav')>
+    @include('layout.partials.nav')
 
     <main role="main" class='d-flex flex-column align-items-center'>
         @yield('content')

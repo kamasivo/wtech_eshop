@@ -1,201 +1,302 @@
 @extends('layout.app')
 
-<link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
+<link rel="stylesheet" href="{{ asset('css/productDetail.css') }}">
+
 @section('content')
-<!--produkty-->
-<section class="productdetail-page">
-    <div class="container-fluid my-4">
-        <div class="row">
-            <div class="col-xl-6 col-lg-6 col-12">
-                <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Foil.jpg" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Foil-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/bike/Scott_Foil-576px.jpg" alt="Cestný tmavozelený bicykel
-                Scott Foil 30" />
-                </picture>
-            </div>
 
-            <div class="col-xl-4 col-lg-5 col-12 px-0">
-                <h1 class="product-title text-uppercase">SCOTT FOIL 30</h1>
-
-                <div class="container-fluid description bg-light">
-                    <!--row1-->
-                    <div class="row py-2 pl-4">
-                        <div class="col-6 d-flex flex-start">
-                            <span class="detail-name">Veľkosť</span>
-                        </div>
-
-                        <div class="col-6 d-flex justify-content-between">
-                            <form>
-                                <div class="radio" checked>
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XS </label><span class="font-weight-bold text-center">Dostupných 10ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> X </label><span class="font-weight-bold">Dostupných 5ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> M </label><span class="font-weight-bold">Dostupných 8ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> L </label><span class="font-weight-bold">Dostupných 17ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XL </label><span class="font-weight-bold">Dostupných 4ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XXL </label><span class="font-weight-bold">Dostupných 10ks</span>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!--row2-->
-                    <div class="row py-2 pl-4">
-                        <div class="col-6 d-flex flex-column">
-                            <span class="detail-name text-uppercase">Cena</span>
-                            <span class="detail-name">s 20% DPH</span>
-                        </div>
-                        <div class="col-6 flex-column text-right">
-                            <span id="productDetailPrice" class="text-danger price w-100">3999.00€&nbsp;</span>
-                        </div>
-                    </div>
-
-                    <!--row3-->
-                    <div class="row py-2 pl-4 align-items-center">
-                        <div class="col-6 flex-column text-a">
-                            <span class="detail-name">Množstvo</span>
-                        </div>
-                        <div class="col-6">
-                            <div class="row mx-0 justify-content-center">
-                                <div class="col-1 px-0"><i class="fa fa-minus"></i></div>
-                                <div class="col-4 px-2"><input type="number" class="quantity w-100" placeholder="1" min="1" /></div>
-                                <div class="col-1 px-0"><i class="fa fa-plus"></i></div>
+<!-- category main page -->
+<section class="container-fluid">
+    <div class="row my-5">
+        <div class="col-lg-3 col-md-12">
+            <a class="btn btn-dark mb-3" data-toggle="collapse" href="#filter" role="button" aria-expanded="true" aria-controls="filter">Skryť/Zobraziť filter</a>
+            <section class="mb-4 ml-2 px-2 bg-light">
+                <div class="collapse p-4" id="filter">
+                    <div class="col-12 ml-3 pl-0">
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <h5>Cena:</h5>
                             </div>
-
+                            <div class="col-lg-12 pl-0 py-1">
+                                <span class="font-weight-bold">Od:
+                                    <input class="text-right" type="number" id="priceFrom" name="priceFrom" min="1" max="20000" placeholder="0" />
+                                    €</span>
+                            </div>
+                            <div class="col-lg-12 pl-0 py-1">
+                                <span class="font-weight-bold">Do:
+                                    <input class="text-right" type="number" id="priceTo" name="priceTo" min="1" max="20000" placeholder="20000" />
+                                    €</span>
+                            </div>
                         </div>
                     </div>
-
-                    <!--row4-->
-                    <div class="row py-4 px-4 justify-content-between">
-                        <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-success btn-block text-center" href="../cart/cart.html" role="button">Kúpiť</a>
+                    <div class="col-12 my-4 ml-3 pl-0">
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <h5>Velkosť:</h5>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="xSmall" />
+                                <label class="form-check-label card-link-secondary" for="new">XS</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="small" />
+                                <label class="form-check-label card-link-secondary" for="used">S</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="medium" />
+                                <label class="form-check-label card-link-secondary" for="collectible">M</label>
+                            </div>
+                            <div class="form-check pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="large" />
+                                <label class="form-check-label card-link-secondary" for="renewed">L</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="xLarge" />
+                                <label class="form-check-label card-link-secondary" for="renewed">XL</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="xxlarge" />
+                                <label class="form-check-label card-link-secondary" for="renewed">XXL</label>
+                            </div>
                         </div>
-                        <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>
+                    </div>
+                    <div class="col-12 my-4 ml-3 pl-0">
+                        <div class="row">
+                            <div class="col-12 pl-0">
+                                <h6>Značka:</h6>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="BMC" />
+                                <label class="form-check-label card-link-secondary" for="used">BMC</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="Scott" />
+                                <label class="form-check-label card-link-secondary" for="collectible">Scott</label>
+                            </div>
+                            <div class="form-check col-12 pl-0 ml-4">
+                                <input type="checkbox" class="form-check-input filled-in" id="Bianchi" />
+                                <label class="form-check-label card-link-secondary" for="renewed">Bianchi</label>
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-12 mb-4 d-flex justify-content-center">
+                        <button class="btn btn-success btn-block" type="submit">
+                            Vyhľadať produkty
+                        </button>
+                    </div>
+                    <div class="col-12 d-flex justify-content-center">
+                        <button class="btn btn-secondary btn-block" type="reset">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-between my-4">
+                    <div class="col-6 category-name">
+                        <h4>Bicykle</h4>
+                    </div>
+                    <div class="col-6">
+                        <h5>Zoradiť podľa:</h5>
+                        <select id="sorting" class="custom-select">
+                            <option value="priceasc">Ceny (od najnižšej)</option>
+                            <option value="pricedesc">Ceny (od najvyššej)</option>
+                        </select>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <!--List of products-->
+            <section class="product-page">
+                <div class="container">
+                    <div class="row">
+                        <!-- for loop for all products -->
+                        @foreach($products as $product)
+                        <div class="col-md-4 col-12">
+                            <a href="{{ URL::to('products/' . $product->id) }}">
+                                <div class="card mb-4 shadow-sm">
+                                    <img class="d-block w-100" src="{{ asset('storage/images/bike/Scott_Foil.jpg') }}" alt="Cestný tmavozelený bicykel
+                            Scott Foil 30" />
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">{{$product->name}}</p>
+                                        <p class="card-text mb-0">{{$product->price}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        @endforeach
 
-    <!--Cart modal window-->
-    <section>
-        <div class="fade modal" role="dialog" id="cartModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header justify-content-between">
-                        <h4 class="modal-title">
-                            Produkt bol uspešne pridaný do košíka
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="col-12 d-flex justify-content-center my-4">
-                            <button type="button" class="buy btn btn-success btn-block text-center" data-dismiss="modal">
-                                Pokračovať v nákupe
-                            </button>
+                        <!-- <div class="col-md-4 col-12 card">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/BMC_Roadmachine.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/BMC_Roadmachine-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/BMC_Roadmachine-576px.jpg" alt="Cestný oranžovo-šedý bicykel
+                              BMC Roadmachine" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            BMC ROADMACHINE ULTEGRA DI2
+                                        </p>
+                                        <p class="card-text mb-0">Cena 3699.67€</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="col-12 d-flex justify-content-center my-4">
-                            <a href="../cart/cart.html" class="buy btn btn-secondary btn-block text-center" role="button">Prejsť do košíka</a>
+
+                        <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Addict10.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Addict10-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_Addict10-576px.jpg" alt="Cestný modrý bicykel
+                              Scott Addict 10" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            SCOTT ADDICT 10 DISC MARINE BLUE
+                                        </p>
+                                        <p class="card-text mb-0">Cena 2799.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+                        <!-- <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Addict10_Carb.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="
+                              ../../images/bike/Scott_Addict10_Carb-768px.jpg
+                            " />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_Addict10_Carb-576px.jpg" alt="Cestný čierny bicykel
+                              Scott Addict 10 Carbon" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            SCOTT ADDICT 10 CARBON ONYX BLACK
+                                        </p>
+                                        <p class="card-text mb-0">Cena 2799.00€</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+                        <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Addict20.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Addict20-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_Addict20-576px.jpg" alt="Cestný biely bicykel
+                              Scott Addict 20" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            SCOTT ADDICT 20 DISC PEARL WHITE
+                                        </p>
+                                        <p class="card-text mb-0">Cena 2299.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Addict30.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Addict30-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_Addict30-576px.jpg" alt="Cestný červený bicykel
+                              Scott Addict 30" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">SCOTT ADDICT 30</p>
+                                        <p class="card-text mb-0">Cena 1499.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_AddictRC.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_AddictRC-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_AddictRC-576px.jpg" alt="Cestný čierny bicykel
+                              Scott Addict RC" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            SCOTT ADDICT RC 15 CARBON ONYX BLACK
+                                        </p>
+                                        <p class="card-text mb-0">Cena 5599.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_AddictSE.jpg" />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_AddictSE-768px.jpg" />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_AddictSE-576px.jpg" alt="Cestný šedý bicykel
+                              Scott Addict SE" />
+                                    </picture>
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">SCOTT ADDICT SE DISC</p>
+                                        <p class="card-text mb-0">Cena 3999.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+                        <!-- <div class="col-md-4 col-12">
+                            <a href="../product_detail/productdetail_page.html">
+                                <div class="card mb-4 shadow-sm">
+                                    <picture>
+                                        <source class="d-block w-100" media="(min-width:768px)" srcset="
+                              ../../images/bike/Scott_ContessaSpeedster15.jpg
+                            " />
+                                        <source class="d-block w-100" media="(min-width:576px)" srcset="
+                              ../../images/bike/Scott_ContessaSpeedster15-768px.jpg
+                            " />
+                                        <img class="d-block w-100" src="../../images/bike/Scott_ContessaSpeedster15-576px.jpg" alt="Cestný modrý bicykel
+                              Scott Contessa Speedster 15" />
+                                    </picture>
+
+                                    <div class="card-body">
+                                        <p class="card-text mb-0">
+                                            SCOTT CONTESSA SPEEDSTER 15
+                                        </p>
+                                        <p class="card-text mb-0">Cena 1199.00€</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <div class="row m-4 px-2 pt-2 pb-4 description bg-light">
-        <div class="col-12 py-4 flex-column">
-            <h2 class="text-center">Popis</h2>
+            <nav aria-label="page navigation">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="col-12 col-md-7 px-0">
-            <ul class="px-4 ml-2">
-                <li>
-                    <span><strong>Farba</strong>: Matte Carbon&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Rám</strong>: Advanced Composite, 12mm pevné
-                        osy&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Vidlica</strong>: Advanced Composite, karbonový
-                        stĺpik OverDrive 2&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Riadítka</strong>: Giant Contact SL&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Predstavec</strong>: Giant Contact SL&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Sedlovka</strong>: Giant Variant,
-                        karbonová&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Sedlo</strong>: Giant Fleet SL&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Radenie</strong>: Shimano Ultegra&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Prešmykač</strong>: Shimano Ultegra&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Prehadzovačka</strong>: Shimano Ultegra&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Brzdy</strong>: Shimano Ultegra,
-                        hydraulické&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Brzdové páky</strong>: Shimano Ultegra,
-                        hydraulické&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Kazeta</strong>: Shimano Ultegra, 11-30
-                        zubov&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Reťaz</strong>: KMC X11SL-1&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Kľuky</strong>: Shimano Ultegra, prevodníky 52/36
-                        zubov, wattmetr Giant PowerPro&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Stredové zloženie</strong>: Shimano,
-                        pressfit&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Ráfiky</strong>: Giant SLR-1 42 Carbon Disc
-                        WheelSystem (výška ráfikov 42 mm)&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Náboje</strong>: Giant SLR-1 42 Carbon Disc
-                        WheelSystem, 12mm pevné osy&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Výplet</strong>: Giant SLR-1 42 Carbon Disc
-                        WheelSystem&nbsp;</span>
-                </li>
-                <li>
-                    <span><strong>Plášte</strong>: Giant Gavia Course 1, 700x28mm
-                        (25c), skladacie, bezdušové&nbsp;</span>
-                </li>
-            </ul>
-            <div>&nbsp;</div>
-        </div>
-    </div>
     </div>
 </section>
+
 @endsection

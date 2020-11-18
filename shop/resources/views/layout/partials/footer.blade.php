@@ -8,7 +8,7 @@
             <a href="privacy" class="col-4 font-size-sm text-dark d-flex justify-content-center">
                 Ochrana súkromia
             </a>
-            <a href="footer" class="font-size-sm text-dark col-4 d-flex justify-content-center">
+            <a href="objection" class="font-size-sm text-dark col-4 d-flex justify-content-center">
                 Reklamačný poriadok
             </a>
         </div>
