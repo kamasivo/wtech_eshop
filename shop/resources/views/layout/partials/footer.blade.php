@@ -4,11 +4,11 @@
             <i class="fa fa-copyright"></i> 2020 - 2020 CykloShop
         </p>
         <div class="row mb-3">
-            <a href="../footer/contact-info.html" class="font-size-sm text-dark col-4 d-flex justify-content-center">Kontaktné údaje</a>
-            <a href="../footer/privacy.html" class="col-4 font-size-sm text-dark d-flex justify-content-center">
+            <a href="contact" class="font-size-sm text-dark col-4 d-flex justify-content-center">Kontaktné údaje</a>
+            <a href="privacy" class="col-4 font-size-sm text-dark d-flex justify-content-center">
                 Ochrana súkromia
             </a>
-            <a href="../footer/objection.html" class="font-size-sm text-dark col-4 d-flex justify-content-center">
+            <a href="footer" class="font-size-sm text-dark col-4 d-flex justify-content-center">
                 Reklamačný poriadok
             </a>
         </div>

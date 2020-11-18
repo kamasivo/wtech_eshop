@@ -41,6 +41,10 @@ Route::resource('payment', PaymentController::class);
 
 Route::resource('delivery-data', DeliveryDataController::class);
 
+Route::view('/contact', 'footerInformation.contact-info');
+Route::view('/objection', 'footerInformation.objection');
+Route::view('/privacy', 'footerInformation.privacy');
+
 
 
 Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D
