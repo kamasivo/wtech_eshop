@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('productPage.index', compact('products', $products));
+        $images = Image::all();
+        return view('productPage.index', compact('products', $products, 'images', $images));
     }
 
     /**
@@ -49,8 +50,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        // $images = Product::find($id)->images;
-        return view('productDetail.index', compact('product', $product));
+        $images = Product::find($id)->images;
+        return view('productDetail.index', compact('product', $product, 'images', $images));
     }
 
     /**

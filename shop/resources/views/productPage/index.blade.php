@@ -115,8 +115,10 @@
                         <div class="col-md-4 col-12">
                             <a href="{{ URL::to('products/' . $product->id) }}">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="d-block w-100" src="{{ asset('storage/images/bike/Scott_Foil.jpg') }}" alt="Cestný tmavozelený bicykel
-                            Scott Foil 30" />
+                                    <!-- todo vymysliet ako toto spravime aby sme zobrazili spravny obrazok k produktu tu     -->
+                                    <img class="d-block w-100" src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
+                                    <!-- <img class="d-block w-100" src="{{ asset('storage/images/bike/Scott_Foil.jpg') }}" alt="Cestný tmavozelený bicykel -->
+                                    <!-- Scott Foil 30" /> -->
                                     <div class="card-body">
                                         <p class="card-text mb-0">{{$product->name}}</p>
                                         <p class="card-text mb-0">{{$product->price}}</p>

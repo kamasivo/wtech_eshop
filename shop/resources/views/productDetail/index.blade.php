@@ -7,12 +7,17 @@
     <div class="container-fluid my-4">
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-12">
-                <picture>
-                    <source class="d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Foil.jpg" />
-                    <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Foil-768px.jpg" />
-                    <img class="d-block w-100" src="../../images/bike/Scott_Foil-576px.jpg" alt="Cestný tmavozelený bicykel
+                @if ($images)
+                <img class="d-block w-100" src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
+                @else
+                Bad image path!
+                @endif
+                <!-- <picture>
+                    <source class=" d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Foil.jpg" />
+                <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Foil-768px.jpg" />
+                <img class="d-block w-100" src="../../images/bike/Scott_Foil-576px.jpg" alt="Cestný tmavozelený bicykel
                 Scott Foil 30" />
-                </picture>
+                </picture> -->
             </div>
 
             <div class="col-xl-4 col-lg-5 col-12 px-0">

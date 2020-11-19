@@ -13,4 +13,9 @@ class Image extends Model
         'path',
         'product_id'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
 }
