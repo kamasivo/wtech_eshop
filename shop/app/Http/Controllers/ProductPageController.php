@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Image;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class ProductController extends Controller
+class ProductPageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $products = Product::all();
-        // $images = Image::all();
-        // return view('productPage.index', compact('products', $products, 'images', $images));
+        $products = Product::all();
+        $images = Image::all();
+        return view('productPage.index', compact('products', $products, 'images', $images));
     }
 
     /**
@@ -49,18 +50,18 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        $images = Product::find($id)->images;
-        return view('productDetail.index', compact('product', $product, 'images', $images));
+        $products = Product::where('category_id', '=', $id)->get();
+        $images = Image::all();
+        return view('productPage.index', compact('products', $products, 'images', $images));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +70,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +81,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         //
     }

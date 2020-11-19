@@ -19,54 +19,71 @@ class DatabaseSeeder extends Seeder
             'description' => 'trek bicykel',
             'size' => 'L',
             'price' => '3999',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'BMC ROADMACHINE ULTEGRA DI2',
             'description' => ' bicykel',
             'size' => 'L',
             'price' => '3886',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 10 DISC MARINE BLUE',
             'description' => ' bicykel',
             'size' => 'L',
             'price' => '2788',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 10 CARBON ONYX BLACK',
             'description' => ' bicykel',
             'size' => 'L',
             'price' => '1999',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 20 DISC PEARL WHITE',
             'description' => 'scott bicykel',
             'size' => 'L',
             'price' => '2999',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 30',
             'description' => 'trek bicykel',
             'size' => 'L',
             'price' => '1222',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT RC 15 CARBON ONYX BLACK',
             'description' => 'trek bicykel',
             'size' => 'L',
             'price' => '4999',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT SE DISC',
             'description' => 'trek bicykel',
             'size' => 'L',
             'price' => '3500',
+            'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT CONTESSA SPEEDSTER 15',
             'description' => 'trek bicykel',
             'size' => 'L',
             'price' => '3999',
+            'category_id' => '1',
+        ]);
+
+        DB::table('products')->insert([
+            'name' => 'SCOTT CONTESSA SPEEDSTER 15',
+            'description' => 'trek bicykel',
+            'size' => 'L',
+            'price' => '3999',
+            'category_id' => '2',
         ]);
 
         DB::table('images')->insert([
@@ -105,6 +122,30 @@ class DatabaseSeeder extends Seeder
             'product_id' => '9',
             'path' => '/bike/Scott_ContessaSpeedster15.jpg',
         ]);
+        DB::table('images')->insert([
+            'product_id' => '10',
+            'path' => '/bike/Scott_ContessaSpeedster15.jpg',
+        ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Bicykle',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Elektrobicykle',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Oblecenie',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Tretry',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Komponenty',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Prislusenstvo',
+        ]);
+
 
         // \App\Models\User::factory(10)->create();
     }

@@ -60,7 +60,7 @@
     <div class="container">
         <div class="row">
             <section class="col-12 col-sm-6 col-md-4">
-                <a href="products">
+                <a href="products/1">
                     <div class="card mb-4 shadow-sm">
                         <picture class="img">
                             <source class="img" media="(min-width:400px)" srcset="{{ asset('storage/images/kat1.jpg') }}" />
@@ -73,7 +73,7 @@
                 </a>
             </section>
             <section class="col-12 col-sm-6 col-md-4">
-                <a href="products">
+                <a href="products/2">
                     <div class="card mb-4 shadow-sm">
                         <div>
                             <picture class="img">
@@ -88,7 +88,7 @@
         </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="products">
+    <a href="products/3">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
@@ -103,7 +103,7 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="products">
+    <a href="products/4">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
@@ -118,7 +118,7 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="products">
+    <a href="products/5">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>
@@ -133,7 +133,7 @@
     </div>
 </section>
 <section class="col-12 col-sm-6 col-md-4">
-    <a href="products">
+    <a href="products/6">
         <div class="card mb-4 shadow-sm">
             <div>
                 <picture>

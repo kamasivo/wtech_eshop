@@ -14,10 +14,17 @@ class Product extends Model
         'description',
         'size',
         'price',
+        'category_id',
     ];
 
     public function images()
     {
         return $this->hasMany('App\Models\Image');
+    }
+
+
+    public function category()
+    {
+        return $this->hasOne('App\Category');
     }
 }
