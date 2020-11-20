@@ -25,6 +25,7 @@ use App\Http\Controllers\PaymentController;
 
 Route::get('product/{id}/addToCart', [ProductController::class, 'addToCart']);
 Route::get('cart/{id}/remove', [CartController::class, 'remove']);
+Route::get('cart/removeAll', [CartController::class, 'removeAll']);
 
 Route::resource('/', HomeController::class);
 

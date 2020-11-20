@@ -94,4 +94,10 @@ class CartController extends Controller
         Cart::where('product_id', $id)->delete();
         return redirect('cart');
     }
+
+    public function removeAll()
+    {
+        Cart::truncate();
+        return redirect('cart');
+    }
 }

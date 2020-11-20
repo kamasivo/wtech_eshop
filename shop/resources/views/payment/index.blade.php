@@ -55,7 +55,7 @@
     <h5 class="mt-2 mb-3">Cena spolu: 350€</h5>
 
     <button class="btn btn-success align-self-center mb-3 col-12 col-md-10">
-        <a href="#">
+        <a href="/">
             <div class="d-flex justify-content-center align-items-center">
                 <p class="text-light mr-2 mb-0">Zaplatiť</p>
                 <i class="fa fa-arrow-right text-light"></i>
@@ -63,7 +63,7 @@
         </a>
     </button>
     <button class="btn btn-secondary align-self-center mb-3 col-12 col-md-10">
-        <a href="#">
+        <a href="delivery-data">
             <div class="d-flex justify-content-center align-items-center">
                 <i class="fa fa-arrow-left text-light"></i>
                 <p class="text-light ml-2 mb-0">Späť</p>
@@ -71,31 +71,6 @@
         </a>
     </button>
 </section>
-</main>
-<footer class="pt-3 px-4 pb-3">
-    <div>
-        <p class="font-size-sm">
-            <i class="fa fa-copyright"></i> 2020 - 2020 CykloShop
-        </p>
-        <div class="row mb-3">
-            <a href="../footer/contact-info.html" class="font-size-sm text-dark col-4 d-flex justify-content-center">Kontaktné údaje</a>
-            <a href="../footer/privacy.html" class="col-4 font-size-sm text-dark d-flex justify-content-center">
-                Ochrana súkromia
-            </a>
-            <a href="../footer/objection.html" class="font-size-sm text-dark col-4 d-flex justify-content-center">
-                Reklamačný poriadok
-            </a>
-        </div>
-        <div class="d-flex justify-content-center">
-            <i class="icons fab fa-facebook-square"></i>
-            <i class="ml-3 icons fab fa-youtube-square"></i>
-            <i class="ml-3 icons fab fa-twitter-square"></i>
-            <i class="ml-3 icons fab fa-instagram-square"></i>
-        </div>
-    </div>
-</footer>
-</body>
 
-</html>
 
 @endsection
