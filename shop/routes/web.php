@@ -23,13 +23,14 @@ use App\Http\Controllers\PaymentController;
 */
 
 
-
+Route::get('product/{id}/addToCart', [ProductController::class, 'addToCart']);
+Route::get('cart/{id}/remove', [CartController::class, 'remove']);
 
 Route::resource('/', HomeController::class);
 
-Route::resource('home', HomeController::class);
+Route::resource('/home', HomeController::class);
 
-Route::resource('cart', CartController::class);
+Route::resource('/cart', CartController::class);
 
 Route::resource('product', ProductController::class);
 Route::resource('products', ProductPageController::class);

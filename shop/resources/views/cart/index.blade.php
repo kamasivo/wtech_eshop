@@ -23,36 +23,22 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($products as $product)
             <tr>
-                <th>Produkt 1</th>
-                <td>650€</td>
+                <th>{{$product->name}}</th>
+                <td>{{$product->price}} €</td>
                 <td>
                     <i class="fa fa-minus"></i>
                     <input class="number-input" type="number" placeholder="1" min="1" />
                     <i class="fa fa-plus"></i>
                 </td>
-                <td><i class="fa fa-times icons text-danger"></i></td>
-            </tr>
-            <tr>
-                <th>Produkt 1235</th>
-                <td>650€</td>
                 <td>
-                    <i class="fa fa-minus"></i>
-                    <input class="number-input" type="number" placeholder="1" min="1" />
-                    <i class="fa fa-plus"></i>
+                    <a href="{{ url('/cart/' . $product->id . '/remove') }}">
+                        <i class="fa fa-times icons text-danger"></i>
+                    </a>
                 </td>
-                <td><i class="fa fa-times icons text-danger"></i></td>
             </tr>
-            <tr>
-                <th>Produkt číslo 1236</th>
-                <td>650€</td>
-                <td>
-                    <i class="fa fa-minus"></i>
-                    <input class="number-input" type="number" placeholder="1" min="1" />
-                    <i class="fa fa-plus"></i>
-                </td>
-                <td><i class="fa fa-times icons text-danger"></i></td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
     <section class="d-flex flex-column">

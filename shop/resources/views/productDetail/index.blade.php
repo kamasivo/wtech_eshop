@@ -64,7 +64,7 @@
                     <!--row4-->
                     <div class="row py-4 px-4 justify-content-between">
                         <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-success btn-block text-center" href='/cart' role="button">Kúpiť</a>
+                            <a class="cart btn btn-success btn-block text-center" href="{{ url('/product/' . $product->id . '/addToCart') }}" role="button">Kúpiť</a>
                         </div>
                         <div class="col-sm-6 col-12 py-1 mx-0">
                             <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>

@@ -50,6 +50,7 @@ class ProductPageController extends Controller
      */
     public function show($id)
     {
+        //todo paging, filter, opbrazky len ti co treba
         $products = Product::where('category_id', '=', $id)->get();
         $images = Image::all();
         return view('productPage.index', compact('products', $products, 'images', $images));
