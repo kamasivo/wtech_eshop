@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductPageController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\DeliveryDataController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -44,6 +45,6 @@ Route::view('/contact', 'footerInformation.contact-info');
 Route::view('/objection', 'footerInformation.objection');
 Route::view('/privacy', 'footerInformation.privacy');
 
+Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D // to tam musi byt kvoli prihlasovaniu, registracii odhlaseniu
 
-
-Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D
+Route::resource('user', UserController::class, ['middleware' => 'auth']);
