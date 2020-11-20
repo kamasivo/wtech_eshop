@@ -48,3 +48,5 @@ Route::view('/privacy', 'footerInformation.privacy');
 Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D // to tam musi byt kvoli prihlasovaniu, registracii odhlaseniu
 
 Route::resource('user', UserController::class, ['middleware' => 'auth']);
+
+Route::post('edit', [UserController::class, 'update']);
