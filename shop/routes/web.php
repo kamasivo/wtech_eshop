@@ -46,4 +46,5 @@ Route::view('/privacy', 'footerInformation.privacy');
 
 
 
+
 Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D
