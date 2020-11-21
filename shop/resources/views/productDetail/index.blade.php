@@ -26,52 +26,33 @@
                 <div class="container-fluid description bg-light">
                     <!--row1-->
                     <div class="row py-2 pl-4">
-                        <div class="col-6 d-flex flex-start">
+                        <div class="col-3 d-flex flex-start">
                             <span class="detail-name">Veľkosť</span>
                         </div>
 
-                        <div class="col-6 d-flex justify-content-between">
-                            <form>
-                                <div class="radio" checked>
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XS </label><span class="font-weight-bold text-center">Dostupných 10ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> X </label><span class="font-weight-bold">Dostupných 5ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> M </label><span class="font-weight-bold">Dostupných 8ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> L </label><span class="font-weight-bold">Dostupných 17ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XL </label><span class="font-weight-bold">Dostupných 4ks</span>
-                                </div>
-                                <div class="radio">
-                                    <label class="radio-button"><input type="radio" name="optradio" /> XXL </label><span class="font-weight-bold">Dostupných 10ks</span>
-                                </div>
-                            </form>
+                        <div class="col-9 d-flex justify-content-between">
+                            <span type="radio" name="optradio" class="font-weight-bolder"> {{$product->size}}</span>
                         </div>
                     </div>
 
                     <!--row2-->
                     <div class="row py-2 pl-4">
-                        <div class="col-6 d-flex flex-column">
+                        <div class="col-3 d-flex flex-column">
                             <span class="detail-name text-uppercase">Cena</span>
                             <span class="detail-name">s 20% DPH</span>
                         </div>
-                        <div class="col-6 flex-column text-right">
+                        <div class="col-9 flex-column">
                             <span id="productDetailPrice" class="text-danger price w-100">{{$product->price}}€&nbsp;</span>
                         </div>
                     </div>
 
                     <!--row3-->
                     <div class="row py-2 pl-4 align-items-center">
-                        <div class="col-6 flex-column text-a">
+                        <div class="col-3 flex-column text-a">
                             <span class="detail-name">Množstvo</span>
                         </div>
                         <div class="col-6">
-                            <div class="row mx-0 justify-content-center">
+                            <div class="row mx-0 align-items-center">
                                 <div class="col-1 px-0"><i class="fa fa-minus"></i></div>
                                 <div class="col-4 px-2"><input type="number" class="quantity w-100" placeholder="1" min="1" /></div>
                                 <div class="col-1 px-0"><i class="fa fa-plus"></i></div>
@@ -83,7 +64,7 @@
                     <!--row4-->
                     <div class="row py-4 px-4 justify-content-between">
                         <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-success btn-block text-center" href="../cart/cart.html" role="button">Kúpiť</a>
+                            <a class="cart btn btn-success btn-block text-center" href="{{ url('/product/' . $product->id . '/addToCart') }}" role="button">Kúpiť</a>
                         </div>
                         <div class="col-sm-6 col-12 py-1 mx-0">
                             <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>

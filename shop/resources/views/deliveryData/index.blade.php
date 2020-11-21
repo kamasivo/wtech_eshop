@@ -46,7 +46,7 @@
             </a>
         </button>
         <button class="btn btn-secondary align-self-center mb-3 col-11 col-md-8 col-xl-6">
-            <a href="#">
+            <a href="cart">
                 <div class="d-flex justify-content-center align-items-center">
                     <i class="fa fa-arrow-left text-light"></i>
                     <p class="text-light ml-2 mb-0">Späť</p>

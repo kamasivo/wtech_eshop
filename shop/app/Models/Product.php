@@ -27,4 +27,9 @@ class Product extends Model
     {
         return $this->hasOne('App\Category');
     }
+
+    public function cart()
+    {
+        return $this->belongsTo('App\Cart');
+    }
 }
