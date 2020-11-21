@@ -16,9 +16,7 @@ class ProductPageController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        $images = Image::all();
-        return view('productPage.index', compact('products', $products, 'images', $images));
+        //
     }
 
     /**
@@ -86,6 +84,58 @@ class ProductPageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+    }
+    
+    /**
+     * Product paginate
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function paging(Request $request, $id)
+    {
+        //treba spravit image join s produktami ktore vytiahnem
+
+        $sort = request()->has('sort') ? request()->get('sort') : 'asc';
+
+        $products = Product::where('category_id', $id)->where(function($query){
+            $priceFrom = request()->has('priceFrom') ? request()->get('priceFrom') : null;
+            $priceTo = request()->has('priceTo') ? request()->get('priceTo') : null;
+                 
+            if(isset($priceFrom)){
+                    $query->Where('price', '>=', $priceFrom);
+            }
+            if(isset($priceTo)){
+                $query->Where('price', '<=', $priceTo);
+            }
+        })->where(function($query){
+            $size = request()->has('size') ? request()->get('size') : null;    
+            if(isset($size)){
+                /*$query->Where('size', '=', $size[0]);
+                for($i = 1; $i < count($size); $i++){
+                    $query->orWhere('size', '=', $size[$i]);
+                }*/
+                foreach ($size as $s) {
+                    $query->orWhere('size', '=', $s);
+                }
+            }
+        })->where(function($query){
+            $brands = request()->has('brands') ? request()->get('brands') : null;    
+            if(isset($brands)){
+                foreach ($brands as $brand) {
+                    $query->orWhere('brand', '=', $brand);
+                }
+            }
+        })->orderby('price', $sort)->paginate(6);
+    
+
+        $images = Image::all();
+        return view('productPage.index', compact('products', $products, 'images', $images));
+    }
+
+    public function filterPaging(Request $request, $id)
     {
         //
     }

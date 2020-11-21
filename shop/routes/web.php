@@ -24,6 +24,7 @@ use App\Http\Controllers\UserController;
 */
 
 
+
 Route::get('product/{id}/addToCart', [ProductController::class, 'addToCart']);
 Route::get('cart/{id}/remove', [CartController::class, 'remove']);
 Route::get('cart/removeAll', [CartController::class, 'removeAll']);
@@ -35,7 +36,7 @@ Route::resource('/home', HomeController::class);
 Route::resource('/cart', CartController::class);
 
 Route::resource('product', ProductController::class);
-Route::resource('products', ProductPageController::class);
+//Route::resource('products', ProductPageController::class);
 
 Route::resource('account', AccountController::class);
 
@@ -52,3 +53,7 @@ Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :
 Route::resource('user', UserController::class, ['middleware' => 'auth']);
 
 Route::post('edit', [UserController::class, 'update']);
+
+Route::get('products/{id}', [ProductPageController::class, 'paging']);
+
+//Route::get('products/{id}/{order}', [ProductPageController::class, 'paginate']);

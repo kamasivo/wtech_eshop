@@ -43,6 +43,19 @@
     background-color: #fc8852;
 }
 
+a.page-link {
+    background-color: #ffa57c;
+}
+
+.pagination > li.active > span.page-link {
+    border-color: #ff5100;
+    background-color: #ff5100;
+}
+
+.pagination > li.disabled > span.page-link {
+    background-color: #fadfd3;
+}
+
 .pagination li {
     padding: 1px;
 }

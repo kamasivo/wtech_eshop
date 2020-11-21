@@ -17,21 +17,21 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Trek',
             'description' => 'trek bicykel',
-            'size' => 'L',
+            'size' => 'M',
             'price' => '3999',
             'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'BMC ROADMACHINE ULTEGRA DI2',
             'description' => ' bicykel',
-            'size' => 'L',
+            'size' => 'M',
             'price' => '3886',
             'category_id' => '1',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 10 DISC MARINE BLUE',
             'description' => ' bicykel',
-            'size' => 'L',
+            'size' => 'S',
             'price' => '2788',
             'category_id' => '1',
         ]);
@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 20 DISC PEARL WHITE',
             'description' => 'scott bicykel',
-            'size' => 'L',
+            'size' => 'XL',
             'price' => '2999',
             'category_id' => '1',
         ]);
@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT RC 15 CARBON ONYX BLACK',
             'description' => 'trek bicykel',
-            'size' => 'L',
+            'size' => 'XXL',
             'price' => '4999',
             'category_id' => '1',
         ]);
@@ -73,7 +73,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'SCOTT CONTESSA SPEEDSTER 15',
             'description' => 'trek bicykel',
-            'size' => 'L',
+            'size' => 'M',
             'price' => '3999',
             'category_id' => '1',
         ]);
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'SCOTT CONTESSA SPEEDSTER 15',
             'description' => 'trek bicykel',
-            'size' => 'L',
+            'size' => 'M',
             'price' => '3999',
             'category_id' => '2',
         ]);
