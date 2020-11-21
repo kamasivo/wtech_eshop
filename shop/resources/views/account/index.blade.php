@@ -28,52 +28,47 @@
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Mesto</label>
+          <label for="town">Mesto</label>
           <input
             type="text"
             name="town"
             class="form-control col-12 col-md-10 col-xl-6"
-            id="town"
             value="{{$user['town']}}"
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Ulica</label>
+          <label for="street">Ulica</label>
           <input
             type="text"
             name="street"
             class="form-control col-12 col-md-10 col-xl-6"
-            id="street"
             value="{{$user['street']}}"
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Číslo domu</label>
+          <label for="house_number">Číslo domu</label>
           <input
             type="number"
             name="house_number"
             class="form-control col-12 col-md-10 col-xl-6"
-            id="house_number"
             value="{{$user['house_number']}}"
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Tel. číslo</label>
+          <label for="phone">Tel. číslo</label>
           <input
             type="text"
             name="phone"
             class="form-control col-12 col-md-10 col-xl-6"
-            id="phone_number"
             value="{{$user['phone']}}"  
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">E-mail</label>
+          <label for="email">E-mail</label>
           <input
             type="email"
             name="email"
             class="form-control col-12 col-md-10 col-xl-6"
-            id="email"
             value="{{$user['email']}}"  
           />
         </div>

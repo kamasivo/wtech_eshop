@@ -74,12 +74,7 @@ class UserController extends Controller
         $id = auth()->user()->id;
         $user = User::find($id);
 
-        $user->name = $request->name;
-        $user->surname = $request->surname;
-        $user->town = $request->town;
-        $user->street = $request->street;
-        $user->house_number = $request->house_number;
-        $user->phone = $request->phone  ; 
+        $user->update($request->all()); 
         $user->save();
 
         return redirect('/home');
