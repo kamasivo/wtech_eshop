@@ -54,13 +54,13 @@
                 </li>
                 @endguest
 
-                <li class=" nav-item d-flex align-items-center">
-                    <i class="fa text-light fa-shopping-cart"></i>
-                    <a class="nav-link" href="/cart">Košík </a>
-                </li>
             </ul>
+            <div class="ml-auto nav-item d-flex align-items-center">
+                <i class="fa text-light fa-shopping-cart"></i>
+                <a class="nav-link" href="/cart">Košík </a>
+            </div>
 
-            <form class="form-inline my-2 my-lg-0 ml-auto">
+            <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
                 <button class="btn btn-dark my-2 my-sm-0" type="submit">Hľadať</button>
             </form>

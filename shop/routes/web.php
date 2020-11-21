@@ -28,10 +28,6 @@ Route::get('product/{id}/addToCart', [ProductController::class, 'addToCart']);
 Route::get('cart/{id}/remove', [CartController::class, 'remove']);
 Route::get('cart/removeAll', [CartController::class, 'removeAll']);
 
-Route::resource('/', HomeController::class);
-
-Route::resource('/home', HomeController::class);
-
 Route::resource('/cart', CartController::class);
 
 Route::resource('product', ProductController::class);
@@ -46,6 +42,8 @@ Route::resource('delivery-data', DeliveryDataController::class);
 Route::view('/contact', 'footerInformation.contact-info');
 Route::view('/objection', 'footerInformation.objection');
 Route::view('/privacy', 'footerInformation.privacy');
+Route::view('/', 'home.index');
+Route::view('/home', 'home.index');
 
 Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :D // to tam musi byt kvoli prihlasovaniu, registracii odhlaseniu
 
