@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.account');
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        return view('account.index', compact('user', $user));  
     }
 
     /**
@@ -66,9 +69,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = auth()->user()->id;
+        $user = User::find($id);
+
+        $user->update($request->all()); 
+        $user->save();
+
+        return redirect('/home');
     }
 
     /**
