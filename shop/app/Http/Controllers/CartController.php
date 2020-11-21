@@ -15,6 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
+        // todo pridat filtovanie podla usera...
         $cart = Cart::all();
         $products = array();
         foreach ($cart as $c) {
