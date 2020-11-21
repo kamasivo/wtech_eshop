@@ -105,7 +105,8 @@
             <h2 class="text-center">Popis</h2>
         </div>
         <div class="col-12 col-md-7 px-0">
-            <ul class="px-4 ml-2">
+            {{$product->description}}
+            <!-- <ul class="px-4 ml-2">
                 <li>
                     <span><strong>Farba</strong>: Matte Carbon&nbsp;</span>
                 </li>
@@ -179,9 +180,9 @@
                         (25c), skladacie, bezdušové&nbsp;</span>
                 </li>
             </ul>
-            <div>&nbsp;</div>
+            <div>&nbsp;</div> -->
+            <!-- </div> -->
+            <!-- </div> -->
         </div>
-    </div>
-    </div>
 </section>
 @endsection

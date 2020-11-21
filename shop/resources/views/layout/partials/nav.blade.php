@@ -56,7 +56,7 @@
 
                 <li class=" nav-item d-flex align-items-center">
                     <i class="fa text-light fa-shopping-cart"></i>
-                    <a class="nav-link" href="cart">Košík </a>
+                    <a class="nav-link" href="/cart">Košík </a>
                 </li>
             </ul>
 
