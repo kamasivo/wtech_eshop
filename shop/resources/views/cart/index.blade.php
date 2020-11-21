@@ -29,7 +29,6 @@
                 <td>{{$product->price}} €</td>
                 <td>
                     <i class="fa fa-minus"></i>
-                    <!-- <input class="number-input" type="number" placeholder="{{$cart[$product->id - 1]->count}}" min="1" /> -->
                     <input class="number-input" type="number" placeholder="1" min="1" />
                     <i class="fa fa-plus"></i>
                 </td>

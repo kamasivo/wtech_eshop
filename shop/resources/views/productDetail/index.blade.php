@@ -12,12 +12,6 @@
                 @else
                 Bad image path!
                 @endif
-                <!-- <picture>
-                    <source class=" d-block w-100" media="(min-width:768px)" srcset="../../images/bike/Scott_Foil.jpg" />
-                <source class="d-block w-100" media="(min-width:576px)" srcset="../../images/bike/Scott_Foil-768px.jpg" />
-                <img class="d-block w-100" src="../../images/bike/Scott_Foil-576px.jpg" alt="Cestný tmavozelený bicykel
-                Scott Foil 30" />
-                </picture> -->
             </div>
 
             <div class="col-xl-4 col-lg-5 col-12 px-0">
@@ -62,6 +56,7 @@
                     </div>
 
                     <!--row4-->
+                    @if(Auth::user())
                     <div class="row py-4 px-4 justify-content-between">
                         <div class="col-sm-6 col-12 py-1 mx-0">
                             <a class="cart btn btn-success btn-block text-center" href="{{ url('/product/' . $product->id . '/addToCart') }}" role="button">Kúpiť</a>
@@ -70,6 +65,7 @@
                             <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

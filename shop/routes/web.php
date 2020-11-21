@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductPageController;
@@ -28,15 +28,11 @@ Route::get('product/{id}/addToCart', [ProductController::class, 'addToCart']);
 Route::get('cart/{id}/remove', [CartController::class, 'remove']);
 Route::get('cart/removeAll', [CartController::class, 'removeAll']);
 
-Route::resource('/cart', CartController::class);
-
+Route::resource('/cart', CartController::class, ['middleware' => 'auth']);
 Route::resource('product', ProductController::class);
 Route::resource('products', ProductPageController::class);
-
 Route::resource('account', AccountController::class);
-
 Route::resource('payment', PaymentController::class);
-
 Route::resource('delivery-data', DeliveryDataController::class);
 
 Route::view('/contact', 'footerInformation.contact-info');
@@ -50,3 +46,4 @@ Auth::routes(); // toto mi podciarkuje code nechapem preco...a co to vobec je? :
 Route::resource('user', UserController::class, ['middleware' => 'auth']);
 
 Route::post('edit', [UserController::class, 'update']);
+Route::post('/delivery-data/edit', [DeliveryDataController::class, 'update']);

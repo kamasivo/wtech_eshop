@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -15,8 +16,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        // todo pridat filtovanie podla usera...
-        $cart = Cart::all();
+        $uid = Auth::id();
+        $cart = Cart::where('user_id', '=', $uid)->get();  // select all cart where uid = user id
         $products = array();
         foreach ($cart as $c) {
             array_push($products, Product::find($c->product_id));

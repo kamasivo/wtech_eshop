@@ -55,10 +55,12 @@
                 @endguest
 
             </ul>
+            @if(Auth::user())
             <div class="ml-auto nav-item d-flex align-items-center">
                 <i class="fa text-light fa-shopping-cart"></i>
                 <a class="nav-link" href="/cart">Košík </a>
             </div>
+            @endif
 
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
