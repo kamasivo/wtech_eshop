@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Cart;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
-class HomeController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home.index');
+        return view('order.index');
     }
 
     /**
@@ -23,7 +28,17 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        $uid = Auth::id();
+        $cart = Cart::where('user_id', '=', $uid)->get();
+        $orderNumber = rand(10000, 9000000);
+        foreach ($cart as $c) {
+            DB::table('orders')->insert([
+                'order_number' => $orderNumber,
+                'user_id' => $uid,
+                'product_id' =>  $c->product_id,
+            ]);
+        }
+        return redirect('orders');
     }
 
     /**
@@ -40,10 +55,10 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
         //
     }
@@ -51,10 +66,10 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
         //
     }
@@ -63,10 +78,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -74,10 +89,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
     }

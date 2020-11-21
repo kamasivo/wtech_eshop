@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DeliveryDataController extends Controller
@@ -13,7 +14,9 @@ class DeliveryDataController extends Controller
      */
     public function index()
     {
-        return view('deliveryData.index');
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        return view('deliveryData.index', compact('user', $user));
     }
 
     /**
@@ -66,9 +69,25 @@ class DeliveryDataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'surname' => 'required',
+            'town' => 'required',
+            'street' => 'required',
+            'house_number' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+        ]);
+
+        $id = auth()->user()->id;
+        $user = User::find($id);
+
+        $user->update($request->all());
+        $user->save();
+
+        return redirect('/payment');
     }
 
     /**

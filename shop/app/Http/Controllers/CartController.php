@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -15,12 +16,15 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cart = Cart::all();
+        $uid = Auth::id();
+        $cart = Cart::where('user_id', '=', $uid)->get();
         $products = array();
+        $sum = 0;
         foreach ($cart as $c) {
             array_push($products, Product::find($c->product_id));
+            $sum += Product::find($c->product_id)->price;
         }
-        return view('cart.index', compact('cart', $cart, 'products', $products));
+        return view('cart.index', compact('sum', $sum, 'products', $products));
     }
 
     /**
