@@ -103,8 +103,13 @@
                         <span class="pull-right">Sort:</br>
                         <?php
                         $url = $_SERVER['REQUEST_URI'];
+                        $url = str_replace("&sort=asc", "", $url);
+                        $url = str_replace("&sort=desc", "", $url);
+                        $url = str_replace("?sort=asc", "", $url);
+                        $url = str_replace("?sort=desc", "", $url);
                         (strlen($url) == 11) ? $url .= '?' : $url .= '&';
-                        echo '<a href=' . $url . 'sort=asc> Vzostupne</a> | <a href=' . $url . 'sort=desc> Zostupne</a>';?></span>
+                        echo '<a href=' . $url . 'sort=asc> Vzostupne</a> | <a href=' . $url . 'sort=desc> Zostupne</a>'; ?>
+                       </span>
                     </div>
                 </div>
             </div>
