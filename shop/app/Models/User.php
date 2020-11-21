@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Cart');
     }
+
+    public function order()
+    {
+        return $this->belongsTo('App\Cart');
+    }
 }

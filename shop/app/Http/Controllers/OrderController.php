@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Cart;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +18,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        $uid = Auth::id();
-        $cart = Cart::where('user_id', '=', $uid)->get();
-        $products = array();
-        $sum = 0;
-        foreach ($cart as $c) {
-            array_push($products, Product::find($c->product_id));
-            $sum += Product::find($c->product_id)->price;
-        }
-        return view('cart.index', compact('sum', $sum, 'products', $products));
+        return view('order.index');
     }
 
     /**
@@ -34,7 +28,17 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+        $uid = Auth::id();
+        $cart = Cart::where('user_id', '=', $uid)->get();
+        $orderNumber = rand(10000, 9000000);
+        foreach ($cart as $c) {
+            DB::table('orders')->insert([
+                'order_number' => $orderNumber,
+                'user_id' => $uid,
+                'product_id' =>  $c->product_id,
+            ]);
+        }
+        return redirect('orders');
     }
 
     /**
@@ -51,10 +55,10 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
         //
     }
@@ -62,10 +66,10 @@ class CartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Order $order)
     {
         //
     }
@@ -74,10 +78,10 @@ class CartController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
         //
     }
@@ -85,23 +89,11 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
-    }
-
-    public function remove($id)
-    {
-        Cart::where('product_id', $id)->delete();
-        return redirect('cart');
-    }
-
-    public function removeAll()
-    {
-        Cart::truncate();
-        return redirect('cart');
     }
 }

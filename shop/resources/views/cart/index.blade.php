@@ -18,7 +18,7 @@
             <tr>
                 <th scope="col">Názov produktu</th>
                 <th scope="col">Cena</th>
-                <th scope="col">Počet</th>
+                <!-- <th scope="col">Počet</th> -->
                 <th scope="col">Akcia</th>
             </tr>
         </thead>
@@ -27,11 +27,11 @@
             <tr>
                 <th>{{$product->name}}</th>
                 <td>{{$product->price}} €</td>
-                <td>
+                <!-- <td>
                     <i class="fa fa-minus"></i>
                     <input class="number-input" type="number" placeholder="1" min="1" />
                     <i class="fa fa-plus"></i>
-                </td>
+                </td> -->
                 <td>
                     <a href="{{ url('/cart/' . $product->id . '/remove') }}">
                         <i class="fa fa-times icons text-danger"></i>
@@ -39,6 +39,10 @@
                 </td>
             </tr>
             @endforeach
+            <tr>
+                <th class="font-weight-bolder mr-1"> Spolu: </th>
+                <td class="text-danger font-weight-bolder size-xl">{{$sum}} €</td>
+            </tr>
         </tbody>
     </table>
     <section class="d-flex flex-column">

@@ -10,6 +10,7 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\DeliveryDataController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -34,6 +35,7 @@ Route::resource('products', ProductPageController::class);
 Route::resource('account', AccountController::class);
 Route::resource('payment', PaymentController::class);
 Route::resource('delivery-data', DeliveryDataController::class);
+Route::resource('orders', OrderController::class);
 
 Route::view('/contact', 'footerInformation.contact-info');
 Route::view('/objection', 'footerInformation.objection');

@@ -24,7 +24,7 @@
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
-                <li class="nav-item">
+                <li class="nav-item ml-auto">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#logIn">Prihlásiť sa </a>
                 </li>
                 @endif
@@ -42,6 +42,7 @@
 
                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ url('/user') }}">Účet</a>
+                        <a class="dropdown-item" href="{{ url('/orders') }}">Moje objednávky</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                             {{ __('Odhlásiť sa') }}
@@ -55,17 +56,19 @@
                 @endguest
 
             </ul>
-            @if(Auth::user())
-            <div class="ml-auto nav-item d-flex align-items-center">
-                <i class="fa text-light fa-shopping-cart"></i>
-                <a class="nav-link" href="/cart">Košík </a>
-            </div>
-            @endif
+            <div class="ml-auto d-flex">
+                @if(Auth::user())
+                <div class="nav-item d-flex align-items-center">
+                    <i class="fa text-light fa-shopping-cart"></i>
+                    <a class="nav-link" href="/cart">Košík </a>
+                </div>
+                @endif
 
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
-                <button class="btn btn-dark my-2 my-sm-0" type="submit">Hľadať</button>
-            </form>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
+                    <button class="btn btn-dark my-2 my-sm-0" type="submit">Hľadať</button>
+                </form>
+            </div>
         </div>
     </nav>
 

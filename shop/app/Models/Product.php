@@ -32,4 +32,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Cart');
     }
+
+    public function order()
+    {
+        return $this->belongsTo('App\Cart');
+    }
 }

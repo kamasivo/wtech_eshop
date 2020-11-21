@@ -50,12 +50,12 @@
     </form>
 </section>
 <section class="p-3 light-container mt-2 d-flex flex-column bg-light col-11 col-sm-8 col-md-6 col-xl-4">
-    <p class="mb-0">Cena tovaru: 345€</p>
+    <p class="mb-0">Cena tovaru: {{ $sum }}€</p>
     <p class="mb-0">Cena dopravy: 5€</p>
-    <h5 class="mt-2 mb-3">Cena spolu: 350€</h5>
+    <h5 class="mt-2 mb-3">Cena spolu: {{$sum + 5}}€</h5>
 
     <button class="btn btn-success align-self-center mb-3 col-12 col-md-10">
-        <a href="/">
+        <a href="{{ url('/orders/create') }}">
             <div class="d-flex justify-content-center align-items-center">
                 <p class="text-light mr-2 mb-0">Zaplatiť</p>
                 <i class="fa fa-arrow-right text-light"></i>
