@@ -74,31 +74,9 @@
         </div>
         <button
           type="submit"
-          class="btn btn-primary col-12 col-md-10 col-xl-6"
+          class="btn btn-success col-12 col-md-10 col-xl-6"
         >
          Zmeniť osobné údaje
-        </button>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Heslo</label>
-          <input
-            type="password"
-            class="form-control col-12 col-md-10 col-xl-6"
-            id="passwd"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Potvrdiť heslo</label>
-          <input
-            type="password"
-            class="form-control col-12 col-md-10 col-xl-6"
-            id="passwd_retype"
-          />
-        </div>
-        <button
-          type="submit"
-          class="btn btn-primary col-12 col-md-10 col-xl-6"
-        >
-          Zmeniť heslo
         </button>
       </form>
 </section>

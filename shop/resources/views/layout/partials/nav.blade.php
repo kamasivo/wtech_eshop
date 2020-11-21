@@ -61,8 +61,8 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0 ml-auto">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Hľadať</button>
             </form>
         </div>
     </nav>

@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-<link rel="stylesheet" href="{{ asset('css/productDetail.css') }}">
+<link rel="stylesheet" href="{{ asset('css/productPage.css') }}">
 
 @section('content')
 
@@ -118,7 +118,7 @@
                                     <img class="d-block w-100" src="{{ asset('storage/images' . $images[$product->id - 1]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
                                     <div class="card-body">
                                         <p class="card-text mb-0">{{$product->name}}</p>
-                                        <p class="card-text mb-0">{{$product->price}}</p>
+                                        <p class="card-text mb-0">{{$product->price}}€</p>
                                     </div>
                                 </div>
                             </a>
