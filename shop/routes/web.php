@@ -34,7 +34,7 @@ Route::get('cart/removeAll', [CartController::class, 'removeAll']);
 
 Route::resource('/cart', CartController::class, ['middleware' => 'auth']);
 Route::resource('product', ProductController::class);
-Route::get('products/{id}', [ProductPageController::class, 'paging']);
+Route::any('products/{id}', [ProductPageController::class, 'paging']);
 Route::any('/search', [ProductPageController::class, 'search']);
 Route::resource('products', ProductPageController::class);
 

@@ -140,11 +140,11 @@ class ProductPageController extends Controller
         $images = Image::all();
         
         if(count($products) > 0){
-            return view('productPage.index', compact('category', $category, 'products', $products, 'images', $images, 'sizes', $sizes, 'brands', $brands)); 
+            return view('productPage.index', compact('category', 'products', 'images', 'sizes', 'brands')); 
         }
         else{
             $message = "Nenašli sa žiadne produkty :(";
-            return view('productPage.index', compact('category', 'message')); 
+            return view('productPage.index', compact('category', 'sizes', 'brands',  'message')); 
         }
     }
 

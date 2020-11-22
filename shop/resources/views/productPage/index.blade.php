@@ -14,7 +14,7 @@
             <a class="btn btn-dark mb-3" data-toggle="collapse" href="#filter" role="button" aria-expanded="true" aria-controls="filter">Skryť/Zobraziť filter</a>
             <section class="mb-4 ml-2 px-2 bg-light">
                 <div class="collapse show p-4" id="filter">
-                    <form method="GET" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+                    <form method="GET" id="filterForm" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
                         <div class="col-12 ml-3 pl-0">
                             <div class="row">
                                 <div class="col-12 pl-0">
@@ -22,12 +22,28 @@
                                 </div>
                                 <div class="col-lg-12 pl-0 py-1">
                                     <span class="font-weight-bold">Od:
-                                        <input class="text-right" type="number" id="priceFrom" name="priceFrom" min="1" max="20000" placeholder="0"/>
+                                        <input class="text-right" type="number" name="priceFrom" 
+                                        <?php
+                                            if (isset($_REQUEST['priceFrom'])) {
+                                                echo 'value="' . $_REQUEST['priceFrom'] . '"';
+                                            } else {
+                                                echo 'value=""';
+                                            }
+                                        ?>
+                                        min="1" max="20000" placeholder="0"/>
                                         €</span>
                                 </div>
                                 <div class="col-lg-12 pl-0 py-1">
                                     <span class="font-weight-bold">Do:
-                                        <input class="text-right" type="number" id="priceTo" name="priceTo" min="1" max="20000" placeholder="20000"/>
+                                        <input class="text-right" type="number" name="priceTo"
+                                        <?php
+                                            if (isset($_REQUEST['priceTo'])) {
+                                                echo 'value="' . $_REQUEST['priceTo'] . '"';
+                                            } else {
+                                                echo 'value=""';
+                                            }
+                                        ?>
+                                        min="1" max="20000" placeholder="20000"/>
                                         €</span>
                                 </div>
                             </div>
@@ -37,10 +53,10 @@
                                 <div class="col-12 pl-0">
                                     <h5>Velkosť:</h5>
                                 </div>
-                                @if(isset($sizes))
+                                @if(isset($sizes))          
                                     @foreach($sizes as $size)
                                     <div class="form-check col-12 pl-0 ml-4">
-                                        <input type="checkbox" class="form-check-input filled-in"name="size[]" value="{{$size->size}}"/>
+                                        <input type="checkbox" class="form-check-input filled-in" name="size[]" value="{{$size->size}}"/>
                                         <label class="form-check-label card-link-secondary">{{$size->size}}</label>
                                     </div>
                                     @endforeach
@@ -69,7 +85,12 @@
                         </button>
                         </div>
                         <div class="col-12 mb-4 d-flex justify-content-center">
-                            <a class="btn btn-secondary btn-block" href="/products/1" type="submit">
+                            <a class="btn btn-secondary btn-block"
+                            <?php
+                            $url = $_SERVER['REQUEST_URI'];
+                            $url =  substr($url, 0, strpos($url,"/products")+12);
+                            echo '<a href=' . $url; ?>
+                            type="submit">
                                 Reset
                             </a>
                         </div>
