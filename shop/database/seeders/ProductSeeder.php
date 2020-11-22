@@ -22,6 +22,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '3999',
             'category_id' => '1',
+            'quantity' => '2',
+            'brand' => 'Trek',
         ]);
         DB::table('products')->insert([
             'name' => 'BMC ROADMACHINE ULTEGRA DI2',
@@ -29,6 +31,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '3886',
             'category_id' => '1',
+            'quantity' => '4',
+            'brand' => 'BMC',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 10 DISC MARINE BLUE',
@@ -36,6 +40,8 @@ class ProductSeeder extends Seeder
             'size' => 'S',
             'price' => '2788',
             'category_id' => '1',
+            'quantity' => '2',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 10 CARBON ONYX BLACK',
@@ -43,6 +49,8 @@ class ProductSeeder extends Seeder
             'size' => 'XL',
             'price' => '1999',
             'category_id' => '1',
+            'quantity' => '1',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 20 DISC PEARL WHITE',
@@ -50,6 +58,8 @@ class ProductSeeder extends Seeder
             'size' => 'XXL',
             'price' => '2999',
             'category_id' => '1',
+            'quantity' => '1',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT 30',
@@ -57,6 +67,8 @@ class ProductSeeder extends Seeder
             'size' => 'L',
             'price' => '1222',
             'category_id' => '1',
+            'quantity' => '5',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT RC 15 CARBON ONYX BLACK',
@@ -64,6 +76,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '4999',
             'category_id' => '1',
+            'quantity' => '3',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT ADDICT SE DISC',
@@ -71,6 +85,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '3500',
             'category_id' => '1',
+            'quantity' => '2',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'SCOTT CONTESSA SPEEDSTER 15',
@@ -78,6 +94,8 @@ class ProductSeeder extends Seeder
             'size' => 'S',
             'price' => '3999',
             'category_id' => '1',
+            'quantity' => '4',
+            'brand' => 'Scott',
         ]);
 
         // elektrobicykle
@@ -87,6 +105,8 @@ class ProductSeeder extends Seeder
             'size' => 'S',
             'price' => '2449',
             'category_id' => '2',
+            'quantity' => '5',
+            'brand' => 'Cannondale',
         ]);
 
         DB::table('products')->insert([
@@ -95,6 +115,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '1999',
             'category_id' => '2',
+            'quantity' => '4',
+            'brand' => 'Haibike',
         ]);
 
         DB::table('products')->insert([
@@ -103,6 +125,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '2059',
             'category_id' => '2',
+            'quantity' => '7',
+            'brand' => 'Ghost',
         ]);
 
         DB::table('products')->insert([
@@ -111,6 +135,8 @@ class ProductSeeder extends Seeder
             'size' => 'L',
             'price' => '1999',
             'category_id' => '2',
+            'quantity' => '1',
+            'brand' => 'Rock',
         ]);
 
         DB::table('products')->insert([
@@ -119,6 +145,8 @@ class ProductSeeder extends Seeder
             'size' => 'XXL',
             'price' => '2999',
             'category_id' => '2',
+            'quantity' => '2',
+            'brand' => 'Haibike',
         ]);
 
         // oblecenie 17-23
@@ -128,6 +156,8 @@ class ProductSeeder extends Seeder
             'size' => 'XL',
             'price' => '129',
             'category_id' => '3',
+            'quantity' => '8',
+            'brand' => 'Castelli',
         ]);
         DB::table('products')->insert([
             'name' => 'Castelli nohavice SORPASSO RoS',
@@ -135,6 +165,8 @@ class ProductSeeder extends Seeder
             'size' => 'S',
             'price' => '169',
             'category_id' => '3',
+            'quantity' => '7',
+            'brand' => 'Castelli',
         ]);
         DB::table('products')->insert([
             'name' => 'Eleven kompresné podkolienky',
@@ -142,6 +174,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '29',
             'category_id' => '3',
+            'quantity' => '2',
+            'brand' => 'Eleven',
         ]);
         DB::table('products')->insert([
             'name' => 'BBB BWG 21 ControlZone rukavice',
@@ -149,6 +183,8 @@ class ProductSeeder extends Seeder
             'size' => 'M',
             'price' => '15',
             'category_id' => '3',
+            'quantity' => '5',
+            'brand' => 'BBB',
         ]);
         DB::table('products')->insert([
             'name' => 'Castelli NANO FLEX 3G návleky',
@@ -156,6 +192,8 @@ class ProductSeeder extends Seeder
             'size' => 'XL',
             'price' => '39',
             'category_id' => '3',
+            'quantity' => '2',
+            'brand' => 'Casteli',
         ]);
 
         // trety
@@ -165,6 +203,8 @@ class ProductSeeder extends Seeder
             'size' => '42',
             'price' => '60',
             'category_id' => '4',
+            'quantity' => '3',
+            'brand' => 'Shimano',
         ]);
         DB::table('products')->insert([
             'name' => 'Fizik Infinito R1 - biele/čierne',
@@ -172,6 +212,8 @@ class ProductSeeder extends Seeder
             'size' => '42',
             'price' => '96',
             'category_id' => '4',
+            'quantity' => '2',
+            'brand' => 'Fizik',
         ]);
         DB::table('products')->insert([
             'name' => 'Shimano tretry SHXC701 čierne',
@@ -179,6 +221,8 @@ class ProductSeeder extends Seeder
             'size' => '42',
             'price' => '140',
             'category_id' => '4',
+            'quantity' => '5',
+            'brand' => 'Shimano',
         ]);
         DB::table('products')->insert([
             'name' => 'Shimano tretry SHAM901 / sivo-modré',
@@ -186,6 +230,8 @@ class ProductSeeder extends Seeder
             'size' => '43',
             'price' => '180',
             'category_id' => '4',
+            'quantity' => '2',
+            'brand' => 'Shimano',
         ]);
         DB::table('products')->insert([
             'name' => 'Shimano tretry SHXC300 čierne',
@@ -193,6 +239,8 @@ class ProductSeeder extends Seeder
             'size' => '44',
             'price' => '150',
             'category_id' => '4',
+            'quantity' => '6',
+            'brand' => 'Shimano',
         ]);
     }
 }
