@@ -35,6 +35,6 @@ class Product extends Model
 
     public function order()
     {
-        return $this->belongsTo('App\Cart');
+        return $this->belongsTo('App\Order');
     }
 }

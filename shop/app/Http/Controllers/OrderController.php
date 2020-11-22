@@ -18,7 +18,14 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('order.index');
+        $uid = Auth::id();
+        $order = Order::where('user_id', '=', $uid)->get();
+        $products = array();
+        foreach ($order as $c) {
+            array_push($products, Product::find($c->product_id));
+        }
+        $sum = 0;
+        return view('order.index', compact('sum', $sum, 'products', $products, 'order', $order));
     }
 
     /**
@@ -38,7 +45,7 @@ class OrderController extends Controller
                 'product_id' =>  $c->product_id,
             ]);
         }
-        return redirect('orders');
+        return redirect('/cart/delete');
     }
 
     /**

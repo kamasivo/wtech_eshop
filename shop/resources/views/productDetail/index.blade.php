@@ -41,31 +41,45 @@
                     </div>
 
                     <!--row3-->
-                    <div class="row py-2 pl-4 align-items-center">
-                        <div class="col-3 flex-column text-a">
-                            <span class="detail-name">Množstvo</span>
-                        </div>
-                        <div class="col-6">
-                            <div class="row mx-0 align-items-center">
-                                <div class="col-1 px-0"><i class="fa fa-minus"></i></div>
-                                <div class="col-4 px-2"><input type="number" class="quantity w-100" placeholder="1" min="1" /></div>
-                                <div class="col-1 px-0"><i class="fa fa-plus"></i></div>
+                    <form action="{{ url('/product/' . $product->id . '/' . 0 . '/addToChart') }}" id="form" method="post">
+                        @csrf
+                        <div class="row py-2 pl-4 align-items-center">
+                            <div class="col-3 flex-column text-a">
+                                <span class="detail-name">Množstvo</span>
                             </div>
+                            <div class="col-6">
+                                <div class="row mx-0 align-items-center">
+                                    <div class="col-1 px-0">
+                                        <a href="{{ url('/product/' . $product->id . '/'. $count . '/minus') }}">
+                                            <i class="fa fa-minus"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-4 px-2">
+                                        <input type="number" class="quantity w-100" name="count" id="count" min="1" value="{{ $count }}" min="1" /></div>
+                                    <div class="col-1 px-0">
+                                        <a href="{{ url('/product/' . $product->id . '/'. $count . '/plus') }}">
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <!--row4-->
-                    @if(Auth::user())
-                    <div class="row py-4 px-4 justify-content-between">
-                        <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-success btn-block text-center" href="{{ url('/product/' . $product->id . '/addToCart') }}" role="button">Kúpiť</a>
+                        <!--row4-->
+                        @if(Auth::user())
+                        <div class="row py-4 px-4 justify-content-between">
+                            <div class="col-sm-6 col-12 py-1 mx-0">
+                                <button class="cart btn btn-success btn-block text-center" type="submit">
+                                    Kúpiť
+                                </button>
+                            </div>
+                            <div class="col-sm-6 col-12 py-1 mx-0">
+                                <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>
+                            </div>
                         </div>
-                        <div class="col-sm-6 col-12 py-1 mx-0">
-                            <a class="cart btn btn-secondary btn-block text-center" data-toggle="modal" href="#cartModal" role="button" aria-expanded="false" aria-controls="cartModal">Pridať do košíka</a>
-                        </div>
-                    </div>
-                    @endif
+                        @endif
+                    </form>
                 </div>
             </div>
         </div>
@@ -83,12 +97,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="col-12 d-flex justify-content-center my-4">
-                            <button type="button" class="buy btn btn-success btn-block text-center" data-dismiss="modal">
+                            <button form="form" type="submit" class="buy btn btn-success btn-block text-center">
                                 Pokračovať v nákupe
                             </button>
                         </div>
                         <div class="col-12 d-flex justify-content-center my-4">
-                            <a href="../cart/cart.html" class="buy btn btn-secondary btn-block text-center" role="button">Prejsť do košíka</a>
+                            <button form="form" type="submit" class="buy btn btn-secondary btn-block text-center">Prejsť do košíka</button>
                         </div>
                     </div>
                 </div>
