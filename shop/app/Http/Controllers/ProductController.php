@@ -52,7 +52,8 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $images = Product::find($id)->images;
-        return view('productDetail.index', compact('product', $product, 'images', $images));
+        $count = 1;
+        return view('productDetail.index', compact('product', $product, 'images', $images, 'count', $count));
     }
 
     /**
@@ -89,14 +90,38 @@ class ProductController extends Controller
         //
     }
 
-    public function addToCart($id)
+    public function addToCart($id, Request $request, $continue)
     {
+        $request->all();
+        $count = request()->has('count') ? request()->get('count') : 1;
+
         $uid = Auth::id();
         DB::table('carts')->insert([
             'user_id' => $uid,
             'product_id' => $id,
-            'count' => 1,
+            'count' => $count,
         ]);
+        if ($continue == 1) {
+            return redirect('/');
+        }
         return redirect('cart');
+    }
+
+    public function plus($id, $count)
+    {
+        $count = $count + 1;
+
+        $product = Product::find($id);
+        $images = Product::find($id)->images;
+        return view('productDetail.index', compact('product', $product, 'images', $images, 'count', $count));
+    }
+
+    public function minus($id, $count)
+    {
+        $count = $count - 1;
+
+        $product = Product::find($id);
+        $images = Product::find($id)->images;
+        return view('productDetail.index', compact('product', $product, 'images', $images, 'count', $count));
     }
 }

@@ -21,11 +21,10 @@ class OrderController extends Controller
         $uid = Auth::id();
         $order = Order::where('user_id', '=', $uid)->get();
         $products = array();
-        $sum = 0;
         foreach ($order as $c) {
             array_push($products, Product::find($c->product_id));
-            $sum += Product::find($c->product_id)->price;
         }
+        $sum = 0;
         return view('order.index', compact('sum', $sum, 'products', $products, 'order', $order));
     }
 
@@ -46,7 +45,7 @@ class OrderController extends Controller
                 'product_id' =>  $c->product_id,
             ]);
         }
-        return redirect('orders');
+        return redirect('/cart/delete');
     }
 
     /**

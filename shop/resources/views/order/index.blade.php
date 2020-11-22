@@ -19,10 +19,10 @@
             <tr>
                 <td>{{$ord->order_number}}</td>
                 <td>
-                    {{$products[$ord->product_id]->name}}
+                    {{$products[$loop->index]->name}}
                 </td>
                 <td>
-                    {{$products[$ord->product_id]->price}} €
+                    {{$products[$loop->index]->price}} €
                 </td>
             </tr>
             @endforeach

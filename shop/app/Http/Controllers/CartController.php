@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Product;
+use GuzzleHttp\RedirectMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,7 @@ class CartController extends Controller
             array_push($products, Product::find($c->product_id));
             $sum += Product::find($c->product_id)->price;
         }
-        return view('cart.index', compact('sum', $sum, 'products', $products));
+        return view('cart.index', compact('sum', $sum, 'products', $products, 'cart', $cart));
     }
 
     /**
@@ -103,5 +104,25 @@ class CartController extends Controller
     {
         Cart::truncate();
         return redirect('cart');
+    }
+
+    public function delete()
+    {
+        Cart::truncate();
+        return redirect('orders');
+    }
+
+    public function plus($id, $count)
+    {
+        $count = $count + 1;
+        Cart::where('product_id', '=', $id)->update(['count' => $count]);
+        return redirect('/cart');
+    }
+
+    public function minus($id, $count)
+    {
+        $count = $count - 1;
+        Cart::where('product_id', '=', $id)->update(['count' => $count]);
+        return redirect('/cart');
     }
 }

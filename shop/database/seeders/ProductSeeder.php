@@ -100,7 +100,7 @@ class ProductSeeder extends Seeder
 
         // elektrobicykle
         DB::table('products')->insert([
-            'name' => 'Cannondale Trail Neo 3 2020 horský elektrobicykel',
+            'name' => 'Cannondale Trail Neo 3 2020',
             'description' => '',
             'size' => 'S',
             'price' => '2449',
@@ -110,7 +110,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Haibike SDURO HardNine 1.0 400Wh titánová / lime / čierna, model 2020',
+            'name' => 'Haibike SDURO HardNine 1.0 400Wh',
             'description' => '',
             'size' => 'M',
             'price' => '1999',
@@ -120,7 +120,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Ghost Hybride Teru B2.9 riot red / jet black / shadow red, model 2020 ',
+            'name' => 'Ghost Hybride Teru B2.9 riot',
             'description' => '',
             'size' => 'M',
             'price' => '2059',
@@ -130,7 +130,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Rock Machine Blizzard INT2 e30-29, model 2020',
+            'name' => 'Rock Machine Blizzard INT2 e30-29',
             'description' => '',
             'size' => 'L',
             'price' => '1999',
@@ -140,7 +140,7 @@ class ProductSeeder extends Seeder
         ]);
 
         DB::table('products')->insert([
-            'name' => 'Haibike SDURO FullSeven 1.0 500Wh antracitová / lime / piesková, model 2020',
+            'name' => 'Haibike SDURO FullSeven 1.0 500Wh',
             'description' => '',
             'size' => 'XXL',
             'price' => '2999',
