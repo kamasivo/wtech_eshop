@@ -18,7 +18,15 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('order.index');
+        $uid = Auth::id();
+        $order = Order::where('user_id', '=', $uid)->get();
+        $products = array();
+        $sum = 0;
+        foreach ($order as $c) {
+            array_push($products, Product::find($c->product_id));
+            $sum += Product::find($c->product_id)->price;
+        }
+        return view('order.index', compact('sum', $sum, 'products', $products, 'order', $order));
     }
 
     /**
