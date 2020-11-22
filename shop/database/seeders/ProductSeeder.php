@@ -193,7 +193,7 @@ class ProductSeeder extends Seeder
             'price' => '39',
             'category_id' => '3',
             'quantity' => '2',
-            'brand' => 'Casteli',
+            'brand' => 'Castelli',
         ]);
 
         // trety

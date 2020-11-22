@@ -11,8 +11,10 @@ use App\Http\Controllers\DeliveryDataController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Request;
 
-
+use App\Models\Product;
+use App\Models\Image;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +35,8 @@ Route::get('cart/removeAll', [CartController::class, 'removeAll']);
 Route::resource('/cart', CartController::class, ['middleware' => 'auth']);
 Route::resource('product', ProductController::class);
 Route::get('products/{id}', [ProductPageController::class, 'paging']);
-//Route::resource('products', ProductPageController::class);
+Route::any('/search', [ProductPageController::class, 'search']);
+Route::resource('products', ProductPageController::class);
 
 Route::resource('account', AccountController::class);
 Route::resource('payment', PaymentController::class);

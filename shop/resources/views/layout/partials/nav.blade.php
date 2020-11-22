@@ -63,9 +63,8 @@
                     <a class="nav-link" href="/cart">Košík </a>
                 </div>
                 @endif
-
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Hľadať" aria-label="Search">
+                <form class="form-inline my-2 my-lg-0" action="/search" method="POST">
+                    <input class="form-control mr-sm-2" type="text" name="search" placeholder="Hľadať produkt" aria-label="Search">
                     <button class="btn btn-dark my-2 my-sm-0" type="submit">Hľadať</button>
                 </form>
             </div>
@@ -85,7 +84,6 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
@@ -158,7 +156,6 @@
                 <div class="modal-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Meno') }}</label>
 
