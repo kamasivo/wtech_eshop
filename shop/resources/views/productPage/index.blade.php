@@ -100,7 +100,7 @@
                         <h4>Bicykle</h4>
                     </div>
                     <div class="col-6 align-item-right">
-                        <span class="pull-right">Sort:</br>
+                        <span class="pull-right">Zoradiť podľa ceny:</br>
                         <?php
                         $url = $_SERVER['REQUEST_URI'];
                         $url = str_replace("&sort=asc", "", $url);
