@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+use Request;
 
 class ProductPageController extends Controller
 {
@@ -48,10 +50,7 @@ class ProductPageController extends Controller
      */
     public function show($id)
     {
-        //todo paging, filter, opbrazky len ti co treba
-        $products = Product::where('category_id', '=', $id)->get();
-        $images = Image::all();
-        return view('productPage.index', compact('products', $products, 'images', $images));
+        //
     }
 
     /**
@@ -113,30 +112,60 @@ class ProductPageController extends Controller
         })->where(function($query){
             $size = request()->has('size') ? request()->get('size') : null;    
             if(isset($size)){
-                /*$query->Where('size', '=', $size[0]);
-                for($i = 1; $i < count($size); $i++){
-                    $query->orWhere('size', '=', $size[$i]);
-                }*/
                 foreach ($size as $s) {
                     $query->orWhere('size', '=', $s);
                 }
             }
         })->where(function($query){
-            $brands = request()->has('brands') ? request()->get('brands') : null;    
+            $brands = request()->has('brand') ? request()->get('brand') : null;    
             if(isset($brands)){
                 foreach ($brands as $brand) {
                     $query->orWhere('brand', '=', $brand);
                 }
             }
         })->orderby('price', $sort)->paginate(6);
-    
+        
+        $brands = Product::select('brand')
+                ->where('category_id', '=', $id)
+                ->groupBy('brand')
+                ->get();
+        $sizes = Product::select('size')
+                ->where('category_id', '=', $id)
+                ->groupBy('size')
+                ->get();
+
+        $category = Category::select('name')->where('id', '=', $id)
+                    ->first();
 
         $images = Image::all();
-        return view('productPage.index', compact('products', $products, 'images', $images));
+        
+        if(count($products) > 0){
+            return view('productPage.index', compact('category', 'products', 'images', 'sizes', 'brands')); 
+        }
+        else{
+            $message = "Nenašli sa žiadne produkty :(";
+            return view('productPage.index', compact('category', 'sizes', 'brands',  'message')); 
+        }
     }
 
-    public function filterPaging(Request $request, $id)
+    public function search(Request $request)
     {
-        //
+        $hidefilter = 1;
+        $search_product = request()->get('search');
+        $sort = request()->has('sort') ? request()->get('sort') : 'asc';
+        if($search_product != ''){
+            $products = Product::where('name', 'ILIKE', '%'. $search_product .'%')
+                    ->orderby('price', $sort)
+                    ->paginate(6);
+            if(count($products) > 0){
+                $images = Image::all();
+                return view('productPage.index', compact('products', 'images', 'hidefilter')); 
+            }
+            else{
+                $message = "Nenašli sa žiadne produkty :(";
+                return view('productPage.index', compact('message', 'hidefilter')); 
+            }
+
+        }
     }
 }

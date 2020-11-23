@@ -19,7 +19,7 @@
     color: #292b2c;
 }
 
-.product-page a:hover p {
+.product-page a:hover {
     text-decoration: none;
     font-weight: bold;
     color: black;
