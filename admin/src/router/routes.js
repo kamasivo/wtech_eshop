@@ -1,10 +1,37 @@
-
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MyLayout.vue'),
+    redirect: () => {
+      return { path: '/products/index' }
+    }
+  },
+  {
+    path: '/products',
+    component: () => import('layouts/Main'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      {
+        path: 'index',
+        component: () => import('pages/products/Index')
+      },
+      {
+        path: 'create',
+        component: () => import('pages/products/Create')
+      }
+    ]
+  },
+
+  {
+    path: '/products/:id',
+    component: () => import('layouts/Main'),
+    children: [
+      {
+        path: '',
+        component: () => import('pages/products/Show')
+      },
+      {
+        path: 'edit',
+        component: () => import('pages/products/Edit')
+      }
     ]
   }
 ]
