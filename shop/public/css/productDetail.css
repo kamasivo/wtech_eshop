@@ -46,6 +46,12 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.carousel-indicators,
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    filter: invert(1);
+}
+
 .modal-body button,
 .modal-body a {
     width: 50%;

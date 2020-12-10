@@ -6,36 +6,67 @@
 <section class="productdetail-page">
     <div class="container-fluid my-4">
         <div class="row">
-            <div class="col-xl-6 col-lg-6 col-12">
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade col-lg-6 col-12" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    @for($i = 1; $i < count($images); $i++)
+                    <li data-target="#carouselExampleIndicators" data-slide-to="$1"></li>
+                    @endfor
+                    
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" class="d-block w-100" alt="...">
+                    </div>
+                    @for($i = 1; $i < count($images); $i++)
+                    <div class="carousel-item">
+                        <img src="{{ asset('storage/images' . $images[$i]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" class="d-block w-100" alt="...">
+                    </div>
+                    @endfor
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            
+            <!--<div class="col-lg-6 col-12">
+                
+                
+                
                 @if ($images)
                 <img class="d-block w-100" src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
                 @else
                 Bad image path!
                 @endif
-            </div>
+            </div>-->
 
-            <div class="col-xl-4 col-lg-5 col-12 px-0">
+            <div class="col-xl-4 col-lg-6 col-12 px-0">
                 <h1 class="product-title text-uppercase">{{$product->name}}</h1>
 
                 <div class="container-fluid description bg-light">
                     <!--row1-->
-                    <div class="row py-2 pl-4">
-                        <div class="col-3 d-flex flex-start">
+                    <div class="row py-2 pl-4 justify-content-between">
+                        <div class="col-6 d-flex">
                             <span class="detail-name">Veľkosť</span>
                         </div>
 
-                        <div class="col-9 d-flex justify-content-between">
+                        <div class="col-6 d-flex">
                             <span type="radio" name="optradio" class="font-weight-bolder"> {{$product->size}}</span>
                         </div>
                     </div>
 
                     <!--row2-->
-                    <div class="row py-2 pl-4">
-                        <div class="col-3 d-flex flex-column">
+                    <div class="row py-2 pl-4 justify-content-between">
+                        <div class="col-6 d-flex flex-column">
                             <span class="detail-name text-uppercase">Cena</span>
                             <span class="detail-name">s 20% DPH</span>
                         </div>
-                        <div class="col-9 flex-column">
+                        <div class="col-6 d-flex flex-column">
                             <span id="productDetailPrice" class="text-danger price w-100">{{$product->price}}€&nbsp;</span>
                         </div>
                     </div>
@@ -43,7 +74,7 @@
                     <!--row3-->
                     <form action="{{ url('/product/' . $product->id . '/' . 0 . '/addToChart') }}" id="form" method="post">
                         @csrf
-                        <div class="row py-2 pl-4 align-items-center">
+                        <div class="row py-2 pl-4 justify-content-between">
                             <div class="col-3 flex-column text-a">
                                 <span class="detail-name">Množstvo</span>
                             </div>
@@ -84,6 +115,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <!--Cart modal window-->
     <section>

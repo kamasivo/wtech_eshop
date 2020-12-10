@@ -39,6 +39,18 @@ class ImageSeeder extends Seeder
             'path' => '/bike/Scott_AddictRC.jpg',
         ]);
         DB::table('images')->insert([
+            'product_id' => '6',
+            'path' => '/bike/Scott_Foil_2.jpg',
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '6',
+            'path' => '/bike/Scott_Foil_3.jpg',
+        ]);
+        DB::table('images')->insert([
+            'product_id' => '6',
+            'path' => '/bike/Scott_Foil_4.jpg',
+        ]);
+        DB::table('images')->insert([
             'product_id' => '7',
             'path' => '/bike/Scott_AddictSE.jpg',
         ]);
