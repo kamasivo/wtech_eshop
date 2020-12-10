@@ -20,11 +20,11 @@
                         <a class="dropdown-item" href="/products/6"> Príslušenstvo</a>
                     </div>
                 </li>
-
+                
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))
-                <li class="nav-item ml-auto">
+                <li class="nav-item">
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#logIn">Prihlásiť sa </a>
                 </li>
                 @endif
@@ -94,6 +94,11 @@
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#logIn').modal('show');
+                                    });
+                                </script>
                                 @enderror
                             </div>
                         </div>
@@ -108,6 +113,11 @@
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#logIn').modal('show');
+                                    });
+                                </script>        
                                 @enderror
                             </div>
                         </div>
@@ -166,6 +176,11 @@
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#signIn').modal('show');
+                                    });
+                                </script>
                                 @enderror
                             </div>
                         </div>
@@ -180,6 +195,11 @@
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#signIn').modal('show');
+                                    });
+                                </script>
                                 @enderror
                             </div>
                         </div>
@@ -188,12 +208,17 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email_signIn') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
+                                @error('email_signIn')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#signIn').modal('show');
+                                    });
+                                </script>
                                 @enderror
                             </div>
                         </div>
@@ -202,12 +227,17 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Heslo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password_signIn') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                                @error('password')
+                                @error('password_signIn')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
+                                <script type="text/javascript">
+                                    $( document ).ready(function() {
+                                        $('#signIn').modal('show');
+                                    });
+                                </script>
                                 @enderror
                             </div>
                         </div>
@@ -232,5 +262,4 @@
             </div>
         </div>
     </div>
-
 </header>
