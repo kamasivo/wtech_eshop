@@ -90,7 +90,7 @@ class ProductController extends Controller
         //
     }
 
-    public function addToCart($id, Request $request, $continue)
+    public function addToCart($id, Request $request)
     {
         $request->all();
         $count = request()->has('count') ? request()->get('count') : 1;
@@ -101,9 +101,6 @@ class ProductController extends Controller
             'product_id' => $id,
             'count' => $count,
         ]);
-        if ($continue == 1) {
-            return redirect('/');
-        }
         return redirect('cart');
     }
 

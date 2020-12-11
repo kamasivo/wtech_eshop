@@ -71,6 +71,8 @@
         </div>
     </nav>
 
+
+
     <!--Log in-->
     <div class="fade modal" id="logIn" role="dialog">
         <div class="modal-dialog">
