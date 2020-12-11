@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// Route::resource('admin-products', ProductController::class);
+Route::any('admin-products/list/{id}', [ProductController::class, 'list']);
+Route::any('admin-products/listAll', [ProductController::class, 'listAll']);
