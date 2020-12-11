@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// Route::resource('admin-products', ProductController::class);
-Route::any('admin-products/list/{id}', [ProductController::class, 'list']);
-Route::any('admin-products/listAll', [ProductController::class, 'listAll']);
+Route::get('admin-products/list/{id}', [ProductController::class, 'list']);
+Route::get('admin-products/listAll', [ProductController::class, 'listAll']);
+Route::delete('delete-product/{product}', [ProductController::class, 'destroy']);
+Route::post('admin-products', [ProductController::class, 'store']);
+Route::get('admin-products/{product}/edit', [ProductController::class, 'edit']);
+Route::put('admin-products/{product}', [ProductController::class, 'update']);

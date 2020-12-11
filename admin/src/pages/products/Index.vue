@@ -87,7 +87,28 @@ export default {
         .then(({ data }) => {
           this.serverData = data.rows
         })
+    },
+    destroy (id, name, rowIndex) {
+      this.$q.dialog({
+        title: 'Delete',
+        message: 'Are you sure to delete ' + name + '?',
+        color: 'primary',
+        ok: true,
+        cancel: true
+      }).then(() => {
+        axios
+          .delete(`http://127.0.0.1:8000/api/delete-product/${id}`)
+          .then(() => {
+            this.serverData[rowIndex].id = 'DELETED'
+            this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been deleted.' })
+          })
+          .catch(error => {
+            this.$q.notify({ type: 'negative', timeout: 2000, message: 'An error has been occured.' })
+            console.log(error)
+          })
+      })
     }
+
   },
   mounted () {
     // once mounted, we need to trigger the initial server data fetch

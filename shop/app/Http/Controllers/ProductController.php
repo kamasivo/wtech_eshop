@@ -39,8 +39,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validations and error handling is up to you!!! ;)
+        /*
+    $request->validate([
+        'name' => 'required|min:3',
+        'description' => 'required',
+    ]);
+    */
+
+        $product = Product::create(['name' => $request->name, 'description' => $request->description]);
+        return response()->json(['id' => $product->id]);
     }
+
 
     /**
      * Display the specified resource.
@@ -50,6 +60,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        //work on store, not working
         $product = Product::find($id);
         $images = Product::find($id)->images;
         $count = 1;
@@ -64,7 +75,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return response()->json($product);
     }
 
     /**
@@ -76,7 +87,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        // validations and error handling is up to you!!! ;)
+        /*
+    $request->validate([
+        'name' => 'required|min:3',
+        'description' => 'required',
+    ]);  
+    */
+
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->save();
     }
 
     /**
@@ -87,7 +108,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        //delete not working
+        $product->delete();
+        // Product::where('id', $product)->delete();
+        // error handling is up to you!!! ;)
+        return response()->json(['status' => 'success', 'msg' => 'Product deleted successfully']);
     }
 
     public function addToCart($id, Request $request)

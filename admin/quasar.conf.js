@@ -1,6 +1,6 @@
 // Configuration for your app
 
-module.exports = function(ctx) {
+module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
     plugins: ['axios'],
@@ -20,7 +20,7 @@ module.exports = function(ctx) {
       // gzip: true,
       // analyze: true,
       // extractCSS: false,
-      extendWebpack(cfg) {
+      extendWebpack (cfg) {
         cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -69,7 +69,7 @@ module.exports = function(ctx) {
       ],
       directives: ['Ripple'],
       // Quasar plugins
-      plugins: ['Notify']
+      plugins: ['Notify', 'Dialog']
       // iconSet: ctx.theme.mat ? 'material-icons' : 'ionicons'
       // i18n: 'de' // Quasar language
     },
@@ -123,7 +123,7 @@ module.exports = function(ctx) {
     },
     electron: {
       // bundler: 'builder', // or 'packager'
-      extendWebpack(cfg) {
+      extendWebpack (cfg) {
         // do something with Electron process Webpack cfg
       },
       packager: {
