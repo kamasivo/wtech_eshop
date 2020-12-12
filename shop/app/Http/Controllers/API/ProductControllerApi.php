@@ -69,7 +69,6 @@ class ProductControllerApi extends Controller
         'description' => 'required',
     ]);  
     */
-
         $product->name = $request->name;
         $product->description = $request->description;
         $product->save();

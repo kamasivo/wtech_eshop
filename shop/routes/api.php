@@ -24,4 +24,4 @@ Route::get('admin-products/listAll', [ProductControllerApi::class, 'listAll']);
 Route::delete('delete-product/{id}', [ProductControllerApi::class, 'destroy']);
 Route::post('admin-products', [ProductControllerApi::class, 'store']);
 Route::get('admin-products/{product}/edit', [ProductControllerApi::class, 'edit']);
-Route::put('admin-products/{product}', [ProductControllerApi::class, 'update']);
+Route::put('/update/{product}', [ProductControllerApi::class, 'update']);

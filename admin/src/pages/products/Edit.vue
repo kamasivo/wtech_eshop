@@ -44,7 +44,7 @@ export default {
   methods: {
     updateProduct () {
       axios
-        .put(`http://127.0.0.1:8000/api/admin-products/` + this.$route.params.id, this.productData)
+        .put(`http://127.0.0.1:8000/api/update/` + this.$route.params.id, this.productData)
         .then(response => {
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been updated.' })
         })
