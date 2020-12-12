@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Product;
+use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
@@ -81,12 +82,9 @@ class ProductControllerApi extends Controller
      */
     public function destroy($id)
     {
-        //delete not working
-        // $product->delete();
-        // Product::where('id', $product)->delete();
+        Image::where('product_id', $id)->delete();
         $prod = Product::find($id)->delete();
 
-        // error handling is up to you!!! ;)
         if ($prod)
             return response()->json(['status' => 'success', 'msg' => 'Product deleted successfully']);
         else
