@@ -41,13 +41,17 @@ class ProductController extends Controller
     {
         // validations and error handling is up to you!!! ;)
         /*
-    $request->validate([
-        'name' => 'required|min:3',
-        'description' => 'required',
-    ]);
-    */
+        $request->validate([
+            'name' => 'required|min:3',
+            'description' => 'required',
+        ]);
+        */
 
-        $product = Product::create(['name' => $request->name, 'description' => $request->description]);
+        $product = Product::create(['name' => $request->name, 'description' => $request->description, 'size' => $request->size,
+        'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand]);
+        
+        //$image = Image::create(['path' => $request->path, 'product_id' => $request->category_id]);
+
         return response()->json(['id' => $product->id]);
     }
 

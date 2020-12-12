@@ -3,17 +3,28 @@
     <q-card>
         <q-card-title>Create new product</q-card-title>
         <q-card-main>
-            <q-field :count="250">
-                <q-input float-label="Name" v-model="productName" max-length="250" />
+            <q-field :count="50">
+                <q-input float-label="Názov" v-model="productName" max-length="50" />
             </q-field>
             <q-field :count="5000">
                 <q-input
                     type="textarea"
-                    float-label="Description"
+                    float-label="Popis"
                     v-model="productDescription"
                     :max-height="100"
                     rows="7"
                 />
+            </q-field>
+            <q-select v-model="productSize" :options="optionsSize" float-label="Veľkosť" />
+            <q-field >
+                <q-input type="number" float-label="Cena" v-model="productPrice" />
+            </q-field>
+            <q-select v-model="productCategoryId" :options="optionsCategory" float-label="Kategória" />
+            <q-field >
+                <q-input type="number" float-label="Množstvo" v-model="productQuantity" />
+            </q-field>
+            <q-field :count="25">
+                <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
             <q-field helper="Supported format: JPG, max. file size: 300KiB" class="q-mt-lg">
                 <q-uploader float-label="Images" multiple extensions=".jpg" auto-expand/>
@@ -41,7 +52,14 @@ export default {
   data () {
     return {
       productName: '',
-      productDescription: ''
+      productDescription: '',
+      productSize: '',
+      optionsSize: [{ label: 'Extra Small', value: 'XS' }, { label: 'Small', value: 'S' }, { label: 'Medium', value: 'M' }, { label: 'Large', value: 'L' }, { label: 'Extra Large', value: 'XL' }, { label: 'XXL', value: 'XXL' }],
+      productPrice: '',
+      productCategoryId: '',
+      optionsCategory: [{ label: 'Bicykle', value: '1' }, { label: 'Elektrobicykle', value: '2' }, { label: 'Oblečenie', value: '3' }, { label: 'Tretry', value: '4' }, { label: 'Komponenty', value: '5' }, { label: 'Príslušenstvo', value: '6' }],
+      productQuantity: '',
+      productBrand: ''
     }
   },
   methods: {
@@ -60,7 +78,7 @@ export default {
   },
   computed: {
     productData: function () {
-      return { name: this.productName, description: this.productDescription }
+      return { name: this.productName, description: this.productDescription, size: this.size, price: this.price, category_id: this.category_id, quantity: this.quantity, brand: this.brand }
     }
   }
 }

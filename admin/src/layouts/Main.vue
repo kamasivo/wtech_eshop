@@ -25,6 +25,7 @@
     <q-page-container>
       <div class="row full-width justify-center">
         <router-view />
+        <q-ajax-bar />
       </div>
     </q-page-container>
 

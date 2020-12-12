@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('admin-products/list/{id}', [ProductController::class, 'list']);
+Route::get('admin-products/list/{page}', [ProductController::class, 'list']);
 Route::get('admin-products/listAll', [ProductController::class, 'listAll']);
 Route::delete('delete-product/{product}', [ProductController::class, 'destroy']);
 Route::post('admin-products', [ProductController::class, 'store']);
