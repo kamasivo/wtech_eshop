@@ -150,6 +150,24 @@ class ProductControllerApi extends Controller
         return Product::all()->toJson(JSON_PRETTY_PRINT);
     }
 
+<<<<<<< HEAD
+    public function getImages(Product $product)
+    {
+        $images = $product->images;
+        foreach ($images as $img) {
+            return response()->file('storage/images' . $img->path);
+        }
+    }
+
+    public function deleteImage($id)
+    {
+        $images = Product::find($id)->images;
+        foreach ($images as $img) {
+            Storage::delete('public/images' . $img->path);
+        }
+        Image::where('product_id', $id)->delete();
+    }
+=======
     /**
      * Upload a images to storage.
      *
@@ -172,4 +190,5 @@ class ProductControllerApi extends Controller
         //return 
     }
 
+>>>>>>> 3aba4e27bbdb12a592637714ec6a7ddadcb8d3ab
 }

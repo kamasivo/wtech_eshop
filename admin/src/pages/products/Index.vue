@@ -96,7 +96,6 @@ export default {
         axios
           .delete(`http://127.0.0.1:8000/api/delete-product/${id}`)
           .then(() => {
-            this.serverData[rowIndex].id = 'DELETED'
             this.$q.notify({ type: 'positive', timeout: 2000, message: 'Produkt bol odstránený.' })
             // potrebujem reloadnut tabulku
             this.request({ pagination: this.serverPagination, filter: this.filter })
