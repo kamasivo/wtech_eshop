@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\API\ProductControllerApi;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,9 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('admin-products/list/{id}', [ProductController::class, 'list']);
-Route::get('admin-products/listAll', [ProductController::class, 'listAll']);
-Route::delete('delete-product/{product}', [ProductController::class, 'destroy']);
-Route::post('admin-products', [ProductController::class, 'store']);
-Route::get('admin-products/{product}/edit', [ProductController::class, 'edit']);
-Route::put('admin-products/{product}', [ProductController::class, 'update']);
+Route::get('admin-products/list/{id}', [ProductControllerApi::class, 'list']);
+Route::get('admin-products/listAll', [ProductControllerApi::class, 'listAll']);
+Route::delete('delete-product/{id}', [ProductControllerApi::class, 'destroy']);
+Route::post('admin-products', [ProductControllerApi::class, 'store']);
+Route::get('admin-products/{product}/edit', [ProductControllerApi::class, 'edit']);
+Route::put('admin-products/{product}', [ProductControllerApi::class, 'update']);
