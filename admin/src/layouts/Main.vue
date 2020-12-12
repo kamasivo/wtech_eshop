@@ -27,8 +27,8 @@
       </div>
     </q-page-container>
 
-    <q-layout-footer>
-      <div class="text-center q-pa-md">Copyright (C) 2020, Ivan Kamas, Miroslav Pavlák (WTECH)</div>
+    <q-layout-footer class="no-shadow">
+      <div class=" text-center q-pa-md">Copyright (C) 2020, Ivan Kamas, Miroslav Pavlák (WTECH)</div>
     </q-layout-footer>
   </q-layout>
 </template>
