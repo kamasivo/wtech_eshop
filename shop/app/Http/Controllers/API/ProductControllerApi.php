@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\Product;
 use App\Models\Image;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -82,13 +83,14 @@ class ProductControllerApi extends Controller
      */
     public function destroy($id)
     {
+        $images = Product::find($id)->images;
+        foreach ($images as $img) {
+            Storage::delete('public/images' . $img->path);
+        }
         Image::where('product_id', $id)->delete();
-        $prod = Product::find($id)->delete();
+        Product::find($id)->delete();
 
-        if ($prod)
-            return response()->json(['status' => 'success', 'msg' => 'Product deleted successfully']);
-        else
-            return response()->json(['status' => 'error', 'msg' => 'ERROR']);
+        return response()->json(['status' => 'success', 'msg' => 'Product deleted successfully']);
     }
 
     public function edit(Product $product)
