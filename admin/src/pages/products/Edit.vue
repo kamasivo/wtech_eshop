@@ -21,7 +21,7 @@
             <q-field >
                 <q-input type="number" float-label="Cena" v-model="productPrice" />
             </q-field>
-            <q-select v-model="productCategoryId" :options="optionsCategory" float-label="Kategória" />
+            <q-select v-model="productCategoryId" :options="[{ label: 'Bicykle', value: 1 }, { label: 'Elektrobicykle', value: 2 }, { label: 'Oblečenie', value: 3 }, { label: 'Tretry', value: 4 }, { label: 'Komponenty', value: 5 }, { label: 'Príslušenstvo', value: 6 }]" float-label="Kategória"/>
             <q-field >
                 <q-input type="number" float-label="Množstvo" v-model="productQuantity" />
             </q-field>
@@ -58,7 +58,6 @@ export default {
       productSize: '',
       productPrice: '',
       productCategoryId: '',
-      optionsCategory: [{ label: 'Bicykle', value: '1' }, { label: 'Elektrobicykle', value: '2' }, { label: 'Oblečenie', value: '3' }, { label: 'Tretry', value: '4' }, { label: 'Komponenty', value: '5' }, { label: 'Príslušenstvo', value: '6' }],
       productQuantity: '',
       productBrand: ''
     }
@@ -82,7 +81,7 @@ export default {
       .then(response => {
         this.productName = response.data.name
         this.productDescription = response.data.description
-        this.size = response.data.size
+        this.productSize = response.data.size
         this.productPrice = response.data.price
         this.productCategoryId = response.data.category_id
         this.productQuantity = response.data.quantity
