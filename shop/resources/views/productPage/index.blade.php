@@ -133,7 +133,12 @@
                         <div class="col-md-4 col-12">
                             <a href="{{ URL::to('product/' . $product->id) }}">
                                 <div class="card mb-4 shadow-sm">
-                                    <img class="d-block w-100" src="{{ asset('storage/images' . $images[$product->id - 1]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
+                                    @for($i = 0; $i < count($images); $i++)
+                                        @if($product->id ==  $images[$i]->product_id)
+                                            <img class="d-block w-100" src="{{ asset('storage/images' .$images[$i]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />    
+                                            @break;
+                                        @endif
+                                    @endfor
                                     <div class="card-body">
                                         <p class="card-text mb-0">{{$product->name}}</p>
                                         <p class="card-text mb-0">{{$product->price}}€</p>

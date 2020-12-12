@@ -32,27 +32,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // validations and error handling is up to you!!! ;)
-        /*
-    $request->validate([
-        'name' => 'required|min:3',
-        'description' => 'required',
-    ]);
-    */
-
-        $product = Product::create(['name' => $request->name, 'description' => $request->description]);
-        return response()->json(['id' => $product->id]);
-    }
-
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id

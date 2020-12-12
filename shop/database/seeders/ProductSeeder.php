@@ -17,13 +17,13 @@ class ProductSeeder extends Seeder
 
         // bicykle
         DB::table('products')->insert([
-            'name' => 'Trek',
+            'name' => 'SCOTT FOIL 30',
             'description' => 'trek bicykel',
             'size' => 'M',
             'price' => '3999',
             'category_id' => '1',
             'quantity' => '2',
-            'brand' => 'Trek',
+            'brand' => 'Scott',
         ]);
         DB::table('products')->insert([
             'name' => 'BMC ROADMACHINE ULTEGRA DI2',
