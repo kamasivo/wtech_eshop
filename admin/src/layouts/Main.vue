@@ -1,7 +1,7 @@
 <template>
   <q-layout>
-    <q-layout-header>
-      <q-toolbar>
+    <q-layout-header >
+      <q-toolbar class="bg-deep-orange-6 ">
         <q-btn
           flat
           round
@@ -11,9 +11,8 @@
           class="q-mr-md"
         />
         <q-toolbar-title
-          >MyESHOP - ADMIN<span slot="subtitle"
-            >Some subtitle</span
-          ></q-toolbar-title
+          >CykloShop - ADMIN
+          </q-toolbar-title
         >
       </q-toolbar>
     </q-layout-header>
@@ -29,7 +28,7 @@
     </q-page-container>
 
     <q-layout-footer>
-      <div class="text-center q-pa-md">Copyright (C) 2018, Homer Simpson</div>
+      <div class="text-center q-pa-md">Copyright (C) 2020, Ivan Kamas, Miroslav Pavlák (WTECH)</div>
     </q-layout-footer>
   </q-layout>
 </template>
