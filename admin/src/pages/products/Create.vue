@@ -1,5 +1,5 @@
 <template>
-<div class="q-my-xl">
+<div class="col-6 q-my-xl">
     <q-card>
         <q-card-title>Create new product</q-card-title>
         <q-card-main>
@@ -15,7 +15,9 @@
                     rows="7"
                 />
             </q-field>
-            <q-select v-model="productSize" :options="optionsSize" float-label="Veľkosť" />
+             <q-field :count="5">
+                <q-input type="text" float-label="Veľkosť" v-model="productSize" max-length="5" />
+            </q-field>
             <q-field >
                 <q-input type="number" float-label="Cena" v-model="productPrice" />
             </q-field>
@@ -54,7 +56,6 @@ export default {
       productName: '',
       productDescription: '',
       productSize: '',
-      optionsSize: [{ label: 'Extra Small', value: 'XS' }, { label: 'Small', value: 'S' }, { label: 'Medium', value: 'M' }, { label: 'Large', value: 'L' }, { label: 'Extra Large', value: 'XL' }, { label: 'XXL', value: 'XXL' }],
       productPrice: '',
       productCategoryId: '',
       optionsCategory: [{ label: 'Bicykle', value: '1' }, { label: 'Elektrobicykle', value: '2' }, { label: 'Oblečenie', value: '3' }, { label: 'Tretry', value: '4' }, { label: 'Komponenty', value: '5' }, { label: 'Príslušenstvo', value: '6' }],
@@ -78,7 +79,7 @@ export default {
   },
   computed: {
     productData: function () {
-      return { name: this.productName, description: this.productDescription, size: this.size, price: this.price, category_id: this.category_id, quantity: this.quantity, brand: this.brand }
+      return { name: this.productName, description: this.productDescription, size: this.productSize, price: this.productPrice, category_id: this.productCategoryId, quantity: this.productQuantity, brand: this.productBrand }
     }
   }
 }
