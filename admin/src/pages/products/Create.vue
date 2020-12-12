@@ -28,7 +28,7 @@
             <q-field :count="25">
                 <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
-            <q-field helper="Supported format: JPG, max. file size: 300KiB, max. uploaded files: 5" class="q-mt-lg">
+            <q-field helper="Supported format: JPG, PNG, max. file size: 1300KiB, max. uploaded files: 5" class="q-mt-lg">
                 <q-uploader url="http://127.0.0.1:8000/api/admin-images/upload" max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
             </q-field>
         </q-card-main>
