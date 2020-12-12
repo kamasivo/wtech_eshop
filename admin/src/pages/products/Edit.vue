@@ -43,8 +43,11 @@
     <q-card class="q-mt-md">
         <q-card-title>Zoznam obrázkov produktu</q-card-title>
         <q-card-main class="row full-width justify-center items-center">
-              <img :src="path + this.$route.params.id" class="img-circle" alt="Obrazok" />
+            <div v-for="id in imagesNumber" :key="id" class="row full-width justify-center items-center">
+                <p class="hidden">{{temp = path + (id - 1)}}</p>
+              <img :src="temp" class="img-circle w-70" alt="Obrazok" />
               <q-btn color="red" round icon="delete" @click="deleteImage()"/>
+            </div>
         </q-card-main>
     </q-card>
 </div>
@@ -53,6 +56,8 @@
 <style lang="stylus">
 .docs-btn .q-btn
     padding 15px 20px
+.w-70
+    width 70%
 </style>
 
 <script>
@@ -62,7 +67,8 @@ export default {
   data () {
     return {
       images: '',
-      path: 'http://127.0.0.1:8000/api/images/',
+      imagesNumber: 0,
+      path: 'http://127.0.0.1:8000/api/images/' + this.$route.params.id + '/',
       productName: '',
       productDescription: '',
       productSize: '',
@@ -133,12 +139,12 @@ export default {
         this.$q.notify({ type: 'negative', timeout: 2000, message: 'Loading product: an error has been occured.' })
         console.log(error)
       })
-    // axios
-    //   .get(`http://127.0.0.1:8000/api/images/` + this.$route.params.id)
-    //   .then(response => {
-    //     this.images = response.data.images
-    //     console.log(this.images)
-    //   })
+    axios
+      .get(`http://127.0.0.1:8000/api/imagesNumber/` + this.$route.params.id)
+      .then(response => {
+        this.imagesNumber = response.data
+        console.log(this.imagesNumber)
+      })
   },
   computed: {
     productData: function () {

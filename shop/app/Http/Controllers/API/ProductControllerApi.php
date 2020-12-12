@@ -150,13 +150,19 @@ class ProductControllerApi extends Controller
         return Product::all()->toJson(JSON_PRETTY_PRINT);
     }
 
-    public function getImages(Product $product)
+    public function getImages(Product $product, $id)
     {
         $images = $product->images;
-        foreach ($images as $img) {
-            return response()->file('storage/images' . $img->path);
-        }
+        return response()->file('storage/images' . $images[$id]->path);
     }
+
+
+    public function getImagesNumber(Product $product)
+    {
+        $images = $product->images;
+        return $images->count();
+    }
+
 
     public function deleteImage($id)
     {
