@@ -1,5 +1,5 @@
 <template>
-<div class="q-my-xl">
+<div class="q-my-xl w-90">
 <q-table
       :data="serverData"
       row-key="name"
@@ -7,7 +7,7 @@
       :loading="loading"
       @request="request"
       :columns="columns"
-      title="List of products"
+      title="Zoznam produktov"
       binary-state-sort
       >
       <q-tr slot="body" slot-scope="props" :props="props">
@@ -18,8 +18,7 @@
           <span>{{ props.row.name }}</span>
         </q-td>
         <q-td class="text-right">
-          <div v-if="props.row.id == 'DELETED'">DELETED</div>
-          <div v-else>
+          <div>
             <q-btn round icon="edit" class="q-mr-xs" @click="$router.push('/products/' + props.row.id + '/edit')" />
             <q-btn round icon="delete" @click="destroy(props.row.id, props.row.name, props.row.__index)"/>
           </div>
@@ -29,6 +28,11 @@
 </div>
 </template>
 
+<style lang="stylus">
+.w-90
+    width 90%
+</style>
+
 <script>
 import axios from 'axios'
 
@@ -37,8 +41,8 @@ export default {
     return {
       columns: [
         { name: 'id', label: 'ID', field: 'id', sortable: false, align: 'left' },
-        { name: 'name', label: 'Name', field: 'name', sortable: true, align: 'left' },
-        { name: 'actions', label: 'Actions', sortable: false, align: 'right' }
+        { name: 'name', label: 'Názov produktu', field: 'name', sortable: true, align: 'left' },
+        { name: 'actions', label: 'Akcie', sortable: false, align: 'right' }
       ],
       selected: [],
       loading: false,
@@ -54,9 +58,7 @@ export default {
   },
   methods: {
     request ({ pagination }) {
-      // QTable to "loading" state
       this.loading = true
-      // fetch data
       axios
         .get(`http://127.0.0.1:8000/api/admin-products/list/${pagination.page}?rowsPerPage=${pagination.rowsPerPage}&sortBy=${pagination.sortBy}&descending=${pagination.descending}`)
         .then(({ data }) => {
@@ -69,15 +71,10 @@ export default {
 
           // then we update the rows with the fetched ones
           this.serverData = data.rows
-
-          // finally we tell QTable to exit the "loading" state
           this.loading = false
         })
         .catch(error => {
-          // there's an error... do SOMETHING
           console.log(error)
-
-          // we tell QTable to exit the "loading" state
           this.loading = false
         })
     },
@@ -90,8 +87,8 @@ export default {
     },
     destroy (id, name, rowIndex) {
       this.$q.dialog({
-        title: 'Delete',
-        message: 'Are you sure to delete ' + name + '?',
+        title: 'Vymazať',
+        message: 'Ste si istý že chete odstrániť ' + name + '?',
         color: 'primary',
         ok: true,
         cancel: true
@@ -100,12 +97,16 @@ export default {
           .delete(`http://127.0.0.1:8000/api/delete-product/${id}`)
           .then(() => {
             this.serverData[rowIndex].id = 'DELETED'
-            this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been deleted.' })
+            this.$q.notify({ type: 'positive', timeout: 2000, message: 'Produkt bol odstránený.' })
+            // potrebujem reloadnut tabulku
+            this.request({ pagination: this.serverPagination, filter: this.filter })
           })
           .catch(error => {
-            this.$q.notify({ type: 'negative', timeout: 2000, message: 'An error has been occured.' })
+            this.$q.notify({ type: 'negative', timeout: 2000, message: 'Nastala chyba.' })
             console.log(error)
           })
+      }).catch(() => {
+        // nic sa nestane
       })
     }
 
