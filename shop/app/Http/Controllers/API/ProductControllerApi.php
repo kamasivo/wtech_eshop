@@ -4,8 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,14 +31,17 @@ class ProductControllerApi extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // validations and error handling is up to you!!! ;)
-        /*
+    {   
         $request->validate([
-            'name' => 'required|min:3',
+            'name' => 'required|min:5',
             'description' => 'required',
+            'size'=> 'required',
+            'price' => 'required|numeric|min:1|max:50000',
+            'category_id' => 'required',
+            'quantity' => 'required|numeric|min:0',
+            'brand' => 'required'
         ]);
-        */
+        
         $product = Product::create([
             'name' => $request->name, 'description' => $request->description, 'size' => $request->size,
             'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand
@@ -145,6 +150,7 @@ class ProductControllerApi extends Controller
         return Product::all()->toJson(JSON_PRETTY_PRINT);
     }
 
+<<<<<<< HEAD
     public function getImages(Product $product)
     {
         $images = $product->images;
@@ -161,4 +167,28 @@ class ProductControllerApi extends Controller
         }
         Image::where('product_id', $id)->delete();
     }
+=======
+    /**
+     * Upload a images to storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function upload(Request $request)
+    {
+        if ($request->hasFile('file')) {
+            $image = $request->file('file')->getClientOriginalName();
+            $destination_path = 'public/storage/images';
+            $extension = pathinfo($image, PATHINFO_EXTENSION);
+            $filename = pathinfo($image, PATHINFO_FILENAME);
+            $image_name  = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('file')->storeAs($destination_path, $image_name);
+        
+            //tu vvytvorim image s product id 
+            return response()->json($path, 200);
+        }
+        //return 
+    }
+
+>>>>>>> 3aba4e27bbdb12a592637714ec6a7ddadcb8d3ab
 }
