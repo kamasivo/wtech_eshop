@@ -42,8 +42,10 @@ class ProductControllerApi extends Controller
             'brand' => 'required'
         ]);
         
-        $product = Product::create(['name' => $request->name, 'description' => $request->description, 'size' => $request->size,
-        'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand]);    
+        $product = Product::create([
+            'name' => $request->name, 'description' => $request->description, 'size' => $request->size,
+            'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand
+        ]);
         return response()->json(['id' => $product->id]);
     }
 
@@ -74,9 +76,12 @@ class ProductControllerApi extends Controller
         'description' => 'required',
     ]);  
     */
-
         $product->name = $request->name;
         $product->description = $request->description;
+        $product->price = $request->price;
+        $product->category_id = $request->category_id;
+        $product->quantity = $request->quantity;
+        $product->brand = $request->brand;
         $product->save();
     }
 
