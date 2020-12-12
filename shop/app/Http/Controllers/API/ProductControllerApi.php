@@ -150,7 +150,6 @@ class ProductControllerApi extends Controller
         return Product::all()->toJson(JSON_PRETTY_PRINT);
     }
 
-<<<<<<< HEAD
     public function getImages(Product $product)
     {
         $images = $product->images;
@@ -167,7 +166,6 @@ class ProductControllerApi extends Controller
         }
         Image::where('product_id', $id)->delete();
     }
-=======
     /**
      * Upload a images to storage.
      *
@@ -178,11 +176,12 @@ class ProductControllerApi extends Controller
     {
         if ($request->hasFile('file')) {
             $image = $request->file('file')->getClientOriginalName();
-            $destination_path = 'public/storage/images';
+            $destination_path = '/images';
             $extension = pathinfo($image, PATHINFO_EXTENSION);
             $filename = pathinfo($image, PATHINFO_FILENAME);
             $image_name  = $filename . '_' . time() . '.' . $extension;
-            $path = $request->file('file')->storeAs($destination_path, $image_name);
+            //Storage::disk('public')->putFileAs($destination_path, $image, $image_name);
+            $path = $request->file('file')->storeAs('public/images/', $image_name);
         
             //tu vvytvorim image s product id 
             return response()->json($path, 200);
@@ -190,5 +189,4 @@ class ProductControllerApi extends Controller
         //return 
     }
 
->>>>>>> 3aba4e27bbdb12a592637714ec6a7ddadcb8d3ab
 }
