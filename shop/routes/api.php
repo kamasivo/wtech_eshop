@@ -25,3 +25,4 @@ Route::delete('delete-product/{id}', [ProductControllerApi::class, 'destroy']);
 Route::post('admin-products', [ProductControllerApi::class, 'store']);
 Route::get('admin-products/{product}/edit', [ProductControllerApi::class, 'edit']);
 Route::put('admin-products/{product}', [ProductControllerApi::class, 'update']);
+Route::any('admin-images/upload', [ProductControllerApi::class, 'upload']);

@@ -19,17 +19,17 @@
                 <q-input type="text" float-label="Veľkosť" v-model="productSize" max-length="5" />
             </q-field>
             <q-field >
-                <q-input type="number" float-label="Cena" v-model="productPrice" />
+                <q-input type="number" float-label="Cena" min="1" v-model="productPrice" />
             </q-field>
             <q-select v-model="productCategoryId" :options="optionsCategory" float-label="Kategória" />
             <q-field >
-                <q-input type="number" float-label="Množstvo" v-model="productQuantity" />
+                <q-input type="number" float-label="Množstvo" min="1" v-model="productQuantity" />
             </q-field>
             <q-field :count="25">
                 <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
-            <q-field helper="Supported format: JPG, max. file size: 300KiB" class="q-mt-lg">
-                <q-uploader float-label="Images" multiple extensions=".jpg" auto-expand/>
+            <q-field helper="Supported format: JPG, max. file size: 300KiB, max. uploaded files: 5" class="q-mt-lg">
+                <q-uploader url="http://127.0.0.1:8000/api/admin-images/upload" max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
             </q-field>
         </q-card-main>
         <q-card-actions class="q-mt-md">
@@ -64,12 +64,14 @@ export default {
     }
   },
   methods: {
-    createProduct () {
+    createProduct (file, updateProgress) {
       axios
-        .post(`http://127.0.0.1:8000/api/admin-products`, this.productData)
+        // .post('http://127.0.0.1:8000/api/admin-products', this.productData)
+        .post('http://127.0.0.1:8000/api/admin-images/upload')
         .then(response => {
+          this.$refs.uploader.upload()
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been created.' })
-          this.$router.push({ path: '/products/' + response.data.id + '/edit' })
+          // this.$router.push({ path: '/products/' + response.data.id + '/edit' })
         })
         .catch(error => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'An error has been occured.' })
@@ -79,7 +81,7 @@ export default {
   },
   computed: {
     productData: function () {
-      return { name: this.productName, description: this.productDescription, size: this.productSize, price: this.productPrice, category_id: this.productCategoryId, quantity: this.productQuantity, brand: this.productBrand }
+      return { name: this.productName, description: this.productDescription, size: this.productSize, price: this.productPrice, category_id: this.productCategoryId, quantity: this.productQuantity, brand: this.productBrand, photo: this.productPhoto }
     }
   }
 }
