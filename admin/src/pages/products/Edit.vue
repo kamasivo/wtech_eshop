@@ -43,10 +43,10 @@
     <q-card class="q-mt-md">
         <q-card-title>Zoznam obrázkov produktu</q-card-title>
         <q-card-main class="row full-width justify-center items-center">
-            <div v-for="id in imagesNumber" :key="id" class="row full-width justify-center items-center">
+            <div v-for="id in imagesNumber" :key="id" class="row full-width justify-center items-center q-mb-lg">
                 <p class="hidden">{{temp = path + (id - 1)}}</p>
               <img :src="temp" class="img-circle w-70" alt="Obrazok" />
-              <q-btn color="red" round icon="delete" @click="deleteImage()"/>
+              <q-btn color="red" round icon="delete" @click="deleteImage(id-1)"/>
             </div>
         </q-card-main>
     </q-card>
@@ -90,11 +90,12 @@ export default {
           console.log(error)
         })
     },
-    deleteImage () {
+    deleteImage (id) {
       axios
-        .get(`http://127.0.0.1:8000/api/delImage/` + this.$route.params.id)
+        .get(`http://127.0.0.1:8000/api/delImage/` + this.$route.params.id + '/' + id)
         .then(() => {
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'Obrazok bol odstránený.' })
+          this.loadImages()
         })
         .catch(() => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'Nastala chyba.' })
@@ -121,30 +122,36 @@ export default {
       }).catch(() => {
         // nic sa nestane
       })
+    },
+    loadProduct () {
+      axios
+        .get(`http://127.0.0.1:8000/api/edit/` + this.$route.params.id)
+        .then(response => {
+          this.productName = response.data.name
+          this.productDescription = response.data.description
+          this.productSize = response.data.size
+          this.productPrice = response.data.price
+          this.productCategoryId = response.data.category_id
+          this.productQuantity = response.data.quantity
+          this.productBrand = response.data.brand
+        })
+        .catch(error => {
+          this.$q.notify({ type: 'negative', timeout: 2000, message: 'Loading product: an error has been occured.' })
+          console.log(error)
+        })
+    },
+    loadImages () {
+      axios
+        .get(`http://127.0.0.1:8000/api/imagesNumber/` + this.$route.params.id)
+        .then(response => {
+          this.imagesNumber = response.data
+          console.log(this.imagesNumber)
+        })
     }
   },
   mounted () {
-    axios
-      .get(`http://127.0.0.1:8000/api/edit/` + this.$route.params.id)
-      .then(response => {
-        this.productName = response.data.name
-        this.productDescription = response.data.description
-        this.productSize = response.data.size
-        this.productPrice = response.data.price
-        this.productCategoryId = response.data.category_id
-        this.productQuantity = response.data.quantity
-        this.productBrand = response.data.brand
-      })
-      .catch(error => {
-        this.$q.notify({ type: 'negative', timeout: 2000, message: 'Loading product: an error has been occured.' })
-        console.log(error)
-      })
-    axios
-      .get(`http://127.0.0.1:8000/api/imagesNumber/` + this.$route.params.id)
-      .then(response => {
-        this.imagesNumber = response.data
-        console.log(this.imagesNumber)
-      })
+    this.loadProduct()
+    this.loadImages()
   },
   computed: {
     productData: function () {

@@ -164,13 +164,18 @@ class ProductControllerApi extends Controller
     }
 
 
-    public function deleteImage($id)
+    public function deleteImage($id, $imgNum)
     {
         $images = Product::find($id)->images;
+        $counter = 0;
         foreach ($images as $img) {
-            Storage::delete('public/images' . $img->path);
+            if ($counter == $imgNum) {
+                Storage::delete('public/images' . $img->path);
+                $img->delete();
+            }
+
+            $counter += 1;
         }
-        Image::where('product_id', $id)->delete();
     }
     /**
      * Upload a images to storage.
