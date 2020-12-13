@@ -17,6 +17,15 @@
         <q-td key="name" :props="props">
           <span>{{ props.row.name }}</span>
         </q-td>
+        <q-td key="price" :props="props">
+          <span>{{ props.row.price }}€</span>
+        </q-td>
+        <q-td key="quantity" :props="props">
+          <span>{{ props.row.quantity }}</span>
+        </q-td>
+        <q-td key="size" :props="props">
+          <span>{{ props.row.size }}</span>
+        </q-td>
         <q-td class="text-right">
           <div>
             <q-btn round icon="edit" class="q-mr-xs" @click="$router.push('/products/' + props.row.id + '/edit')" />
@@ -42,6 +51,9 @@ export default {
       columns: [
         { name: 'id', label: 'ID', field: 'id', sortable: false, align: 'left' },
         { name: 'name', label: 'Názov produktu', field: 'name', sortable: true, align: 'left' },
+        { name: 'price', label: 'Cena', field: 'price', sortable: false, align: 'left' },
+        { name: 'size', label: 'Veľkosť', field: 'size', sortable: false, align: 'left' },
+        { name: 'quantity', label: 'Počet', field: 'quantity', sortable: false, align: 'left' },
         { name: 'actions', label: 'Akcie', sortable: false, align: 'right' }
       ],
       selected: [],
