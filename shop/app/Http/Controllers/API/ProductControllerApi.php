@@ -190,14 +190,14 @@ class ProductControllerApi extends Controller
         error_log('id produktu ' . $id);
         if ($request->hasFile('file')) {
             $image = $request->file('file')->getClientOriginalName();
-            $destination_path = '/images';
             $extension = pathinfo($image, PATHINFO_EXTENSION);
             $filename = pathinfo($image, PATHINFO_FILENAME);
             $image_name  = $filename . '_' . time() . '.' . $extension;
             $path = $request->file('file')->storeAs('public/images', $image_name);
-            error_log($path);
-            error_log($destination_path . '/' . $image_name);
-            $returnPath = Storage::url($image_name);
+            $image_path = '/' . $image_name;
+            $product = Image::create([
+                'path' => $image_path, 'product_id' => $id
+            ]);
         }
     }
 }

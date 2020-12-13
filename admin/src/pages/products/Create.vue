@@ -29,7 +29,8 @@
                 <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
             <q-field helper="Supported format: JPG, max. file size: 300KiB, max. uploaded files: 5" class="q-mt-lg">
-                <q-uploader url="path + $this.productId"  max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
+                <p class="hidden">{{temp = path + productId}}</p>
+                <q-uploader :url=temp  max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
             </q-field>
         </q-card-main>
         <q-card-actions class="q-mt-md">
@@ -53,7 +54,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      path: 'http://127.0.0.1:8000/api/admin-images/upload/',
+      path: 'http://127.0.0.1:8000/api/images/upload/',
       productName: '',
       productDescription: '',
       productSize: '',
@@ -70,12 +71,12 @@ export default {
       axios
         .post('http://127.0.0.1:8000/api/admin-products', this.productData)
         .then(response => {
-          console.log('Response1: ', response.data.id)
           this.productId = response.data.id
         })
         .then(response => {
           this.$refs.uploader.upload()
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been created.' })
+          this.$router.push('/products/index')
         })
         .catch(error => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'An error has been occured.' })

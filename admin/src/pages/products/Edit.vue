@@ -28,8 +28,8 @@
             <q-field :count="25">
                 <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
-            <q-field helper="Supported format: JPG, max. file size: 300KiB" class="q-mt-lg">
-                <!-- <q-uploader float-label="Images" multiple extensions=".jpg" auto-expand/> -->
+            <q-field helper="Supported format: JPG, max. file size: 300KiB, max. uploaded files: 5" class="q-mt-lg">
+                <q-uploader :url=pathImages  max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
             </q-field>
             <q-card-actions class="q-mt-md">
                 <div class="row justify-end full-width docs-btn">
@@ -69,6 +69,7 @@ export default {
       images: '',
       imagesNumber: 0,
       path: 'http://127.0.0.1:8000/api/images/' + this.$route.params.id + '/',
+      pathImages: 'http://127.0.0.1:8000/api/images/upload/' + this.$route.params.id,
       productName: '',
       productDescription: '',
       productSize: '',
@@ -83,7 +84,12 @@ export default {
       axios
         .put(`http://127.0.0.1:8000/api/update/` + this.$route.params.id, this.productData)
         .then(response => {
+          this.$refs.uploader.upload()
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'Produkt bol úspešne aktualizovaný.' })
+        })
+        .then(response => {
+          this.loadProduct()
+          this.loadImages()
         })
         .catch(error => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'Vyskytla sa chyba.' })
