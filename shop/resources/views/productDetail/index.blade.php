@@ -15,9 +15,12 @@
                     
                 </ol>
                 <div class="carousel-inner">
+                    @if(isset($images[0]))
                     <div class="carousel-item active">
                         <img src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" class="d-block w-100" alt="...">
                     </div>
+                    @endif
+
                     @for($i = 1; $i < count($images); $i++)
                     <div class="carousel-item">
                         <img src="{{ asset('storage/images' . $images[$i]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" class="d-block w-100" alt="...">
@@ -33,18 +36,6 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            
-            <!--<div class="col-lg-6 col-12">
-                
-                
-                
-                @if ($images)
-                <img class="d-block w-100" src="{{ asset('storage/images' . $images[0]->path . ' ' ) }}" alt=" Cestný tmavozelený bicykel" />
-                @else
-                Bad image path!
-                @endif
-            </div>-->
-
             <div class="col-xl-4 col-lg-6 col-12 px-0">
                 <h1 class="product-title text-uppercase">{{$product->name}}</h1>
 
