@@ -29,7 +29,7 @@
                 <q-input type="text" float-label="Značka" v-model="productBrand" max-length="25" />
             </q-field>
             <q-field helper="Supported format: JPG, max. file size: 300KiB, max. uploaded files: 5" class="q-mt-lg">
-                <q-uploader url="http://127.0.0.1:8000/api/admin-images/upload" max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
+                <q-uploader url="path + $this.productId"  max-file-size="300" max-files="5" float-label="Obrázky" multiple extensions=".jpg" hide-upload-button auto-expand ref="uploader" />
             </q-field>
         </q-card-main>
         <q-card-actions class="q-mt-md">
@@ -53,6 +53,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      path: 'http://127.0.0.1:8000/api/admin-images/upload/',
       productName: '',
       productDescription: '',
       productSize: '',
@@ -60,18 +61,21 @@ export default {
       productCategoryId: '',
       optionsCategory: [{ label: 'Bicykle', value: '1' }, { label: 'Elektrobicykle', value: '2' }, { label: 'Oblečenie', value: '3' }, { label: 'Tretry', value: '4' }, { label: 'Komponenty', value: '5' }, { label: 'Príslušenstvo', value: '6' }],
       productQuantity: '',
-      productBrand: ''
+      productBrand: '',
+      productId: ''
     }
   },
   methods: {
     createProduct (file, updateProgress) {
       axios
-        // .post('http://127.0.0.1:8000/api/admin-products', this.productData)
-        .post('http://127.0.0.1:8000/api/admin-images/upload')
+        .post('http://127.0.0.1:8000/api/admin-products', this.productData)
+        .then(response => {
+          console.log('Response1: ', response.data.id)
+          this.productId = response.data.id
+        })
         .then(response => {
           this.$refs.uploader.upload()
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'The product has been created.' })
-          // this.$router.push({ path: '/products/' + response.data.id + '/edit' })
         })
         .catch(error => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'An error has been occured.' })
@@ -81,7 +85,7 @@ export default {
   },
   computed: {
     productData: function () {
-      return { name: this.productName, description: this.productDescription, size: this.productSize, price: this.productPrice, category_id: this.productCategoryId, quantity: this.productQuantity, brand: this.productBrand, photo: this.productPhoto }
+      return { name: this.productName, description: this.productDescription, size: this.productSize, price: this.productPrice, category_id: this.productCategoryId, quantity: this.productQuantity, brand: this.productBrand }
     }
   }
 }

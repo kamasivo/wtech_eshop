@@ -27,4 +27,4 @@ Route::get('edit/{product}', [ProductControllerApi::class, 'edit']);
 Route::put('/update/{product}', [ProductControllerApi::class, 'update']);
 Route::get('images/{product}', [ProductControllerApi::class, 'getImages']);
 Route::get('delImage/{product}', [ProductControllerApi::class, 'deleteImage']);
-Route::post('admin-images/upload', [ProductControllerApi::class, 'upload']);
+Route::post('admin-images/upload/{id}', [ProductControllerApi::class, 'upload']);

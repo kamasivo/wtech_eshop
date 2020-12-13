@@ -38,7 +38,7 @@ class ProductControllerApi extends Controller
             'size'=> 'required',
             'price' => 'required|numeric|min:1|max:50000',
             'category_id' => 'required',
-            'quantity' => 'required|numeric|min:0',
+            'quantity' => 'required|numeric|min:1',
             'brand' => 'required'
         ]);
         
@@ -46,6 +46,7 @@ class ProductControllerApi extends Controller
             'name' => $request->name, 'description' => $request->description, 'size' => $request->size,
             'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand
         ]);
+
         return response()->json(['id' => $product->id]);
     }
 
@@ -174,19 +175,18 @@ class ProductControllerApi extends Controller
      */
     public function upload(Request $request)
     {
+        $id = $request->id;
+        error_log('id produktu ' . $id);
         if ($request->hasFile('file')) {
             $image = $request->file('file')->getClientOriginalName();
             $destination_path = '/images';
             $extension = pathinfo($image, PATHINFO_EXTENSION);
             $filename = pathinfo($image, PATHINFO_FILENAME);
             $image_name  = $filename . '_' . time() . '.' . $extension;
-            //Storage::disk('public')->putFileAs($destination_path, $image, $image_name);
-            $path = $request->file('file')->storeAs('public/images/', $image_name);
-        
-            //tu vvytvorim image s product id 
-            return response()->json($path, 200);
+            $path = $request->file('file')->storeAs('public/images', $image_name);
+            error_log($path);
+            error_log($destination_path . '/' . $image_name);
+            $returnPath = Storage::url($image_name);
         }
-        //return 
     }
-
 }
