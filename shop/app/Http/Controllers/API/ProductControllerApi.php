@@ -31,17 +31,17 @@ class ProductControllerApi extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'name' => 'required|min:5',
             'description' => 'required',
-            'size'=> 'required',
+            'size' => 'required',
             'price' => 'required|numeric|min:1|max:50000',
             'category_id' => 'required',
             'quantity' => 'required|numeric|min:1',
             'brand' => 'required'
         ]);
-        
+
         $product = Product::create([
             'name' => $request->name, 'description' => $request->description, 'size' => $request->size,
             'price' => $request->price, 'category_id' => $request->category_id, 'quantity' => $request->quantity, 'brand' => $request->brand
@@ -151,21 +151,32 @@ class ProductControllerApi extends Controller
         return Product::all()->toJson(JSON_PRETTY_PRINT);
     }
 
-    public function getImages(Product $product)
+    public function getImages(Product $product, $id)
     {
         $images = $product->images;
-        foreach ($images as $img) {
-            return response()->file('storage/images' . $img->path);
-        }
+        return response()->file('storage/images' . $images[$id]->path);
     }
 
-    public function deleteImage($id)
+
+    public function getImagesNumber(Product $product)
+    {
+        $images = $product->images;
+        return $images->count();
+    }
+
+
+    public function deleteImage($id, $imgNum)
     {
         $images = Product::find($id)->images;
+        $counter = 0;
         foreach ($images as $img) {
-            Storage::delete('public/images' . $img->path);
+            if ($counter == $imgNum) {
+                Storage::delete('public/images' . $img->path);
+                $img->delete();
+            }
+
+            $counter += 1;
         }
-        Image::where('product_id', $id)->delete();
     }
     /**
      * Upload a images to storage.
