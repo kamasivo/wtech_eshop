@@ -23,7 +23,7 @@ class CategorySeeder extends Seeder
             'name' => 'Elektrobicykle',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Oblecenie',
+            'name' => 'Oblečenie',
         ]);
         DB::table('categories')->insert([
             'name' => 'Tretry',
@@ -32,7 +32,7 @@ class CategorySeeder extends Seeder
             'name' => 'Komponenty',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Prislusenstvo',
+            'name' => 'Príslušenstvo',
         ]);
     }
 }
