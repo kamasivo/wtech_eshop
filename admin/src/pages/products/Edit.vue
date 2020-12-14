@@ -87,10 +87,6 @@ export default {
           this.$refs.uploader.upload()
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'Produkt bol úspešne aktualizovaný.' })
         })
-        .then(response => {
-          this.loadProduct()
-          this.loadImages()
-        })
         .catch(error => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'Vyskytla sa chyba.' })
           console.log(error)
@@ -101,7 +97,7 @@ export default {
         .get(`http://127.0.0.1:8000/api/delImage/` + this.$route.params.id + '/' + id)
         .then(() => {
           this.$q.notify({ type: 'positive', timeout: 2000, message: 'Obrazok bol odstránený.' })
-          this.loadImages()
+          window.location.reload()
         })
         .catch(() => {
           this.$q.notify({ type: 'negative', timeout: 2000, message: 'Nastala chyba.' })
