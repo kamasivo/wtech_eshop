@@ -81,6 +81,7 @@ class ProductControllerApi extends Controller
         $product->description = $request->description;
         $product->price = $request->price;
         $product->category_id = $request->category_id;
+        $product->size = $request->size;
         $product->quantity = $request->quantity;
         $product->brand = $request->brand;
         $product->save();

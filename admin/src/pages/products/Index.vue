@@ -20,11 +20,11 @@
         <q-td key="price" :props="props">
           <span>{{ props.row.price }}€</span>
         </q-td>
-        <q-td key="quantity" :props="props">
-          <span>{{ props.row.quantity }}</span>
-        </q-td>
         <q-td key="size" :props="props">
           <span>{{ props.row.size }}</span>
+        </q-td>
+        <q-td key="quantity" :props="props">
+          <span>{{ props.row.quantity }}</span>
         </q-td>
         <q-td class="text-right">
           <div>
