@@ -95,8 +95,6 @@ class ProductPageController extends Controller
      */
     public function paging(Request $request, $id)
     {
-        //treba spravit image join s produktami ktore vytiahnem
-
         $sort = request()->has('sort') ? request()->get('sort') : 'asc';
 
         $products = Product::where('category_id', $id)->where(function($query){

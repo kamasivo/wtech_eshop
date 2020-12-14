@@ -70,13 +70,6 @@ class ProductControllerApi extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        // validations and error handling is up to you!!! ;)
-        /*
-    $request->validate([
-        'name' => 'required|min:3',
-        'description' => 'required',
-    ]);  
-    */
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
@@ -187,6 +180,7 @@ class ProductControllerApi extends Controller
      */
     public function upload(Request $request)
     {
+
         $id = $request->id;
         error_log('id produktu ' . $id);
         if ($request->hasFile('file')) {

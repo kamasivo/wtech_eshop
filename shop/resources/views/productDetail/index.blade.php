@@ -77,7 +77,7 @@
                                         </a>
                                     </div>
                                     <div class="col-4 px-2">
-                                        <input type="number" class="quantity w-100" name="count" id="count" min="1" value="{{ $count }}" min="1" /></div>
+                                        <input type="number" class="quantity w-100" name="count" id="count" value="{{ $count }}" min="1" max="{{$product->quantity}}" /></div>
                                     <div class="col-1 px-0">
                                         <a href="{{ url('/product/' . $product->id . '/'. $count . '/plus') }}">
                                             <i class="fa fa-plus"></i>
