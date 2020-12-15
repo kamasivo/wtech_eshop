@@ -11,6 +11,7 @@ use App\Http\Controllers\DeliveryDataController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminController;
 use App\Request;
 
 use App\Models\Product;
@@ -58,3 +59,4 @@ Auth::routes();
 Route::post('product/{id}/{continue}/addToChart', [ProductController::class, 'addToCart']);
 Route::post('edit', [UserController::class, 'update']);
 Route::post('/delivery-data/edit', [DeliveryDataController::class, 'update']);
+Route::get('/admin', [AdminController::class, 'index'])->middleware('role');

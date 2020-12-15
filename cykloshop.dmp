@@ -1,0 +1,791 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 13.0
+-- Dumped by pg_dump version 13.0
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: public; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA public;
+
+
+ALTER SCHEMA public OWNER TO postgres;
+
+--
+-- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
+--
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: carts; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.carts (
+    id bigint NOT NULL,
+    user_id bigint NOT NULL,
+    product_id bigint NOT NULL,
+    count integer NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.carts OWNER TO postgres;
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.carts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.carts_id_seq OWNER TO postgres;
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.carts_id_seq OWNED BY public.carts.id;
+
+
+--
+-- Name: categories; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.categories (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.categories OWNER TO postgres;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.categories_id_seq OWNER TO postgres;
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
+
+
+--
+-- Name: failed_jobs; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.failed_jobs (
+    id bigint NOT NULL,
+    uuid character varying(255) NOT NULL,
+    connection text NOT NULL,
+    queue text NOT NULL,
+    payload text NOT NULL,
+    exception text NOT NULL,
+    failed_at timestamp(0) without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+ALTER TABLE public.failed_jobs OWNER TO postgres;
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.failed_jobs_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.failed_jobs_id_seq OWNER TO postgres;
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.failed_jobs_id_seq OWNED BY public.failed_jobs.id;
+
+
+--
+-- Name: images; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.images (
+    id bigint NOT NULL,
+    path character varying(255) NOT NULL,
+    product_id bigint NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.images OWNER TO postgres;
+
+--
+-- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.images_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.images_id_seq OWNER TO postgres;
+
+--
+-- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.images_id_seq OWNED BY public.images.id;
+
+
+--
+-- Name: migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.migrations (
+    id integer NOT NULL,
+    migration character varying(255) NOT NULL,
+    batch integer NOT NULL
+);
+
+
+ALTER TABLE public.migrations OWNER TO postgres;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.migrations_id_seq OWNER TO postgres;
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.migrations_id_seq OWNED BY public.migrations.id;
+
+
+--
+-- Name: orders; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.orders (
+    id bigint NOT NULL,
+    order_number integer NOT NULL,
+    user_id bigint NOT NULL,
+    product_id bigint NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.orders OWNER TO postgres;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.orders_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.orders_id_seq OWNER TO postgres;
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.orders_id_seq OWNED BY public.orders.id;
+
+
+--
+-- Name: password_resets; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.password_resets (
+    email character varying(255) NOT NULL,
+    token character varying(255) NOT NULL,
+    created_at timestamp(0) without time zone
+);
+
+
+ALTER TABLE public.password_resets OWNER TO postgres;
+
+--
+-- Name: products; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.products (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    description text NOT NULL,
+    size character varying(255) NOT NULL,
+    price integer NOT NULL,
+    category_id bigint NOT NULL,
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    quantity integer DEFAULT 1,
+    brand character varying(255)
+);
+
+
+ALTER TABLE public.products OWNER TO postgres;
+
+--
+-- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.products_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.products_id_seq OWNER TO postgres;
+
+--
+-- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.products_id_seq OWNED BY public.products.id;
+
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.users (
+    id bigint NOT NULL,
+    name character varying(255) NOT NULL,
+    email character varying(255) NOT NULL,
+    email_verified_at timestamp(0) without time zone,
+    password character varying(255) NOT NULL,
+    remember_token character varying(100),
+    created_at timestamp(0) without time zone,
+    updated_at timestamp(0) without time zone,
+    surname character varying(255),
+    phone character varying(255),
+    street character varying(255),
+    house_number integer,
+    town character varying(255),
+    role character varying(255) DEFAULT 'user'::character varying NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+
+
+--
+-- Name: carts id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carts ALTER COLUMN id SET DEFAULT nextval('public.carts_id_seq'::regclass);
+
+
+--
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
+
+
+--
+-- Name: failed_jobs id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.failed_jobs ALTER COLUMN id SET DEFAULT nextval('public.failed_jobs_id_seq'::regclass);
+
+
+--
+-- Name: images id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.images ALTER COLUMN id SET DEFAULT nextval('public.images_id_seq'::regclass);
+
+
+--
+-- Name: migrations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.migrations ALTER COLUMN id SET DEFAULT nextval('public.migrations_id_seq'::regclass);
+
+
+--
+-- Name: orders id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.orders ALTER COLUMN id SET DEFAULT nextval('public.orders_id_seq'::regclass);
+
+
+--
+-- Name: products id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.products ALTER COLUMN id SET DEFAULT nextval('public.products_id_seq'::regclass);
+
+
+--
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Data for Name: carts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.carts (id, user_id, product_id, count, created_at, updated_at) FROM stdin;
+1	1	1	2	\N	\N
+\.
+
+
+--
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.categories (id, name, created_at, updated_at) FROM stdin;
+1	Bicykle	\N	\N
+2	Elektrobicykle	\N	\N
+4	Tretry	\N	\N
+5	Komponenty	\N	\N
+3	Oblečenie	\N	\N
+6	Príslušenstvo	\N	\N
+\.
+
+
+--
+-- Data for Name: failed_jobs; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.failed_jobs (id, uuid, connection, queue, payload, exception, failed_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.images (id, path, product_id, created_at, updated_at) FROM stdin;
+3	/scott_carbon_1607900464.jpg	3	2020-12-13 23:01:04	2020-12-13 23:01:04
+4	/Scott_foil_premium_1607900644.jpg	4	2020-12-13 23:04:04	2020-12-13 23:04:04
+5	/scott_gravel_1607900819.jpg	5	2020-12-13 23:06:59	2020-12-13 23:06:59
+6	/bmc_1607900855.jpg	1	2020-12-13 23:07:35	2020-12-13 23:07:35
+7	/pinarello_1607901330.jpg	6	2020-12-13 23:15:30	2020-12-13 23:15:30
+11	/cloth3_1607901639.jpg	7	2020-12-13 23:20:39	2020-12-13 23:20:39
+12	/cloth6_1607901772.jpg	8	2020-12-13 23:22:52	2020-12-13 23:22:52
+13	/cloth1_1607902001.jpg	9	2020-12-13 23:26:41	2020-12-13 23:26:41
+14	/cloth2_1607902091.jpg	10	2020-12-13 23:28:11	2020-12-13 23:28:11
+15	/roeckl_1607902212.jpg	11	2020-12-13 23:30:12	2020-12-13 23:30:12
+16	/cloth4_1607902288.jpg	12	2020-12-13 23:31:28	2020-12-13 23:31:28
+17	/cloth7_1607902644.jpg	13	2020-12-13 23:37:24	2020-12-13 23:37:24
+18	/cloth8_1607902720.jpg	14	2020-12-13 23:38:40	2020-12-13 23:38:40
+19	/cloth9_1607902775.jpg	15	2020-12-13 23:39:35	2020-12-13 23:39:35
+20	/boots1_1607903020.jpg	16	2020-12-13 23:43:40	2020-12-13 23:43:40
+21	/boots3_1607903057.jpg	17	2020-12-13 23:44:17	2020-12-13 23:44:17
+22	/boots2_1607903246.jpg	18	2020-12-13 23:47:26	2020-12-13 23:47:26
+23	/boots4_1607903361.jpg	19	2020-12-13 23:49:21	2020-12-13 23:49:21
+24	/cloth5_1607939135.jpg	20	2020-12-14 09:45:35	2020-12-14 09:45:35
+25	/ebike6_1607939496.jpg	21	2020-12-14 09:51:36	2020-12-14 09:51:36
+26	/ebike3_1607939552.jpg	22	2020-12-14 09:52:32	2020-12-14 09:52:32
+27	/ebike1_1607939671.jpg	23	2020-12-14 09:54:31	2020-12-14 09:54:31
+28	/ebike4_1607939761.jpg	24	2020-12-14 09:56:01	2020-12-14 09:56:01
+29	/ebike7_1607939899.jpg	25	2020-12-14 09:58:19	2020-12-14 09:58:19
+30	/ebike5_1607939992.jpg	26	2020-12-14 09:59:52	2020-12-14 09:59:52
+31	/ebike11_1607940130.jpg	27	2020-12-14 10:02:10	2020-12-14 10:02:10
+33	/boots7_1607940537.jpg	29	2020-12-14 10:08:57	2020-12-14 10:08:57
+34	/boots6_1607940675.jpg	30	2020-12-14 10:11:15	2020-12-14 10:11:15
+35	/boots8_1607940792.jpg	31	2020-12-14 10:13:12	2020-12-14 10:13:12
+36	/komponent1_1607940998.jpg	32	2020-12-14 10:16:38	2020-12-14 10:16:38
+37	/komponent2_1607941076.jpg	33	2020-12-14 10:17:56	2020-12-14 10:17:56
+38	/komponent3_1607941141.jpg	34	2020-12-14 10:19:01	2020-12-14 10:19:01
+39	/komponent4_1607941462.jpg	35	2020-12-14 10:24:22	2020-12-14 10:24:22
+40	/komponent5_1607941524.jpg	36	2020-12-14 10:25:24	2020-12-14 10:25:24
+41	/komponent6_1607941572.jpg	37	2020-12-14 10:26:12	2020-12-14 10:26:12
+42	/komponent7_1607941754.jpg	38	2020-12-14 10:29:14	2020-12-14 10:29:14
+43	/komponent8_1607941794.jpg	39	2020-12-14 10:29:54	2020-12-14 10:29:54
+44	/komponent9_1607941852.jpg	40	2020-12-14 10:30:52	2020-12-14 10:30:52
+45	/accessories1_1607942463.jpg	41	2020-12-14 10:41:03	2020-12-14 10:41:03
+46	/accessories2_1607942627.jpg	42	2020-12-14 10:43:47	2020-12-14 10:43:47
+47	/accessories3_1607942680.jpg	43	2020-12-14 10:44:40	2020-12-14 10:44:40
+48	/accessories4_1607942739.jpg	44	2020-12-14 10:45:39	2020-12-14 10:45:39
+49	/accessories5_1607942787.jpg	45	2020-12-14 10:46:27	2020-12-14 10:46:27
+50	/accessories6_1607942834.jpg	46	2020-12-14 10:47:14	2020-12-14 10:47:14
+51	/accessories7_1607942912.jpg	47	2020-12-14 10:48:32	2020-12-14 10:48:32
+52	/accessories8_1607944317.jpg	48	2020-12-14 11:11:57	2020-12-14 11:11:57
+53	/accessories9_1607944370.jpg	49	2020-12-14 11:12:50	2020-12-14 11:12:50
+54	/accessories10_1607944425.jpg	50	2020-12-14 11:13:45	2020-12-14 11:13:45
+55	/bike7_1607945823.jpg	51	2020-12-14 11:37:03	2020-12-14 11:37:03
+56	/bike8_1607945863.jpg	52	2020-12-14 11:37:43	2020-12-14 11:37:43
+57	/bike9_1607945906.jpg	53	2020-12-14 11:38:26	2020-12-14 11:38:26
+58	/bike10_1607945952.jpg	54	2020-12-14 11:39:12	2020-12-14 11:39:12
+59	/bike11_1607945998.jpg	55	2020-12-14 11:39:58	2020-12-14 11:39:58
+60	/bike12_1607946036.jpg	56	2020-12-14 11:40:36	2020-12-14 11:40:36
+61	/bike13_1607946086.jpg	57	2020-12-14 11:41:26	2020-12-14 11:41:26
+62	/bike14_1607946213.jpg	58	2020-12-14 11:43:33	2020-12-14 11:43:33
+63	/bike15_1607946268.jpg	59	2020-12-14 11:44:28	2020-12-14 11:44:28
+64	/bike16_1607946359.jpg	60	2020-12-14 11:45:59	2020-12-14 11:45:59
+84	/scott_foil30_1607958016.jpg	2	2020-12-14 15:00:16	2020-12-14 15:00:16
+85	/Scott_Foil_2_1607958027.jpg	2	2020-12-14 15:00:27	2020-12-14 15:00:27
+86	/Scott_Foil_3_1607958027.jpg	2	2020-12-14 15:00:27	2020-12-14 15:00:27
+87	/Scott_Foil_4_1607958028.jpg	2	2020-12-14 15:00:28	2020-12-14 15:00:28
+92	/bmc_1607958538.jpg	62	2020-12-14 15:08:59	2020-12-14 15:08:59
+\.
+
+
+--
+-- Data for Name: migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.migrations (id, migration, batch) FROM stdin;
+1	2014_10_12_000000_create_users_table	1
+2	2014_10_12_100000_create_password_resets_table	1
+3	2019_08_19_000000_create_failed_jobs_table	1
+4	2020_11_14_105240_add_fields_to_users_table	1
+5	2020_11_18_183244_create_products_table	1
+6	2020_11_18_190210_create_images_table	1
+7	2020_11_19_200157_create_categories_table	1
+8	2020_11_20_123147_create_carts_table	1
+9	2020_11_21_202346_create_orders_table	1
+10	2020_11_22_100444_add_quantity_to_products	1
+11	2020_11_22_101930_add_brand_to_products	1
+12	2020_12_14_170148_add_role_to_users_table	2
+\.
+
+
+--
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.orders (id, order_number, user_id, product_id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: password_resets; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.password_resets (email, token, created_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.products (id, name, description, size, price, category_id, created_at, updated_at, quantity, brand) FROM stdin;
+2	SCOTT FOIL 30 2021	Karbónový rám: FOIL Disc HMF \nVidlica: FOX Disc HMX \nShimano Ultegra 22 rýchlostí \nKolesá: Syncros RR2.0 \nPlášte: Schwalbe ONE Race-Guard\nKarbónové / zliatinové diely: Syncros\nVáha: 8,1 kg	M	2599	1	2020-12-13 22:49:11	2020-12-13 22:49:11	4	Scott
+3	SCOTT ADDICT 10	Karbónový rám: Addict Disc HMF\nVidlica: Addict HMF \nVýbava: Shimano Ultegra Disc 22 rýchlostí\nKolesá: Syncros RP2.0\nPlášte: Schwalbe ONE\nKarbónové / zliatinové diely: Syncros\nVáha: 8,2 kg	S	2799	1	2020-12-13 23:01:03	2020-12-13 23:01:03	2	Scott
+4	SCOTT FOIL PREMIUM	Rám: FOIL DISC HMX / IMP, F01 AERO Carbon tech.Road Race geometryReplaceable DropoutSTD Seattube / INT BB\n\nPredná vidlica: FOIL DISC HMX1 1/4"-1 1/2" Carbon steererIntegrated Carbon Dropout\n\nHlavové zloženie: Syncros Integrated\n\nMenič: Shimano Dura-Ace RD-R915022 Speed Electronic\n\nPredná prehadzovačka: Shimano Dura-Ace FD-R9150Eletronic Shift System\n\nRadenie: Shimano Dura-Ace ST-R9170Dual control 22 Speed Electronic Shift\n\nBrzdy: Shimano BR-R9170 Hyd Disc160/F and 160/Rmm SM-RT900 CL Rotor\n\nPrevodník: Shimano Dura-Ace FC-R9100Hollowtech II 52x36 T\n\nStredové zloženie: Shimano SM-BB92-41B\n\nRiaditká: Syncros Carbon FOIL Combo\n\nSedlovka: Syncros FOIL aero Carbon\n\nSedlo: Syncros Belcarra 1.0\n\nKolesá: Zipp 303 NSW Disc Firecrest Carbon Clincher TubelessSyncros Plug-in RWS\n\nReťaz: Shimano Dura-Ace CN-HG901-11\n\nViackoliesko: Shimano Dura-Ace CS-R910011-30\n\nPlášte: Schwalbe ONE V-Guard Fold700x28C\n\nHmotnosť (kg): 7.36	L	6999	1	2020-12-13 23:04:04	2020-12-13 23:04:04	1	Scott
+5	SCOTT ADDICT GRAVEL 10	Karbónový rám: Addict Gravel HMF\nSRAM FORCE AXS 24 rýchlostí\nKolesá: Syncros Capital 1.0 X40\nPlášte: Schwalbe G-ONE Evolution\nVáha: 8,25 kg	L	5499	1	2020-12-13 23:06:59	2020-12-13 23:06:59	2	Scott
+6	Pinarello PRINCE FX	Farba: Flash Sky\nModelová rada: PRINCE FX DISK 2021\nMateriál: Karbón Torayca T900\nRám: TiCR- úplné vnútorné vedenie káblov\nVidlica: Pinarello Onda\nKolesá: Fulcrum Wind 400 db xd\nSada: Sram Force Etap AXS 2x12\nPrehadzovač: Sram Force Etap AXS\nKľuky: Sram Force AXS\nBrzdy: Sram Force AXS\nRiadidlá: MOST Jaguar\nPredstavec: MOST Tiger\nSedlovka: Pinarello Carbon\nSedlo: Most Lynx\nPlášte/Galusky: Vittoria Zaffiro	L	8199	1	2020-12-13 23:15:30	2020-12-13 23:15:30	2	Pinarello
+7	Eleven kompresné podkolienky	Kompresné podkolienky ELEVEN sú nevyhnutnou súčasťou regenerácie a zároveň zvyšujú výkonnosť a vytrvalosť športovcov. Sú vhodné pre celodenné nosenie, ideálne pri maximálnom zaťažení nôh a pre všetky druhy športov. Vhodné sú najmä pri triatlone, behu, cyklistike, futbale, tenise atď. Sú vhodné aj pre dlhé cestovanie alebo dlhotrvajúcu prácu počas, ktorej stojíte.\n\nNapomáhajú k:\n- vyššej výkonnosti\n- absorpcii nárazov\n- podpore žilového odtoku\n- rýchlejšej regenerácie\n\nSú Vaším spoľahlivým spoločníkom pri tréningu, v priebehu pretekov i regenerácie.\nZvyšujú účinnosť žilového odtoku krvi z nôh späť k srdcu, zvyšujú množstvo kyslíka vo svaloch a súčasne redukujú množstvo kyseliny mliečnej (ktorá spôsobuje tzv. svalovicu).\nVeľmi účinne znižujú svalové otrasy a vibrácie, znižujú únavu svalstva a predchádzajú tak možnému vzniku zranení.\nPo výkone pokračujú v posilňovaní spätného žilového odtoku krvi, znižujú tým čas potrebný pre regeneráciu, tým pádom môžete častejšie trénovať.	S	19	3	2020-12-13 23:20:38	2020-12-13 23:20:38	10	Eleven
+8	Eleven kompresné podkolienky	Kompresné podkolienky ELEVEN sú nevyhnutnou súčasťou regenerácie a zároveň zvyšujú výkonnosť a vytrvalosť športovcov. Sú vhodné pre celodenné nosenie, ideálne pri maximálnom zaťažení nôh a pre všetky druhy športov. Vhodné sú najmä pri triatlone, behu, cyklistike, futbale, tenise atď. Sú vhodné aj pre dlhé cestovanie alebo dlhotrvajúcu prácu počas, ktorej stojíte.\n\nNapomáhajú k:\n- vyššej výkonnosti\n- absorpcii nárazov\n- podpore žilového odtoku\n- rýchlejšej regenerácie\n\nSú Vaším spoľahlivým spoločníkom pri tréningu, v priebehu pretekov i regenerácie.\nZvyšujú účinnosť žilového odtoku krvi z nôh späť k srdcu, zvyšujú množstvo kyslíka vo svaloch a súčasne redukujú množstvo kyseliny mliečnej (ktorá spôsobuje tzv. svalovicu).\nVeľmi účinne znižujú svalové otrasy a vibrácie, znižujú únavu svalstva a predchádzajú tak možnému vzniku zranení.\nPo výkone pokračujú v posilňovaní spätného žilového odtoku krvi, znižujú tým čas potrebný pre regeneráciu, tým pádom môžete častejšie trénovať.	L	25	3	2020-12-13 23:22:52	2020-12-13 23:22:52	8	Eleven
+22	Ghost Hybride Teru B2.9 riot	Materiál : Hliník\nVeľkosť kolies : 29"\nRám : HYBRIDE Teru AL\nVidlica : SR Suntour XCM 34 LO DS 120 mm\nPrehadzovačka : Shimano Altus RD-M2000 9-S\nKľuky : Samox EC13-F13 16T\nKazeta : Shimano CS-HG200-9 11-34\nBrzdy : Shimano BR-MT200 2/2 Piston 180 mm\nRadenie : Shimano Altus SL-M2000\nHlavové zloženie : 16012\nRiadidlá : GHOST MTB 740 mm Rise 25 mm Dia. 31.8 mm\nPredstavec : GHOST MTB Dia. 31.8 mm\nSedlovka : GHOST Light DC1 31.6 mm\nSedlo : Velo VL-1353\nPredný náboj : Shimano HB-MT400-B 15x110 mm\nZadný náboj : Shimano FH-TX505-8 QR\nZdvih predný : 120 mm\nPedále : VPE-506\nMotor : Bosch Performance CX\nPätka : EZ1954\nPočet rýchlostí : 9\nRáfik zadný : Rodi Blackrock 622x21 mm 32H\nRáfik predný : Rodi Blackrock 622x21 mm 32H\nPlášť predný : Continental X-King Pure Grip 29x2.2\nPlášť zadný : Continental X-King Pure Grip 29x2.2\nBatéria : Bosch Power Pack 500 Wh\nDisplej : Bosch Purion	M	2199	2	2020-12-14 09:52:31	2020-12-14 09:52:31	5	Ghost
+37	Selle San Marco Shortfit Open-Fit Supercomfort Dynamic Wide	Selle San Marco Shortfit Open-Fit Supercomfort Dynamic Wide sedlo s lyžinami vyrobenými z odolného materiálu Manganese. Škrupina Carbon Fiber Reinforced zaistí výbornú odolnosť a nízku hmotnosť bez kompromisov. Sedlo má rozšírenú a oblú špičku, je celkovo skrátené, má polstrovanú zadnú časť s dostatočnou podporou. V strednej časti je veľká medzera pre úľavu v perineálnej oblasti. Sedlo je mierne prehnuté, je vhodné pre mnoho typov jazdcov.\n\nTlmenie Biofam s gélom znižuje odpor a dodáva ideálnu oporu. Polstrovanie má dve rôzne hustoty výplne, ktoré absorbujú rázy a eliminujú vibrácie z terénu. Poťah má úpravu Microfeel, ktorá je priedušná a odolná proti oderu. Hmotnosť sedla je 230 gramov.\n\nPoužitie: cestné, MTB\nDĺžka: 250 mm\nŠírka: 144 mm\nMateriál lyžín: Manganese\nPolstrovanie: Biofoam, Gel\nPoťah: MICROFEEL\nHmotnosť: 230 g\nFarba: čierna	L	45	5	2020-12-14 10:26:11	2020-12-14 10:26:11	4	Selle San Marco
+9	Castelli bunda DOUBLE ESPRESSO	ČO TO JE\nToto je naša najteplejšia bunda pre maximálne pohodlie pri jazde v zime. Vďaka dvojvrstvovej konštrukcii s plnou vonkajšou ochranou GORE-TEX INFINIUM™ WINDSTOPPER® so samostatnou vnútornou flísovou vrstvou, nebola vaša zimná jazda, nikdy tak luxusne teplá.\n\nVLASTNOSTI PRODUKTU\n- Vrchná vrstva GORE-TEX INFINIUM™ WINDSTOPPER® 203 s vnútornou flísovou vvrstvou pre extra teplo.\n- Špeciálny strih vzadu na rukávoch pre ideálne usadenie počas jazdy.\n- Náprstné vrecko so zipsom pre uschovanie drobných cenností.\n- Predné ventilačné otvory so zipsom\n- 3 zadné vrecká klasickej konštrukcie.\n- Reflexné vklady vzadu.\n\nFarby: 085 - svetlá čierna/červená, 075 – vojenská zelená\nVeľkosti: S – 3XL\nHmotnosť: 533g. (L)\nTeplotný rozsah: -5 - 8 °C\n\nMateriálové zloženie:\nvonkajší hlavný materiál 100% polyester\nhlavný vnútorný materiál 92% polyester 8% elastan\npodšívka 90% polyester 10% elastan\nvnútorný golier, podšívka zipsu 100% polyester\nzadný spodný diel 70% polyamid 30% elastan\nzadné vklady 85% polyamid 15% elastan\nvklad na manžete, vložené vrecko 80% polyamid 20% elastan\n\nUŽITE SI ZIMU\nVšetci to poznáme: utrpenie počas tréningu v chladnom počasí, pretože sme nemali, to čo sme potrebovali. Túto zimnú bundu sme postavili tak, aby bola teplá a pohodlná v chladných zimných podmienkach a aby ste aj vyzerali dobre. No a teraz to môžete i ukázať, že nie ste ten kto trpí.\nPoužili sme nový materiál GORE-TEX INFINIUM™ WINDSTOPPER® 203, ktorý je odolný voči poveternostným vplyvom, ním sme prekryli samostatnú izolačnú flísovú vrstvu. Strih je o niečo väčší, takže sa pohybuje spolu s vami a bez problémov môžete pridať ďalšiu vrstvu pre extra chladné podmienky. Špeciálny strih na ramenách pre ľahší pohyb ramien a rúk. Vysoký a tvarovaný golier, ktorý pohodlne sedí okolo krku. Máte k dispozícii 3 dostatočne veľké zadné vrecká a bezpečné vrecko na zips na hrudi.	L	299	3	2020-12-13 23:26:40	2020-12-13 23:26:40	3	Castelli
+10	Castelli nohavice VELOCISSIMO 4	ČO TO JE\nTieto nohavice sú vyrobené z kvalitnej tkaniny, vybavené pohodlnou vložkou Kiss Air², majú anatomický strih a reflexné prvky. Správne riešenie, ak nepotrebujete ochranu pred dažďom a striekajúcou vodou, alebo vložku z našich špičkových modelov.\n\nVLASTNOSTI PRODUKTU\n- Materiál Thermoflex poskytne teplo a komfort.\n- Výstelka KISS Air² pre celodenné pohodlie.\n- Traky zo sieťoviny sú dostatočne priedušné.\n- Zaisťovací zips na členkoch.Reflexné manžety na spodku nohavíc.\n\nFarba: 010 - čierna, 341 – čierna/oranžová, 414 – tmavá modrá/červená, 710 - čierna/reflexná\nVeľkosti: S – 3XL\nHmotnosť: 276g. (L)\nTeplotný rozsah: 6 - 12 °C\n\nMateriálové zloženie:\nzákladný materiál 85% polyamid 15% elastan\nsieťovina 80% polyamid 20% elastan\nspodok nohavíc 57% sklenené vlákno 43% polyuretán\nzadný vklad 74% polyamid 26% elastan\n\nJEDNODUCHO PERFEKTNÉ\nNa tomto produkte sme použili skvelé komponenty, aby sme vytvorili teplé a komfortné nohavice. Náš Thermoflex je zmesou Nylónu a Lycry v pomere 80/20, z vnútornej strany má hrubú flísovú vrstvu, vďaka čomu vás udrží pekne v teple bez toho aby vás obmedzoval v pohybe. Pridali sme detaily ako reflexné manžety, sieťované traky a kvalitné YKK® Camlock® zipsy na členkoch a nakoniec sme pridali našu jedinečnú cyklo vložku KISS Air² pre maximálny komfort i počas dlhých výjazdov.	M	119	3	2020-12-13 23:28:11	2020-12-13 23:28:11	5	Castelli
+11	ROECKL Rukavice cyklistické Isar šedé	Cyklistické rukavice ISAR od ROECKL sú skutočným tajným tipom, najmä pre dobrodruhov. Sú odolné, elastické a dodávajú sa s polstrovaním GEL-TECHNOLOGY pre ešte väčšie pohodlie na bicykli.\nVlastnosti:\n• Vrchná časť rukavice je vyrobená z elastickej Lycry a obojsmerného spandexu\n• Dlaň je vyrobená z odolného DURASENSE\n• COMFORT-INNOVATION na ohýbaní palca\n• ALL-WEATHER-GRIP na dlani a prstoch pre bezpečné uchopenie\n• ERGONOMIC CUT s vynikajúcou absorpciou nárazov vďaka čalúneniu GEL-TECHNOLOGY\n• PULL OFF systém pre rýchlejšie stiahnutie rukavíc\n• KEVLAR manžeta so suchým zipsom\n• Jemné froté na palci na utieranie potu počas jazdy\n• Reflexná potlač pre väčšiu bezpečnosť za zníženej viditeľnosti\nMateriál:\nVrchná časť ruky: 94% polyamid, 6% elastan\nDlaň: 100% polyester\nTechnológie:\nDURASENSE: Odolná syntetická koža, ktorá je obzvlášť mäkká a tenká, takže si môžete užiť priľnavosť a pohodlie.\nCOMFORT-INNOVATION: Efektné čalúnenie ohybu palca cez penovú podložku na vnútornej strane rukavice. Pena ponúka dobré čalúnenie a vždy sa vracia do pôvodného tvaru. Výrazné zvýšenie komfortu.\nALL-WEATHER-GRIP: Vysoko funkčný dizajn dlane so silikónovou potlačou pre vynikajúcu priľnavosť v suchom a mokrom prostredí.\nERGONOMIC CUT: Citlivé nervy, ktoré prechádzajú cez karpus, sú pri bicyklovaní pod tlakom vo väčšine uchopovacích polôh. ERGONOMIC CUT vyvinutý spoločnosťou ROECKL tomu účinne bráni a anatomická konštrukcia dlane poskytuje ešte väčšie pohodlie na riadidlách.\nGEL-TECHNOLOGY: Silikónový gél absorbujúci extrémne otrasy a vibrácie pre väčšie pohodlie a tlmenie nárazov.\nPULL OFF: Pútka na prstoch vám umožňujú ľahko zložiť rukavice s krátkymi prstami.\nKEVLAR: Ľahká a vysoko odolná tkanina s obrovskou pevnosťou v ťahu. KEVLAR ponúka mimoriadnu ochranu v oblastiach, ktoré sú najviac vystavené oderu a treniu.\nREFLECT print: Rukavice sú vybavené reflexnými prvkami, ktoré zvyšujú bezpečnosť pri jazde v noci.	M	34	3	2020-12-13 23:30:11	2020-12-13 23:30:11	10	Roeckl
+12	BBB BWG 21 ControlZone rukavice	Ľahké a elastické, softshell rukavice, perfektné pre mierne zimné podmienky.\nTenké zimné rukavice majú výborný kontakt s riadidlami, napriek tomu sú extrémne odolné.\nVetru odolná a vzdušná membrána udržiava vaše ruky v teple a suchu i počas chladných dní.\nDlaň s výstelkami z gélovej peny pre zvýšený komfort.\nExtra predĺžená manžeta z neoprénu, na suchý zips.\nSpevnenie medzi palcom a ukazovákom materiálom Amara.\nMateriálové zloženie: 60% polyester, 35% polyuretán, 5% polyamid.\nFarba: čierna.	M	22	3	2020-12-13 23:31:27	2020-12-13 23:31:27	15	BBB
+13	Hqbc dres QPI SK TEAM	Dizajn dámskeho dresu QPI, ktorý vytvorili a vyrobili inžinieri z PEARL IZUMI, je určený pre čistý výkon s dôrazom na aerodynamiku a profesionálne detaily. Patentovaná Speed Sleeve konštrukcia vytvára optimálny a priliehavý strih v oblasti ramien a hrude, ktorý eliminuje záhyby tkaniny v pozícii pri jazde. Dlhšie rukávy s ukončením bez švov a obšitia znižujú pocit obtiahnutých rukávov a zvyšujú pocit komfortu pri akokoľvek agresívnej jazde. Na pleciach a rukávoch je použitá tkanina P.R.O. Aero, ktorá zlepšuje obtekanie vzduchu okolo švov dresu. Predné časti dresu vyrobené zo sieťovaného materiálu a udržujú telo chladné aj počas najintenzívnejšieho výkonu. Ďalšie odvetranie a hlavne variabilnosť poskytuje zips po celej dĺžke s poloautomatickým zámkom bežca, ktorý funguje ako štandardný zips, ale môže byť preklopený tak, aby umožňoval jednoduchú manipuláciu jednou rukou. V zadnej časti dresu sú tri objemné vrecká. Keďže dres je konštruovaný hlavne pre profesionálov, odporúčame dres pred kúpou riadne vyskúšať, alebo objednať o číslo väčší ako štandardne nosíte.\n\nZloženie: Telo - 88% polyester 12% elastan, Hmotnosť 120 g/m2; P.R.O. Aero panely - 78% polyester 22% elastan/UPF 50+, Hmotnosť 210 g/m2	M	69	3	2020-12-13 23:37:23	2020-12-13 23:37:23	4	Hqbc
+14	Sportful Bora-hansgrohe cyklo dres	Cyklistický dres BodyFit Pro Light bol vyvinutý pre World Tour jazdcov ako pretekársky dres do extrémne horúcich podmienkach. Vďaka ergonomickému strihu a elastickým materiálom dokonale prilieha na tele a podporuje aerodynamiku. Funkčné tkaniny so sieťovanou štruktúrou rýchlo odvádzajú pot a tým zabezpečujú pocit chladu a sucha. V zadnej časti dresu sa nachádzajú tri vrecká poskytujúce dostatok priestoru na cyklistické návleky, športovú výživu alebo pohotovostnú vestu/cyklo bundu.\n\nVlastnosti cyklo dresu\nnízky, uhladený golier pre lepšiu aerodynamiku a chladenie\nkvalitný YKK® Vislon® zips\nneuveriteľne elastický a priedušný materiál na rukávoch\nbezlemové ukončenie rukávov\n3 zadné vrecká\nreflexné prvky\nteplotný rozsah: 20 až 35°C\n\nSportful\nTaliansky výrobca športového oblečenia (bežecké lyžovanie, cyklistika, outdoor). Pri výrobe používa inovatívne technológie a kvalitné materiály. S cieľom dosiahnuť špičkové cyklooblečenie spolupracuje firma s profesionálnymi cyklistami už viac ako 60 rokov. Okrem talianskej reprezentácie v bežeckom lyžovaní oblieka aj cyklistické tímy Bahrain-Merida a Bora-hansgrohe.\nŠport / použitie: cyklistika\nPohlavie / typ: pánske/unisex\nFarba: čierna/bora zelená\nSezóna / obdobie: jar, leto\nModelová rada: Bora-hansgrohe\nStrih: pretekársky\nHmotnosť: 99 g	L	80	3	2020-12-13 23:38:39	2020-12-13 23:38:39	10	Sportful
+38	Shimano SPD PD-M520 nášľapné pedále	- Výhodná cena a funkcia top modelov Shimano pedálov.\n- Otvorený dizajn, "samočistenia" od nečistôt a blata.\n- Regulácia vycvaknutie topánky z pedála.\n\nTechnické označenie: PD-M520\nUrčenie: MTB\nHmotnosť: 380 g\nMateriál: os CrMo\nTechnológia: spd\nFarba: strieborná, čierna, biela\nObsah balenia: pedále a kufre SM-SH51	M	25	5	2020-12-14 10:29:13	2020-12-14 10:29:13	20	Shimano
+39	Shimano pedále MTB Flat GR500 čierne BMX	Pedále MTB PD-GR500 bez zámku. Odolné pedále typu Flat pre rôzne jazdné štýly v teréne. Široký tvar pedálu pre lepší komfort, stabilitu a účinnosť šliapania do pedálov. Výškovo nastaviteľné piny na každej strane - vymeniteľné. Chróm-molybdénová oska s odolnou a tuhou konštrukciou.\n\nTECHNICKÉ ÚDAJE:\nTyp 1\tMTB\nTyp 2\tObojstranné\nCelková váha balenia\t250g\nPoužitie\tTrail/AM\nKompatibilita so systémom\tFlat\nBalenie\tVymeniteľné piny 18ks\nMateriál\tHliník/Oceľ\nFarba\tČierna	M	44	5	2020-12-14 10:29:53	2020-12-14 10:29:53	8	Shimano
+15	Sportful BODYFIT TEAM dres BORA HANSGROHE	Letný cyklistický dres perfektne sedí na tele, výborne odvádza vlhkosť a disponuje priestrannými vreckami. Počas šliapania v horúcom počasí oceníš DryPro materiál, ktorý efektívne odvádza pot z povrchu tela. Pri zjazde z kopca bude tvoja pokožka suchá a vyhneš sa prechladnutiu. V prípade potreby môžeš svoju telesnú teplotu regulovať pomocou celorozopínacieho zipsu. Cyklo dres je v dolnej časti ukončený pružným lemom so silikónovou potlačou, ktorá bráni jeho vyhrňovaniu počas jazdy.\n\nVlastnosti cyklo dresu\nDry Pro materiál pre optimálny odvod potu\nelastický lem s protišmykovou silikónovou úpravou\npolozakrytý YKK® zips je po celej dĺžke dresu\nreflexné prvky\nteplotný rozsah: 15 až 25°C\n\nDry Pro materiál\nTkanina s extrémne aerodynamickou štruktúrou, vyznačuje sa hebkosťou a vysokým stupňom pružnosti, vďaka ktorému poskytuje priliehavé sedenie. Povrchová textúra umožňuje výborný odvod vlhkosti.\n\nSportful\nTaliansky výrobca športového oblečenia (bežecké lyžovanie, cyklistika, outdoor). Pri výrobe používa inovatívne technológie a kvalitné materiály. S cieľom dosiahnuť špičkové cyklooblečenie spolupracuje firma s profesionálnymi cyklistami už viac ako 60 rokov. Okrem talianskej reprezentácie v bežeckom lyžovaní a biatlone oblieka aj cyklistický tím Bora-hansgrohe.\nŠport / použitie: cyklistika\nPohlavie / typ: pánske/unisex\nFarba: čierna/bora zelená\nSezóna / obdobie: jar, leto\nModelová rada: Bora-hansgrohe\nMateriál: Dry Pro	M	85	3	2020-12-13 23:39:34	2020-12-13 23:39:34	10	Sportful
+16	Shimano tretry SH-ME301 čierne	Univerzálne terénne tretry určené pre špičkový výkon a funkčnosť na bicykli aj mimo neho.\nZvršok zo syntetickej kože s otvormi zvyšujúcimi priedušnosť.\nNízkoprofilová pracka pre spoľahlivejšie uchytenie chodidla.\nPásky na suchý zips zmierňujú zaťaženie v najvyššom mieste priehlavku.\nĽahká gumená podrážka vystužená sklenými vláknami zabezpečuje dobrú trakciu a záber pri akýchkoľvek podmienkach.	43	85	4	2020-12-13 23:43:38	2020-12-13 23:43:38	4	Shimano
+17	Shimano tretry SHXC300 čierne	Výkonné XC MTB tretry využívajúce pokrokové technológie.\nIntegrovaná bezšvová medzipodrážka a konštrukcia zvršku prinášajú novú úroveň stability, fitu a výkonnosti.\nBOA® L6 upínací systém pre elegantný dizajn a rýchle a precízne nastavenie.\nZvršok perfektne obopína nohu.\nXC vzor dezénu gumenej vonkajšej podrážky zabezpečuje stabilitu pedálovania a bezpečnú trakciu pri chôdzi.\nNízka medzipodrážka stabilizuje nohu a maximalizuje prenos sily do pedálov.\nPerforovaný zvršok zo syntetickej kože poskytuje perfektnú priedušnosť.\nĽahká podrážka vystužená sklenými vláknami zabezpečuje výborný záber pri akýchkoľvek podmienkach.\nSPD. Hmotnosť: od 664g (č. 42).	42	120	4	2020-12-13 23:44:17	2020-12-13 23:44:17	2	Shimano
+19	Force Crystal MTB tretry fluo	Force Crystal MTB tretry s anatomickou vložkou a podošvou, vyrobené z nylonového kompozitu.\n\nSúčasťou sú výmenné hroty s kľúčom a možnosťou zakúpenia náhradných. Vnútorná časť je vyrobená z protišmykového materiálu. Vďaka zapínaniu na 1 koliesko a 1 suchý zips budú topánky držať ako uliate.\n\nForce Crystal MTB tretry sú SPD kompatibilné.	42,5	80	4	2020-12-13 23:49:20	2020-12-13 23:49:20	2	Force
+20	Castelli NANO FLEX 3G návleky	Materiál Nano Flex je teplý, vzdušný, elastický a odoláva spŕške vody.\nKonštrukcia s jedným plochým švom.\nObojstranné silikónové lemy udržia návlek na svojom mieste.\nFarba: 010 - čierna\nVeľkosti: S - XL\nTeplotný rozsah: 8 – 20 °C\nHmotnosť: 66g. (pár)\n\nNANO FLEX, NÁVLEKY DO VŠETKÝCH PODMIENOK\nNávleky Nano Flex sú perfektné pre suché podmienky, ale poskytnú vám extra teplo a ochranu aj v mokrých. Pred mnohými rokmi sme na trh uviedli novú kategóriu materiálov, ktoré sú teplé a zároveň odolné voči vode. Túto Castelli patentovanú tkaninu sme nazvali Nano Flex a často vidíme snahu napodobniť jej vlastnosti, ale bez úspechu. Bez kompromisov v akýchkoľvek podmienkach.\n\nČO JE TO\nNano Flex návleky bez obmedzení: teplé, komfortné v suchých podmienkach, odolné voči vodnej spŕške vo vlhkých podmienkach a stále teplé aj v extrémnych podmienkach.\n\nMateriálové zloženie:\n85%POLYAMID 15%ELASTAN	L	40	3	2020-12-14 09:45:34	2020-12-14 09:45:34	7	Castelli
+21	Haibike AllMtn 7 i600Wh XT	Rám: karbon, SkidPlate, Integrated Motor, UD-Carbon Frame, FullCarbon Interface, Tapered Head Tube, Steckachse M12 (1.00) x 148mm, kotoucová brzda Post Mount, zdvih: 160mm\nMotor: Yamaha PW-X2, 250W, 80Nm, 25km/h\nDisplej: Yamaha Side Switch 1.7" LCD, 7 funkcí\nBatéria: Yamaha InTube, 600 Wh\nNabíjačka: Yamaha rychlá Nabíjačka 4A\nVidlica: FOX 38 Factory Kashima, vzduch, zdvih: 160mm\nTlmič: FOX DPX2 Factory Kashima, vzduch\nRadenie: Shimano Deore XT M8100 Shadow Plus, 12-rychlost\nRiadiaca páčka: Shimano Deore XT M8100, Trigger radic\nKazeta: Shimano M7100 Microspline, 10-51 zubu\nReťaz: Shimano SLX M7100\nPrevodník: Haibike Components The Chainring, 38, hliník\nBrzdová páčka: Shimano Deore XT M8100, hliník\nBrzda (predná): Shimano Deore XT M8120, 203mm\nBrzda (zadná): Shimano Deore XT M8120, 203mm\nPlášte: Maxxis Minion DHF, 63-622, skládací\nPlášť (zadný): Maxxis Minion DHR II, 71-584, skládací\nRáfiky: Syntace V30i, nýtovaný, ráfek s dutinou, hliník\nPredný náboj: Syntace V Hub Steckachse 15x110\nZadný náboj: Syntace V Hub Steckachse 12x148mm\nŠpice: Syntace Straight Pull butted\nRiadítka: Haibike Components TheBar +++ Gravity 780mm\nGripy: Haibike MTB grips\nPredstavec: Haibike Components TheStem 2, A-head, Bar bore: 31.8mm\nHlavové zloženie: Acros BlockLock Steuersatz mit Lenkanschlag, hliník\nSedlo: Selle Royal Vivo\nSedlovka: Haibike Components Dropper-Post Remote 31.6, teleskopická, hliník\nPedále: Freeridepedal mit Reflektor, hliník\nPovolená celková hmotnosť: 120kg\nVeľkosť kolies: 27.5"	L	6199	2	2020-12-14 09:51:35	2020-12-14 09:51:35	3	Haibike
+23	Haibike SDURO HardNine 1.0 400Wh	Rám: aluminium 6061, HD Interface, rýchloupinák 5 x 135mm, kotúčové brzdy Post Mount\nMotor: Yamaha PW-SE System, 250W, 70nm, 25km / h\nDisplej: Yamaha Side Switch 1.7" LCD, 7 funkcií\nBatéria: Yamaha Lithium Ion, 400 Wh\nNabíjačka: Yamaha rýchla nabíjačka 4A\nVidlica: Suntour XCM DS, oceľová pružina, zdvih: 100mm, oceľový stĺpik 1 1/8" , rýchloupinák\nRadenie: Shimano Altus M2000, 9-rýchlosť\nRiadiaca páčka: Shimano Altus M2010, rapidfire\nKazeta: Shimano HG200, 11-36 zubov\nReťaz: KMC X9\nPrevodník: 38, oceľ\nReťaz: Nylon priama montáž\nBrzdová páčka: Tektro M275, hliník\nBrzda (predná): Tektro M275, 180mm, 2-piston disc brake\nBrzda (zadná): Tektro M275, 180mm, 2-piston disc brake\nPlášte: XLC MountainX, 57-622\nRafik: Rodi Black Rock 21, nitovaný, ráfik s dutinou, hliník\nPredný náboj: Haibike Components TheHub +\nZadný náboj: Haibike Components TheHub +\nŠpice: SAPI Leader, cierna\nRiadítka: Haibike Components TheBar + Topflat 720mm\nGripy: Haibike MTB grips\nPredstavec: Haibike Components The Stem +, A-head\nHlavové Zloženie: A-Head Tapered, ball bearing\nSedlo: Haibike Components TheSaddle\nSedlovka: Haibike Components The Seatpost +, patentné, 31.6mm, hliník\nPedále: Freeridepedal mit Reflektor, hliník\nPovolená celková hmotnosť: 120kg\nVeľkosť kolies: 29"	M	2459	2	2020-12-14 09:54:30	2020-12-14 09:54:30	4	Haibike
+24	Rock Machine Blizzard	Rám: Alu 6061,T6 Custom tubing RME01\nZdvih: 130/140 mm\nVidlica: RockShox Judy Silver TK, Tapered, 15x110mm axle, 130mm travel\nTlmič: RockShox Deluxe Select R, extenal rebound, size 210x50mm\nKľuky a prevodníky: Shimano FC-E6100 34T\nPrehadzovačka: Shimano Deore RD-M6000-GS Shadow Plus\nPočet prevodov: 1x10\nRadenie: Shimano Deore SL-M6000 Rapidfire Plus\nKazeta: Shimano CS-HG500-10 11-42T\nReťaz: KMC e10S\nBrzdy: Shimano ACERA BL-MT401/BR-MT420, 180/180 rotor, hydraulic disc brake\nSredové zloženie:Shimano STePS E7000 Middle Drive Unit\nHlavové zloženie: ACROS AZX-251, Zero Stack, 1-1/8“x1.5“, BlockLock\nPredný náboj: Shimano ALIVIO HB-MT400, 32H, CENTER LOCK, 15x110mm THRU Type AXLE\nZadný náboj: Shimano ALIVIO FH-MT400-B, 32H, CENTER LOCK, 12x148mm THRU Type AXLE\nRáfiky: WTB SX23, 32H\nŠpice: Sapim Stainless Black\nPlášte: WTB Trail Boss Comp, 29x2.40"\nPredstavec: ONE1 TDS-C342 Alloy, 31.8mm, +3°\nRiadítka: ONE1 Alloy, MTB AL-325BT, 6° upsweep, 9° backsweep, 25mm rise, 740mm, 31.8m\nGripy: Velo VL-G1777D2\nSedlovka: ONE1 Alloy, MT171, dropper post, 30.9x440mm\nSedlo: WTB Volt Sport\nPohonná jednotka: Shimano STePS E7000 - Middle Drive Unit, BLDC* 36 V / 250 W / 60 Nm\nBatéria: DARFON, 504 Wh, frame mount\nDisplej: SC-E7000 Sport\nČas nabitia: 7,5 hodín\nHmotnosť: 24 kg	S	3799	2	2020-12-14 09:56:00	2020-12-14 09:56:00	2	Rock Machine
+25	Giant Trance X E+ 2 Pro	Motor: Giant SyncDrive Pre powered by YAMAHA, 80 Nm, 250 W\nSenzory: Giant PedalPlus 6-senzorová technológia\nOvládacia jednotka: Giant RideControl Ergo\nBatéria: Giant EnergyPak Smart 625 Wh, 36 V, 17,3 Ah, Lithium-Ion\nFarba: Chameleon Neptune / Black\nRám: AluxX SL Aluminum, odpruženie Maestro, zdvih 140 mm, stredový motor, integrovaná batéria (vyberanie zospodu), kompatibilita s batériou EnergyPak Plus\nVidlica: FOX 36 Float Rhythm EVOL, zdvih 150 mm, GRIP tlmenie, Boost pevná os 15x110 mm, 44 mm offset\nTlmič: FOX Float DPS Performance EVOL, rozmer 185x52,5 mm, naladený pre Giant\nRiadidlá: Giant Contact 35 Trail, 780 mm\nPredstavec: Giant Contact SL 35\nSedlovka: Giant Contact Switch, teleskopická, 30 , 9 mm (S: 125, M: 150, L / XL: 170 mm)\nSedlo: Giant Romero Trail\nRadenie: Shimano SLX I-spec EV, prevody 1x12\nPrehadzovačka: Shimano Deore XT Shadow +\nBrzdy: Shimano Deore M6120, 4-piestikové, kotúče 203 mm\nBrzdové páky: Shimano Deore M6100 I-spec EV\nKazeta: Shimano M6100-12, 10- 51 zubov\nReťaz: KMC e.12 Turbo, EcoProteq, špeciálne pre elektrobicykle\nKľuky: Praxis e-Cadet + (Q-faktor = 168 mm), prevodník Praxis Wave 36 zubov (vysoko kvalitná oceľ 4130), vodítko reťaze MRP 1X\nRáfiky: Giant AM 29, tubeless ready, 30 mm vnútorná šírka\nNáboje: Shimano MT410 Boost, Center-Lock, pevné osi 15x110 a 12x148 mm\nŠpice: SAPIM Race / SAPIM E-Lite\nPlášte: vpredu: Maxxis Assegai EXO TR, 29x2.6 / vzadu: Maxxis Dissector EXO + TR, 29x2.6\nDoplnky: nabíjačka Giant EnergyPak 6A Smart Charger a sada pre bezdušový prevádzku	XL	4899	2	2020-12-14 09:58:19	2020-12-14 09:58:19	1	Giant
+26	Haibike SDURO FullSeven 1.0 500Wh	Rám: aluminium 6061, HD Interface, pevná os M12 (1.75) x 142mm, kotúčové brzdy Post Mount, zdvih: 120mm\nMotor: Yamaha PW-SE System, 250W, 70nm, 25km / h\nDisplej: Yamaha Side Switch 1.7" LCD, 7 funkcií\nBatéria: Yamaha Lithium Ion, 500 Wh\nNabíjačka: Yamaha rýchla nabíjačka 4A\nVidlica: Suntour XCM32 LO, oceľová pružina, zdvih: 120mm, hliníkový stĺpik 1 1/8" , pevná os\nTlmič: SR Suntour Raidon LO, vzduch\nRadenie: Shimano Deore M6000, 10-rýchlosť\nRiadiaca páčka: Shimano Deore M6000, rapidfire\nKazeta: Shimano HG500, 11-42 zuba\nReťaz: KMC e10S\nPrevodník: 38, oceľ\nBrzdová páčka: Tektro M275, hliník\nBrzda (predná): Tektro M275, 180mm, 2-piston disc brake\nBrzda (zadná): Tektro M275, 180mm, 2-piston disc brake\nPlášte: Schwalbe Tough Tom, 60-584\nRáfik: Rodi Black Rock 23, ráfik s dutinou, hliník\nPredný náboj: Haibike Components TheHub ++ Pevná os 15x100mm\nZadný náboj: Haibike Components TheHub ++ Pevná os 12x142mm\nŠpice: SAPI Leader, čierne\nRiadítka: Haibike Components TheBar + 740mm\nGripy: Haibike MTB grips\nPredstavec: Haibike Components TheStem +, A-head, Bar bore: 31.8mm, 7 °\nHlavové Zloženie: A-Head Tapered, ball bearing\nSedlo: Haibike Components TheSaddle\nSedlovka: Haibike Components The Seatpost +, patentné, 31.6mm, hliník\nPedále: Freeridepedal mit Reflektor, hliník\nPovolená celková hmotnosť: 120kg\nVeľkosť kolies: 27.5"	L	2799	2	2020-12-14 09:59:51	2020-12-14 09:59:51	2	Haibike
+27	Cannondale Trail Neo 3	Horské elektrobicykel pevný 29", Bosch Active Line Plus 250W, Bosch PowerTube 400Wh, hliníkový C2 rám, vidlica SR Suntour XCM, 100mm Coil, sada Shimano Acera / Alivio.\n\nVeľkosť kolies: 29"\nRám: SmartForm C2 Alloy, removable downtube battery , SAVE, tapered headtube, internal cable routing, 148x12mm thru-axle, post mount kotúčové, folding lock mount, rack / fender mounts, Si kickstand mount\nVidlica: SR Suntour XCM, 100mm, Coil, 46mm offset\nMotor: Bosch Active Line Plus 250W\nTyp batérie: Bosch 4a\nNabíjačka: Bosch 4a\nDisplej: Bosch Purion\nKľuky: Cannondale EC3 160mm, w / BOOST offset ring, 15t\nRadiace páčky: Shimano Deore, 1x9\nKazeta: Shimano HG500, 11-42, 9-speed\nReťaz: Shimano HG54, 9-speed\nPrehadzovačka: Shimano Deore GS\nRáfiky: WTB ST i29 TCS 2.0, tubeless ready\nNáboje: Formula CL-811 15x110 front, Shimano Deore 12x148 rear\nPedále: nie\nBrzdy: Shimano MT200 hydro disc\nPredstavec: Cannondale C3, 3D Forged 6061 Alloy, 1-1 / 8" , 31.8, 7 °\nHlavové zloženie: Integrated Sealed Bearing, Tapered\nRiadidlá: Cannondale C3 Riser, 6061 Alloy, 15mm rise, 8 ° sweep, 4 ° rise, 780mm\nBrzdové páky: Shimano MT200 hydro disc\nDrôty: DT Swiss Champion\nPlášte: Maxxis REKON 29 x 2.6" , 3C compound, EXO puncture protection, tubeless ready\nSedlo: Cannondale Ergo XC\nSedlovka: Cannondale C3, 6061 Alloy, 31.6 x 300mm\nFarba: STEALTH GRAY\nExtra: Prewired front and rear light cable	M	2199	2	2020-12-14 10:02:10	2020-12-14 10:02:10	2	Cannondale
+18	FIZIK R5 Overcurve biele/čierne	Tretry Fi’zi:k sú vyvíjané v spolupráci s poprednými profesionálnymi jazdcami tímov seriálu World Tour: Nairo Quintana, Alejandro Valverde, Mikel Landa (Movistar), Geraint Thomas (Sky), Rohan Dennis, John Atapuma a Damiano Caruso (BMC), Philippe Gilbert (Quick Step). Používame najlepšie dostupné technológie, materiály a výrobné postupy.\n\nNový model R5 Overcurve nadväzuje na kvality svojho predchodcu R5B a posúva ich ešte ďalej. Svojím dizajnom, tuhou podrážkou, použitými materiálmi, ale pritom stále za dostupnú cenu, ponúka výborný mix skvelých vlastností. Zapínanie Boa IP1-A v kombinácii s jednou prackou na suchý zips bezpečne a pohodlne obopína chodidlo. Nylonová podrážka zosilnená karbónovými vláknami je dostatočne tuhá pre dlhé cestné vychádzky a v kombinácii s pohodlnou vložkou fizik prenáša každý vynaložený watt výkonu do pedálov. Zvršok topánky je vyrobený z odolného a zároveň ľahko umývateľného materiálu Microtex, dostatočné odvetranie topánky je zaistené systémom laserom vyrezávaných otvorov.\n\nMateriál: Microtex, reflexné prvky na päte\nPodrážka: Carbon Reinforced Nylon\nUpínací systém: Boa IP1-A a pracka na suchý zips\nVložka: fi’zi:k\nHmotnosť: 253 g (42,5)	44	140	4	2020-12-13 23:47:25	2020-12-14 10:07:27	3	Fizik
+29	Tretry Force MTB Carbon Devil Pro	Tretry Force MTB Carbon Devil Pro majú kvalitnú anatomickú vložku Force Shock. Sú komplatibilné so systémom SPD a majú skvelú karbónovú podrážku!\n\nVlastnosti:\n- Karbónová podošva\n- Anatomická extra kvalitná vložka Force Shock\n- Vnútorná časť z protišmykového materiálu\n- Zapínanie na koliesko ATOP a 1 suchý zips\n- SPD kompatibilné\n- Veľkosti zodpovedajú štandardu civilnej obuvi	43	117	4	2020-12-14 10:08:57	2020-12-14 10:08:57	3	Force
+30	Fizik Terra X5	Tretry fizi: k sú vyvíjané v spolupráci s poprednými profesionálnymi jazdcami tímov seriálu World Tour - Sky (Geraint Thomas), BMC (Philippe Gilbert, Rohan Dennis, John Atapuma, Damiano Caruso, Daniel Oss). Používame najlepšie dostupné technológie, materiály a výrobné postupy.\n\nĽahké, odolné, komfortné a univerzálne - tretry Terra X5 ponúkajú víťaznú kombináciu vlastností pre akýkoľvek terén. Vďaka asymetrickému zapínaniu ovládanému jedným kolieskom Boa L6 Dial B sa perfektne prispôsobí tvaru vášho chodidla. Pokovované nylonové lanko behá v plastových priechodkách, ktoré rozkladajú tlak a eliminujú tlakove body.Všetko doladíte jedným pásikom na suchý zips. Zvršok topánky je vyrobený z laserom perforovaného Mictotexu, ktorý je flexibilný, dobre sa prispôsobuje tvaru chodidla a zároveň výborne vetrá. Jazyk je polstrovaný pre ochranu v teréne a pohodlie. Vynikajúci prenos sily zabezpečuje kompozitová podrážka s karbónom\n\nZvršok: Laser Perforated Microtex\nPodrážka: Injected Carbon\nUpínací systém: Boa L6 Dial B a pracka na suchý zips\nVložka: fizi:k\nHmotnosť: 282 g (42.5)	44	159	4	2020-12-14 10:11:14	2020-12-14 10:11:14	4	Fizik
+31	Force Cavalier Carbon	Force Cavalier Carbon sú pevné, pohodlné cestné tretry s karbónovou podrážkou . Tretry majú anatomickú vložku a vystuženou pätu.\nNa vnútornej strane päty je protišmykový silikón , aby držali vždy na správnom mieste.\nSú kompatibilné s pedálmi LOOK, SPD SL . Zapínanie je riešené pomocou 2 otočných koliesok, vďaka ktorým tretry ľahko utiahnete.\n\nPodrážka : karbonovoá\nHmotnosť : 470 g / pár\nVložka : anatomická	43	120	4	2020-12-14 10:13:12	2020-12-14 10:13:12	4	Force
+32	Shimano kotúč brzdový Deore XT - RT86	Kotúč SM-RT86 zo sady DEORE XT využívajúci technológiu ICE TECHNOLOGIES predstavuje inovatívny trojvrstvový kotúč s efektívnejším odvodom tepla vďaka použitým materiálom oceľ / hliník / oceľ. Jeho konštrukcia znížuje teplotu až o 30 ° C v porovnaní s predchádzajúcimi modelmi alebo kotúčmi z nižších sád. 20% nárast brzdného výkonu a 20% dlhšiu životnosť platničiek. Použité technológie: ICE TECHNOLOGIES\n\nTyp: MTB, Celková hmotnosť balenia: 214g, Predný / Zadný, čierna, 6-dier, Priemer kotúča: 160mm, Pre typ platničiek: Resin / Metal, Technológia: Ice Tech, Materiál: Hliník / Oceľ\n\nSHIMANO DEORE XT. Výkonnosť, dynamika a odhodlanosť. Efektívny prenos sily vďaka technológii DYNA-SYS a Rider-Tuned. Komponenty DEORE XT boli špecálne navrhnuté pre segmenty XC/enduro/all mountain a celoodpružené bicykle s veľkými priemermi kolies, kde sa vyžaduje extrémna pevnosť a spoľahlivosť každého komponentu za akýchkoľvek poveternostných podmienok.\n\nTECHNICKÉ ÚDAJE:\nTyp 1\tMTB\nTyp 2\tPredný/Zadný\nMontáž na náboj\t6-dier\nPre priemer kotúča\t160mm\nPre použitie platničiek\tResin/Metal\nMateriál\tHliník/Oceľ\nCelková hmotnosť balenia\t214g	160mm	29	5	2020-12-14 10:16:37	2020-12-14 10:16:37	15	Shimano
+33	Shimano kotúč brzdový Deore XT - RT86	Shimano DEORE XT. Výkonnosť, dynamika a odhodlanosť. Efektívny prenos sily vďaka technológii DYNA-SYS a Rider-Tuned. Komponenty DEORE XT boli špeciálne navrhnuté pre segmenty XC/enduro/all mountain a celoodpružené bicykle s veľkými priemermi kolies, kde sa vyžaduje extrémna pevnosť a spoľahlivosť každého komponentu za akýchkoľvek poveternostných podmienok. Kotúč SM-RT86 zo sady DEORE XT využívajúci technológiu ICE TECHNOLOGIES predstavuje inovatívny trojvrstvový kotúč s efektívnejším odvodom tepla vďaka použitým materiálom oceľ / hliník / oceľ. Jeho konštrukcia znižuje teplotu až o 30 °C v porovnaní s predchádzajúcimi modelmi alebo kotúčmi z nižších sád. 20% nárast brzdného výkonu a 20% dlhšiu životnosť platničiek.\n\nPoužité technológie: ICE TECHNOLOGIES\nTyp: MTB\nCelková hmotnosť balenia: 331 g, Predný / Zadný, čierna, 6-dier\nPriemer kotúča: 203 mm\nPre typ platničiek: Resin / Metal\nTechnológia: Ice Tech\nMateriál: Hliník / Oceľ	203mm	39	5	2020-12-14 10:17:56	2020-12-14 10:17:56	10	Shimano
+34	Shimano kotúč brzdový RT56	Brzdový kotúč RT56 s priemerom 180mm. Upevnenie na 6 skrutiek. Vhodný len pre resin platničky.\n\nTyp: MTB\nCelková váha balenia: 271g, Predný / Zadný, strieborná, 6-dier\nPriemer kotúča: 180mm\nPre typ platničiek: Resin\nMateriál: Oceľ	180mm	12	5	2020-12-14 10:19:00	2020-12-14 10:19:00	20	Shimano
+35	Prologo Kappa Evo sedlo	- chrom-molybdenové vzpery\n- nylónová platforma\n- rozmer 275 x 147 mm\n- hmotnosť 260 g\n- verzia unisex\n- balené na karte	M	45	5	2020-12-14 10:24:21	2020-12-14 10:24:21	6	Prologo
+36	Selle San Marco GND Open-Fit Dynamic Narrow	Selle San Marco Marco GND Open-Fit Dynamic Narrow je sedlo s lyžinami vyrobenými z horčíka. Škrupina Carbon Fiber Reinforced zaistí výbornú odolnosť a nízku hmotnosť bez kompromisov.\nModel GND bol navrhnutý primárne pre jazdu v teréne, ako je gravel, cyklocross a MTB. Dôraz bol kladený hlavne na to, kde má sedlo uľaviť a kde má naopak poskytnúť oporu. Predná časť je rozšírená a viac polstrovaná v porovnaní s ostatnými sedlami a ponúka tak viac komfortu najmä pri agresívnejšej pozícii jazdca napr. pri jazde do prudkého stúpania. Dizajn, ergonómia a šírka zadnej časti sedla ponúka skvelú oporu ako pri zábere, tak pri uvoľnenej jazde.\nTlmenie Biofoam znižuje odpor a dodáva ideálnu oporu. Polstrovanie má dve rôzne hustoty výplne, ktoré absorbujú rázy a eliminujú vibrácie z terénu. Poťah má úpravu Microfeel, ktorá je priedušná a odolná proti oderu. Hmotnosť sedla je 205 gramov.\n\nPoužitie: Gravel, MTB\nDĺžka: 262 mm\nŠírka: 135 mm\nMateriál lyžín: Horčík\nPolstrovanie: Biofoam\nPoťah: MICROFEEL\nHmotnosť: 205 g\nFarba: čierna	L	60	5	2020-12-14 10:25:23	2020-12-14 10:25:23	4	Selle San Marco
+40	Shimano pedále MTB ME700 SPD	SPD pedále určené pre MTB, BMX jazdenie. Široká, integrovaná klietka, zlepšuje stabilitu medzi pedálom a tretrou. Možnosť nastavenia predpätia sily zámku pre upnutie a voľnenie tretry. Vrátane zarážok SM-SH51 , ktoré dokážete vypnúť len otočeným päty do vonkajšej strany od bicykla.\n\nTyp: MTB, Celková váha balenia: 717g, Použitie: Trail/BMX, obojstranné, SPD, čierne, so zarážkami SM-SH51, Materiál: telo pedálu (hliník), oska (chróm+oceľ)	M	32	5	2020-12-14 10:30:51	2020-12-14 10:30:51	14	Shimano
+41	Bianchi Hodinky 43 mm s chronografom	Bianchi hodinky s chronografom prinášajú športovú eleganciu a osvedčenú kvalitu vďaka strojčeku švajčiarskej výroby. Tieto hodinky majú zafírové sklíčko, a tak sú vysoko odolné voči poškrabaniu. O jedinečný dizajn sa postará logo Bianchi umiestnené v hornej časti ciferníka ako aj celeste prúžok na remienku. Súčasťou ciferníka je aj praktické dátumové okienko. strojček Ronda 5040D švajčiarskej výroby\n\nfunkcie:\n- Chronograph 1/10D sec, vodotesnosť do 100 m (10 ATM)\n- púzdro hodiniek je vyrobené z nehrdzavejúcej ocele (priemer 43 mm)dátumové okienko\n- zafírové sklíčko odolné proti poškriabaniu\n- remienok zo silikónovej gumy	43mm	549	6	2020-12-14 10:41:02	2020-12-14 10:41:02	3	Bianchi
+43	Garmin fénix 5 Plus Sapphire, Black, Black band	Najpredávanejšia séria športovo-univerzálnych hodiniek fénix™ & tactix™ sa opäť dočkala nových vylepšení, funkcií a výbavy. Nový fénix® 5 Plus ponúka osvedčenú výbavu a rôzne funkčné profesionálne vylepšenia. Nový, prepracovaný dizajn s kompaktnejšími rozmermi ako predošlé modely fénix, teraz navyše s predinštalovanými mapami celej EU. Vysoký štandard série fénix® 5 Plus je podporený aj dostupnosťou pokročilých bežeckcý a fyziologických metrík.\n\nHlavné prednosti a vylepšenia (oproti modelom zo série > > >fénix 5/5S/5X)\n- integrovaný .mp3 prehrávač - s pamäťou pre viac ako 500 skladieb\n- príprava na bezkontaktné platby Garmin Pay™\n- podpora satelitného systému Galileo + GPS a GLONASS\n- nová funkcia CLIMBPRO pre detailné sledovanie prevýšenia\n- nové funkcie pre automatický výpočet optimálnej trasy Trendline™ popularity routing & Okruhové trasy pre beh a bicykel\n- prepracované rozhranie pri aktívnej navigácií s náhľadom na nasledujúce miesto odbočenia\n- nový náhľad mapovej stránky so zvýraznením záujmových bodov (POI) okolo aktuálnej pozície\n- vzájomné sledovanie a zdielanie aktivity všetkých členov tréningovej skupiny v reálnom čase -GroupTrack	50mm	699	6	2020-12-14 10:44:40	2020-12-14 10:44:40	4	Garmin
+44	Garmin Forerunner 745 hodinky, čierne	PREKONAJ SVOJE OSOBNÉ REKORDY!\nTieto bežecké hodiny s GPS sú "šité na mieru" bežcom a triatlonistom, ako ste vy, ktorí potrebujú mať podrobné štatistiky tréningov a tréningy priamo na zápästí spolu so smart funkciami.\n\nNAVRHNUTÝ PRE AKÉKOĽVEK PODMIENKY. Forerunner 745 zvládne s vami čokoľvek, kam vás šport zavedie. Je vyrobený tak, aby zaznamenal až 200 spotených behov, hrboľaté jazdy na bicykli a dlhé plávania.\nODOLNÝ A POHODLNÝ. Forerunner 745 sú pohodlné počas športových tréningov, pretekov ako aj na každodenné nosenie. Sú najmenšie a najľahšie plnohodnotné bežecké a triatlonové smart hodiny.	45mm	499	6	2020-12-14 10:45:38	2020-12-14 10:45:38	5	Garmin
+45	Garmin Forerunner 245 Music Black	Ak to s behom myslíte vážne a navyše radi pri ňom počúvate hudbu, tak Forerunner 245 Music ponúka všetko, čo potrebujete pre základný až pokročilý tréning s podporou vlastných tréningov a adaptívnych tréningových plánov > Garmin Coach. . Forerunner 245 Music je vylepšený o pokročilé bežecké metriky a funkcie, ktoré ste predtým našli len v modeloch vyšších rád. Štandardne vybavený plne-integrovaným optickým snímačom na zadnej strane hodiniek s možnosťou rozšírenia o voliteľný externý pulzomer (hrudný pás) a ďalšie ANT+ snímače pre beh a cyklistiku.\n\nPoužívateľské rozhranie\nIntuitívne tlačidlá umiestnené okolo veľkého, jasného farebného displeja poskytujú ideálny prehľad o nameraných dátach bez jeho zbytočného zakrývania pri ovládaní hodiniek. Samozrejmosťou je voliteľné ovládacie menu v slovenčine. Používateľské rozhranie okrem iného počíta s možným rozšíreniami funkcií, zobrazením hodiniek a rôznych widgetov, ktoré umožnia vytvoriť originálne hodinky. Všetko bude dostupné vďaka novej službe > > > Connect IQ™ store.	45mm	349	6	2020-12-14 10:46:26	2020-12-14 10:46:26	6	Garmin
+42	Garmin fénix 6 Sapphire, Titanium Grey	Limitovaný model z novej série univerzálnych športových hodiniek fénix 6.\nĎalšia generácia univerzálnych GPS hodiniek so smartfunkciami. fénix 6 Sapphire prináša na základe skúseností a vývoja série fénix prepracované funkcie a výbavu. Základný štandard novej výbavy série fénix 6 ponúka celkom nový optický pulzomer s podporou pokročilých meraní (variabilita pulzu) a podporou snímania pulzu aj pri plávaní, ktorý je doplnený o PULSE OX snímač pre meranie okysličenosti krvi. Praktická funkcionalita je rozšírená o tzv. battery management pre pokročilú správu a manažment napájania hodiniek v závislosti od použitia, potrieb a očakávanej výdrže batérie. Samozrejemostťou je tiež podpora bezkontaktných platieb Garmin Pay™ Telo hodiniek je vyrobené z mimoriadne odolného, stáleho a zároveň ľahkého materiálu fiber-reinforced polymer s titániouvým krytom na zadnej strane hodiniek. Displej série fénix 6 sa zväčšil o 18% oproti staršej generácii fenix 5 a je krytý odolným zafírovým sklíčkom, ktoré je mimoriadne odolné voči poškriabaniu. Ďalšie kovové prvky sú vyhotovené s ľahkého materiálu Titanium čo sa prejavilo na ich celkovej hmotnosti v porovnaní s inými modelmi.. Mimoriadne odolná konštrukcia a ďalšie parametre spĺňajú armádne štandardy MIL-STD-810G pre vysokú odolnosť voči nárazom, plameňom a ponoreniu.\nModel fénix 6 Sapphire oproti štandardnej výbave série fénix 6 ponúka:\n- zafírové krycie sklíčko\n- kovové prvky hodiniek sú vyhotovené z ľahkého materiálu Titanium\n- prémiový kovový remienok vyhotovený z ľahkého materiálu Titanium\n- integrovaný .mp3 prehrávač - s pamäťou pre viac ako 2000 skladieb\n- predinštalované Topografické mapy EU + mapy lyžiarskych stredísk EU + celosvetovú mapu golfových ihrísk\n- nová funkcia PACEPRO pre detailné sledovanie priebehu tempa behu	51mm	1119	6	2020-12-14 10:43:46	2020-12-14 10:49:23	2	Garmin
+55	Cannondale SystemSix Ultegra	Rám: Ballistec Carbon, integrated cable routing w / Switchplate, SAVE, PF30, flat mount kotúčové, 12x142 Speed Release thru-axle\nVidlica: Ballistec Carbon, 1-1 / 8" - 1-1 / 4" steerer, 12x100mm Speed Release thru-axle, flat mount kotúčové, 55mm offset (47-51cm) 45mm offset (54-62cm)\nKľuky: HollowGram, BB30, OPI Spidering, 52/36\nPrehadzovačka: Shimano Ultegra\nPrešmykač: Shimano, Brage-on\nRadiaca páčky: Shimano, 11-speed\nKazeta: Shimano 105, 11-30, 11-speed\nReťaz: Shimano HG601, 11-speed\nBrzdy: Shimano Ultegra hydraulic disc, 160 / 140mm RT800 rotors\nBrzdové páky: Shimano Ultegra\nRáfiky: Vision SC55, carbon Clincher kotúčové, tubeless ready\nNáboje: (F) Vision Sealed Cartridge húb 12x100mm / (R) Vision Sealed Cartridge húb, 12x142mm\nDrôty: DP Spokes - 21F / 24R\nRiadidlá: HollowGram KNOT SystemBar, Carbon, 8 de g. pitch adjust\nPredstavec: HollowGram KNOT, Alloy w / cable cover, -17 °\nHlavové zloženie: Integrated, 1-1 / 8" - 1-1 / 4\nSedlo: Prológ Dimension STN NDR, steel rails\nSedlovka: HollowGram 60 KNOT Carbon, 330mm	L	5109	1	2020-12-14 11:39:57	2020-12-14 11:39:57	4	Cannondale
+46	Garmin fénix 6X PRO, Black, Black band	Ďalšia generácia univerzálnych GPS hodiniek so smartfunkciami. fénix 6X prináša na základe skúseností a vývoja série fénix prepracované funkcie a výbavu. Základný štandard novej výbavy série fénix 6X ponúka celkom nový optický pulzomer s podporou pokročilých meraní (variabilita pulzu) a podporou snímania pulzu aj pri plávaní, ktorý je doplnený o PULSE OX snímač pre meranie okysličenosti krvi. Praktická funkcionalita je rozšírená o tzv. battery management pre pokročilú správu a manažment napájania hodiniek v závislosti od použitia, potrieb a očakávanej výdrže batérie. Samozrejemostťou je tiež podpora bezkontaktných platieb Garmin Pay™ Telo hodiniek je vyrobené z mimoriadne odolného, stáleho a zároveň ľahkého materiálu fiber-reinforced polymer s kovovým krytom na zadnej hodiniek. Displej série fénix 6X sa zväčšil o 36% oproti staršej generácii fenix 5X a je krytý odolným sklíčkom vyrobeným pomocou technológie Corning® Gorilla® Glass. Ďalšie kovové prvky sú vyhotovené s kvalitnej ocele Stainless Steel s finálnou farebnou úpravou podľa modelu. Mimoriadne odolná konštrukcia a ďalšie parametre spĺňajú armádne štandardy MIL-STD-810G pre vysokú odolnosť voči nárazom, plameňom a ponoreniu.\nModel fénix 6X PRO oproti štandardnej výbave série fénix 6 ponúka:\n- integrovaný .mp3 prehrávač - s pamäťou pre viac ako 2000 skladieb\n- predinštalované Topografické mapy EU + mapy lyžiarskych stredísk EU + celosvetovú mapu golfových ihrísk\n- nová funkcia PACEPRO pre detailné sledovanie priebehu tempa behu	51mm	699	6	2020-12-14 10:47:12	2020-12-14 10:47:12	3	Garmin
+47	Garmin fénix 5X Plus Sapphire, Black, Black band	Nový fénix® 5X Plus ponúka osvedčenú výbavu a rôzne funkčné profesionálne vylepšenia. Nový, prepracovaný dizajn s kompaktnejšími rozmermi ako predošlé modely fénix, teraz navyše s predinštalovanými mapami celej EU. Vysoký štandard série fénix® 5X Plus je podporený aj dostupnosťou pokročilých bežeckcý a fyziologických metrík.\n\nHlavné prednosti a vylepšenia (oproti modelom zo série > > >fénix 5/5S/5X)\n- integrovaný .mp3 prehrávač - s pamäťou pre viac ako 500 skladieb\n- integorvaný PULSE OX snímač pre meranie okysličenosti krvi (len model 5X)\n- príprava na bezkontaktné platby Garmin Pay™\n- podpora satelitného systému Galileo + GPS a GLONASS\n- nová funkcia CLIMBPRO pre detailné sledovanie prevýšenia\n- nové funkcie pre automatický výpočet optimálnej trasy Trendline™ popularity routing & Okruhové trasy pre beh a bicykel\n- prepracované rozhranie pri aktívnej navigácií s náhľadom na nasledujúce miesto odbočenia\n- nový náhľad mapovej stránky so zvýraznením záujmových bodov (POI) okolo aktuálnej pozície\n- vzájomné sledovanie a zdielanie aktivity všetkých členov tréningovej skupiny v reálnom čase -GroupTrack	50mm	799	6	2020-12-14 10:48:31	2020-12-14 10:48:31	2	Garmin
+49	MTBIKER Elite Loli fľaša 600 ml	Objem: 600 ml\nMateriál: plne recyklovateľný LDPE, stlačiteľná, BPA free\nVýrobca: Elite pre MTBIKER	600ml	3	6	2020-12-14 11:12:49	2020-12-14 11:12:49	50	MTBIKER
+50	CAMELBAK Podium 0,71l	Fľaše CamelBak Podium sú vyrobené z BPA, BPS a BPF-free polypropylénu s technológiou Hydroguard, ktorá zaisťuje vernú chuť nápoja bez plastovej pachuti.\n\nVďaka patentovanému samouzatvárateľnému náustku Jet Valve voda z fľaše nekvapká.\nNavyše je vybavená úplným otočným uzáverom pre prepravu plných fliaš.\nViečko na náustok sa ľahko rozoberie a vyčistí.\nVďaka dokonalému tvaru sa fľaša Pódium na bicykli dobre drží, ľahko sa stláča a nikdy ju nestratíte z košíka.\n\nOBJEM 0,71 l	700ml	14	6	2020-12-14 11:13:44	2020-12-14 11:13:44	25	CAMELBAK
+48	Kellys Fľaša SPORT 2018 0,7 l	- cyklistická fľaša s ergonomickým tvarom a originálnym KELLYS dizajnom\n- široké hrdlo fľaše pre jednoduché čistenie a plnenie \n- vyrobená z kvalitných materiálov: polypropylén Borealis (telo fľaše), polypropylén Mosten (vrchnák) \n- uzamykateľný náustok z mäkkého plastu BergaFlex®\n- uzáver so silikónovým tesnením\n- vhodná pre nápoje do 70°C\n- objem: 0,7 litra\n- hmotnosť: 75g	700ml	5	6	2020-12-14 11:11:56	2020-12-14 11:14:45	30	Kellys
+51	Ghost Nivolet 7.8 UC 28	Materiál: Ultraľahký karbon UC\nRozmer kolies: 28\nVidlica: Nivolet LC Rigid\nPrehadzovač: SRAM Force 11-S\nPrevodník: SRAM Force 50-34\nBrzdy: SRAM Force\nPredný plášť: Mavic Ykson Pro Grip Link 25-622\nZadný plášť: Mavic Ykson Pro Power Link 25-622\nKolesá: Mavic Ksyrium Elite 17mm Wheelset\nRadenie: SRAM Force\nKľuky: FRAM Force 50-34\nKazeta: SRAM PG 1170 11-28\nRiadítka: FSA K Force Ergo 31.8mm\nPredstavec: FSA ST-OS 99 31.8mm\nSedlovka: FSA K Force 27.2mm\nSedlo: Selle Italia SL\nPočet rýchlostí: 22\nPätka: EZ1859	XXL	2459	1	2020-12-14 11:37:02	2020-12-14 11:37:02	5	Ghost
+52	Giant TCR Advanced Pro	Farba: Matte Rosewood / Matte Carbon / Gloss Unicorn White\nRám: Advanced Composite, 12mm pevné osy\nVidlica: Advanced Composite, karbonový stĺpik OverDrive 2\nRiadítka: Giant Contact SL\nPredstavec: Giant Contact SL\nSedlovka: Giant Variant, karbonová\nSedlo: Giant Fleet SL\nRadenie: Shimano Ultegra\nPrešmykač: Shimano Ultegra\nPrehadzovačka: Shimano Ultegra\nBrzdy: Shimano Ultegra, hydraulické\nBrzdové páky: Shimano Ultegra, hydraulické\nKazeta: Shimano Ultegra, 11-30 zubov\nReťaz: KMC X11SL-1\nKľuky: Shimano Ultegra, prevodníky 52/36 zubov, wattmetr Giant PowerPro\nStredové zloženie: Shimano, press fit\nRáfiky: Giant SLR-1 42 Carbon Disc WheelSystem (výška ráfikov 42 mm)\nNáboje: Giant SLR-1 42 Carbon Disc WheelSystem, 12mm pevné osy\nVýplet: Giant SLR-1 42 Carbon Disc WheelSystem\nPlášte: Giant Gavia Course 1, 700x28mm (25c), skladacie, bezdušové\nDoplnky: držiak cyklocomputera	M	3799	1	2020-12-14 11:37:43	2020-12-14 11:37:43	4	Giant
+53	Giant Avail Advanced Pro 2	Rám: Advanced Composite\nVidlica: Advanced Composite, karbonový sloupek OverDrive 2, 12mm pevná osa\nRiadítka: Liv Contact SLR D-Fuse (XXS-M) / Giant Contact SLR D-Fuse (L)\nPredstavec: Giant Contact SL\nSedlovka: Giant D-Fuse SL, karbonová\nSedlo: Liv Contact SL (Forward)\nRadenie: Shimano Ultegra\nPrešmykač: Shimano Ultegra\nPrehadzovačka: Shimano Ultegra\nBrzdy: Shimano Ultegra, hydraulické\nBrzdové páky: Shimano Ultegra\nKazeta: Shimano Ultegra, 11-34 zubov\nReťaz: KMC X11SL-1\nKľuky: Shimano Ultegra, prevodníky 50/34 zubov\nStredové zloženie: Shimano, press fit\nRáfiky: Giant SLR 1 Disc Composite WheelSystem, karbonové ráfky 30 mm\nNáboje: Giant SLR 1 Disc WheelSystem, 12 mm pevné osi\nŠpice: Giant SLR 1 Disc WheelSystem\nPlášte: Giant Gavia Fondo 1, 700x32, bezdušové\nDoplnky: senzor RideSense ANT+/Bluetooth\nVáha: 8,01 kg (M)	M	3949	1	2020-12-14 11:38:25	2020-12-14 11:38:25	2	Giant
+54	Giant Defy Advanced Pro 2	Farba: Rosewood / Black / Chrome\nRám: Advanced Composite\nVidlica: Advanced Composite, karbónový stĺpik OverDrive 2, 12mm pevná os\nRiadidlá: Giant Contact SL D-Fuse\nPredstavec: Giant Contact SL\nSedlovka: Giant D-Fuse SLR, karbónová\nSedlo: Giant fleet SL\nRadenie: Shimano, prevody 2x11\nPrešmykač: Shimano\nPrehadzovačka: Shimano\nBrzdy: Shimano, hydraulické\nBrzdové páky: Shimano, hydraulické\nKazeta: Shimano, 11-34 zubov\nReťaz: KMC X11SL-1\nKľuky: Shimano, prevodníky 50/34 zubov\nStredové zloženie: Shimano, press fit\nRáfiky: Giant SLR-2 42 Carbon Disc WheelSystem (výška ráfikov 42 mm)\nNáboje: Giant SLR-2 42 Carbon Disc WheelSystem, 12mm pevnej osi\nŠpice: Giant SLR- 2 42 Carbon Disc WheelSystem\nPlášte: Giant Gavia Fondo 1, 700x32, bezdušové\nDoplnky: senzor RideSense Bluetooth, držiak cyklocomputera, príprava na bezdušovú prevádzku	M	3799	1	2020-12-14 11:39:11	2020-12-14 11:39:11	8	Giant
+56	Cannondale SystemSix Ultegra	Cestný aero cestný bicykel, špičkový karbonový rám, mechanické radenie Shimano Ultegra 2x11s, karbonové kolesá Vision SC55, hydraulické kotúčové brzdy Shimano Ultegra.\n\nRám: Ballistec Carbon, integrated cable routing w / Switchplate, SAVE, PF30, flat mount kotúčové, 12x142 Speed Release thru-axle\nVidlica: Ballistec Carbon, 1-1 / 8" - 1-1 / 4" steerer, 12x100mm Speed Release thru-axle, flat mount kotúčové, 55mm offset (47-51cm) 45mm offset (54-62cm)\nKľuky: HollowGram, BB30, OPI Spidering, 52/36\nPrehadzovačka: Shimano Ultegra\nPrešmykač: Shimano, Brage-on\nRadiaca páčky: Shimano, 11-speed\nKazeta: Shimano 105, 11-30, 11-speed\nReťaz: Shimano HG601, 11-speed\nBrzdy: Shimano Ultegra hydraulic disc, 160 / 140mm RT800 rotors\nBrzdové páky: Shimano Ultegra\nRáfiky: Vision SC55, carbon Clincher kotúčové, tubeless ready\nNáboje: (F) Vision Sealed Cartridge húb 12x100mm / (R) Vision Sealed Cartridge húb, 12x142mm\nDrôty: DP Spokes - 21F / 24R\nRiadidlá: HollowGram KNOT SystemBar, Carbon , 8 deg. pitch adjust\nPredstavec: HollowGram KNOT, Alloy w / cable cover, -17 °\nHlavové zloženie: Integrated, 1-1 / 8" - 1-1 / 4\nSedlo: Prológ Dimension STN NDR, steel rails\nSedlovka: HollowGram 60 KNOT Carbon, 330mm	L	5259	1	2020-12-14 11:40:36	2020-12-14 11:40:36	2	Cannondale
+57	Cannondale SystemSix Carbon Ultegra	Rám: Ballistec Carbon, integrated cable routing w / Switchplate, SAVE, PF30, flat mount kotúčové, 142x12 Speed Release thru-axle\nVidlica: Ballistec Carbon, 1-1 / 8" - 1-1 / 4" steerer, 12x100mm Speed Release thru-axle, flat mount kotúčové, 55mm offset (47-51cm) 45mm offset (54-62cm)\nKľuky: HollowGram, BB30 w / OPI Spidering, 52/36\nStredové zloženie: Cannondale Alloy PressFit30\nPrehadzovačka: Shimano Ultegra GS\nPrešmykač: Shimano, Brage-on\nRadenie: Shimano Ultegra hydro disc, 2x11\nKazeta: Shimano 105, 11-30, 11-speed\nReťaz: Shimano HG601, 11-speed\nBrzdy: Shimano Ultegra hydro kotúčové, 160 / 140mm RT81 rotors\nBrzdové páky: Shimano Ultegra hydro disc\nRáfiky: Vision SC55 Carbon Clincher 12x100 front, SC55 Carbon Clincher 12x142 rear\nNáboje: (F) Vision Sealed Cartridge húb 12x100 / (R) Vision Sealed Cartridge húb, 12x142\nŠpice: vision, Aero bladed\nPlášte: Vittoria Rubino Pro Speed, 700 x 26mm (23c)\nPedále: nie\nRiadítka: Vis ion Metron 4D Flat, UD Carbon\nPredstavec: Vision Trimax OS, 2014 alloy, 3D Forged\nHlavové zloženie: Tapered, 1-1 / 8" upper, 1-1 / 4" lower bearing\nSedlo: Prológ Dimension STN NDR, steel rails\nSedlovka: HollowGram 60 KNOT Carbon, 330mm\nExtra: Cannondale Wheel Sensor	M	4339	1	2020-12-14 11:41:24	2020-12-14 11:41:24	6	Cannondale
+58	Lapierre Xelius SL 8.0 Disc	Lapierre Xelius, ideálny na stúpania, kráľ horských etáp na ktorom Thibaut Pinot vyhral svoje najväčšie víťazstva.\n\nLapierre Xelius je špeciálom pre vrchárov, ktorý pretekajú na najnáročnejšie podnikoch World Tour, ako je Tour de France. V horách sa každý gram na bicykli pozná a preto je nový Xelius ešte ľahší ako jeho predchodca. Powerbox technológia veľmi tuhého stredu, spodnej rámovej trubky a dolných reťazových vzpier zabezpečuje maximálne efektívny prenos sily jazdca do pohybu vpred a patentované vrstvenie karbónu Superlight naopak prináša okrem nízkej hmotnosti aj extra komfort, aby jazdec mohol podať maximálny výkon v záveroch 180 km dlhej etapy. Komfortu napomáha aj jedinečné napojenie horných reťazových vzpier priamo na hornej rámovej trubky.\n\nLapierre Xelius - najlepší pomer medzi cenou, výbavou, hmotnosť a výkonom!\n\nKategória: CESTNÉ / ROAD BIKES\nRok: 2021\nVeľkosť kolies: 28"\nRám: XELIUS SL DISC THRU AXLE UD SUPERLIGHT CARBON\nVidlica: XELIUS SL DISC THRU AXLE UD SUPERLIGHT CARBON\nPrehadzovačka: SHIMANO ULTEGRA Di2 RD-R8050GS, 11s ELECTRONIC SHIFT\nKľuky: SHIMANO ULTEGRA FC-R8000, 52x36T 170mm (XS, S) 172.5mm (M, L), 175mm (XL)\nStredové zloženie: SHIMANO PRESSFIT SMBB7241B\nKazeta: SHIMANO ULTEGRA CS-R7000 11s 11-30T\nReťaz: SHIMANO ULTEGRA Di2 BR8070 FLATMOUNT with FIN\nHlavové zloženie: FSA 1" 1/8 - 1,5" Orbit C-40-ACB\nRiadidlá: Lapierre CARBON 40cm (XS, S) 42cm (M, L, XL)\nGripy: Lapierre VEXGEL TAPE\nPredstavec: Lapierre -8 ° 31,8mm 90mm (XS, S) 100mm (M) 110mm (L) 120mm (XL)\nSedlovka: Lapierre CARBON LIGHT 27,2x350mm\nSedlo: Fizik ARGO VENTO R5\nPedále: VP-335 Clips & Strap\nPrešmykač: SHIMANO ULTEGRA Di2 FD-R8050F, ELECTRONIC SHIFT\nKotúče: SHIMANO SMRT900 centerlock FT: 160mm / RR: 140mm\nPredné zapletené kolesá: Lapierre ROAD DISC 38 CARBON centerlock\nZadná zapletené kolesá: Lapierre ROAD DISC 38 CARBON centerlock	S	4999	1	2020-12-14 11:43:32	2020-12-14 11:43:32	5	Lapierre
+59	Lapierre Aircode DRS 5.0	Nový karbónový rám modelu Aircode DRS má vylepšenú geometriu - agresívnejší posed kombinuje s kompaktnejšou zadnou stavbou. Dokonalá súhra všetkých hodnôt je naprojektovaná pre každú veľkosť zvlášť. Tento bicykel je zrodený k rýchlej jazde, aerodynamika sa vie vysporiadať s protivetrom aj nápormi z bočných strán. Istotu vám dodajá pohon Shimano a kotúčové brzdy.\n\n\n\nKategória: CESTNÉ / ROAD BIKES\nRok: 2021\nVeľkosť kolies: 28"\nRám: AIRCODE DRS DISC THRU AXLE UD SUPERLIGHT CARBON\nVidlica: AIRCODE DRS DISC THRU AXLE UD SUPERLIGHT CARBON\nPrehadzovačka: SHIMANO 105 RD-R7000GS, 11s\nKľuky : SHIMANO 105 FC-R7000, 50x34T 170mm(XS,S) 172.5mm(M,L), 175mm(XL,XXL)\nStredové zloženie: SHIMANO PRESSFIT SMBB7141B\nKazeta: SHIMANO 105 CS-R7000 11s 11-30T\nReťaz : SHIMANO 105 BR7070 2x11s FLAT MOUNT with FIN\nHlavové zloženie: Acros INTEGRATED\nRiadidlá: Lapierre UD CARBON 40cm (XS, S) 42cm (M, L, XL) 44cm (XXL) compatible with triathlon\nextensions\nGripy: Lapierre VEXGEL TAPE\npredstavec: Lapierre -7 ° 31,8mm 90mm (XS, S) 100mm (M) 110mm (L) 120mm (XL, XXL)\nSedlovka: Lapierre AERO CARBON 0mm offset\nSedlo: prológ DIMENSION\nPedále: VP-335 Clips & Strap\nprešmykač: SHIMANO 105 FD-R7000FL\nKotúče: SHIMANO SMRT70 centerlock FT: 160mm / RR: 140mm\nPredné zapletené kolesá: DT SWISS P1850 DB23 centerlock TUBELESS\nZadné zapletené kolesá: DT SWISS P1850 DB23 centerlock TUBELESS	XXL	3199	1	2020-12-14 11:44:27	2020-12-14 11:44:27	3	Lapierre
+60	Lapierre Aircode SL 700 Ultimate	Materiál: Karbón\nVeľkosť kolies: 700x25\nRám: AIRCODE SL CARBON\nVidlica: AIRCODE 100% CARBON\nPrehadzovačka: SHIMANO ULTEGRA Di2 RD-R8050SS, 11s ELECTRONIC SHIFT\nKľuky: SHIMANO ULTEGRA FC- R8000, 52X36T 170mm (XS, S) 172.5mm (M), 175mm (L, XL)\nKazeta: SHIMANO ULTEGRA CS-R8000 11s 11-28T\nReťaz: SHIMANO HG601\nBrzdy: SHIMANO ULTEGRA BR-R8010 DIRECTMOUNT\nRadenie: SHIMANO ULTEGRA Di2 ST-R8050 ELECTRONIC SHIFT\nHlavové zloženie: FSA 1" 1/8 - 1" 1/4 ORBIT C-33 44E\nRiadidlá: Lapierre CARBON AERO 40cm (XS, S) 42cm (M, L) 44cm (XL ) with internal Di2 Junction\nGripy: Lapierre VEXGEL TAPE\nPredstavec: Lapierre ALLOY AERO -8 ° 31,8mm 90mm (XS, S) 100mm (M) 110mm (L) 120mm (XL)\nSedlovka: Lapierre AERO CARBON\nSedlo: Fizik Arion EVO VERZUS R5\nPlášte: MAVIC YKSION PRE UST SSC 25\nPedále: VP-335 Clips & Strap\nPrešmýkač: SHIMANO ULTEGRA Di2 FD-R8050F, ELECTRONIC SHIFT\nZapletené kolesá: MAVIC COSMIC PRO CARBON UST	XL	3849	1	2020-12-14 11:45:58	2020-12-14 11:45:58	5	Lapierre
+62	BMC ROADMACHINE ULTEGRA	Veľkosť rámu: 54cm\nVeľkoksť kolies: 700C\nRočník: 2017\nFarba: čierna/oranžová\nRám: Roadmachine 01 TCC, 01 Premium Carbon, Angle Compliance Technology\nVidlica: Roadmachine 01 Premium Carbon, Integrated Cockpit, Disc-specific\nPrehadzovačka: Shimano Ultegra Di2\nPrešmykovač: Shimano Ultegra Di2\nRadenie: Shimano ST-R785 Di2, Hydraulic\nBrzdy: Shimano BR-RS805 / SM-RT81-SS Rotors (160mm/140mm)\nKľuky: Shimano Ultegra, 50-34T\nRiadidlá: 3T Ergonova Team\nPredstavec: BMC ICS 01 - Integrated Cockpit Design\nSedlovka: Roadmachine 01 D Premium Carbon, 15mm offset\nSedadlo: Fizik Aliante R5, kium\nNáboje: 3T Discus C35 Team Stealth Carbon, Thru Axle (12mm)\nReťaz: Shimano Ultegra\nKazeta: Shimano Ultegra, 11-32T\nRáfiky: 3T Discus C35 Team Stealth Carbon\nPneumatiky: Continental GP4000S II, 25mm	L	3999	1	2020-12-14 14:56:40	2020-12-14 15:07:25	2	BMC
+1	BMC ROADMACHINE 01 ULTEGRA	Veľkosť rámu: 54cm\nVeľkoksť kolies: 700C\nRočník: 2017\nFarba: čierna/oranžová\nRám: Roadmachine 01 TCC, 01 Premium Carbon, Angle Compliance Technology\nVidlica: Roadmachine 01 Premium Carbon, Integrated Cockpit, Disc-specific\nPrehadzovačka: Shimano Ultegra Di2\nPrešmykovač: Shimano Ultegra Di2\nRadenie: Shimano ST-R785 Di2, Hydraulic\nBrzdy: Shimano BR-RS805 / SM-RT81-SS Rotors (160mm/140mm)\nKľuky: Shimano Ultegra, 50-34T\nRiadidlá: 3T Ergonova Team\nPredstavec: BMC ICS 01 - Integrated Cockpit Design\nSedlovka: Roadmachine 01 D Premium Carbon, 15mm offset\nSedadlo: Fizik Aliante R5, kium\nNáboje: 3T Discus C35 Team Stealth Carbon, Thru Axle (12mm)\nReťaz: Shimano Ultegra\nKazeta: Shimano Ultegra, 11-32T\nRáfiky: 3T Discus C35 Team Stealth Carbon\nPneumatiky: Continental GP4000S II, 25mm	L	3699	1	2020-12-13 22:44:43	2020-12-13 22:51:12	2	BMC
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.users (id, name, email, email_verified_at, password, remember_token, created_at, updated_at, surname, phone, street, house_number, town, role) FROM stdin;
+1	Karol	karolhurka@gmail.com	\N	$2y$10$OCTQmPsYo8ukJgGqVPrkqODuKFvdR9EC5T3XJRbwIUtLkdQ77e88a	\N	2020-12-13 22:40:59	2020-12-13 22:40:59	Húrka	\N	\N	\N	\N	user
+2	Frantisek	ferobobor@gmail.com	\N	$2y$10$Q/e2nllejkccWMl2ReLBRuW/2YnstDFO.aqg5Zk3cnCZ8eoScNT1y	\N	2020-12-14 17:19:38	2020-12-14 17:19:38	Boborovsky	\N	\N	\N	\N	user
+3	admin	admin@admin.sk	\N	$2y$10$pK55j/2zrkWdzL35OINetOYcexRqAhSQFAqfA0BweQz/GVYiWoau6	\N	2020-12-14 17:52:10	2020-12-14 17:52:10	admin	\N	\N	\N	\N	admin
+\.
+
+
+--
+-- Name: carts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.carts_id_seq', 1, true);
+
+
+--
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.categories_id_seq', 6, true);
+
+
+--
+-- Name: failed_jobs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.failed_jobs_id_seq', 1, false);
+
+
+--
+-- Name: images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.images_id_seq', 95, true);
+
+
+--
+-- Name: migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.migrations_id_seq', 12, true);
+
+
+--
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.orders_id_seq', 1, false);
+
+
+--
+-- Name: products_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.products_id_seq', 63, true);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 3, true);
+
+
+--
+-- Name: carts carts_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carts
+    ADD CONSTRAINT carts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.categories
+    ADD CONSTRAINT categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: failed_jobs failed_jobs_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.failed_jobs
+    ADD CONSTRAINT failed_jobs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: failed_jobs failed_jobs_uuid_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.failed_jobs
+    ADD CONSTRAINT failed_jobs_uuid_unique UNIQUE (uuid);
+
+
+--
+-- Name: images images_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.images
+    ADD CONSTRAINT images_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: migrations migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.migrations
+    ADD CONSTRAINT migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.orders
+    ADD CONSTRAINT orders_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: products products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.products
+    ADD CONSTRAINT products_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users users_email_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_email_unique UNIQUE (email);
+
+
+--
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: password_resets_email_index; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
+
+
+--
+-- Name: carts carts_product_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.carts
+    ADD CONSTRAINT carts_product_id_foreign FOREIGN KEY (product_id) REFERENCES public.products(id);
+
+
+--
+-- Name: images images_product_id_foreign; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.images
+    ADD CONSTRAINT images_product_id_foreign FOREIGN KEY (product_id) REFERENCES public.products(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

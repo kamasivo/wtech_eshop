@@ -47,7 +47,9 @@
                                                 document.getElementById('logout-form').submit();">
                             {{ __('Odhlásiť sa') }}
                         </a>
-
+                        @if(Auth::user()->role == 'admin')
+                        <a class="dropdown-item" href="{{ url('/admin') }}">Spravovať obchod</a>
+                        @endif
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
